@@ -46,13 +46,12 @@ public class OracleJdbcApplication implements CommandLineRunner {
 	public void run(String... args) throws Exception {
 		System.out.println("================Server Sides========================");
 		try {
-			accountService.getAllRows().forEach(e -> {
-				// .info("Account  " + e.getUsername());
-			});
+			// accountService.getAllRows().forEach(e -> {
+			// 	// .info("Account  " + e.getUsername());
+			// });
 
 			Registry registry = LocateRegistry.createRegistry(5000);
 			RemoteInterface<Account> account = new Remote<Account>(accountService);
-			System.out.println(account.findRowById("waiters"));
 			registry.rebind("account", account);
 			RemoteInterface<Cashier> cashier = new Remote<Cashier>(cashierService);
 			registry.rebind("cashier", cashier);
