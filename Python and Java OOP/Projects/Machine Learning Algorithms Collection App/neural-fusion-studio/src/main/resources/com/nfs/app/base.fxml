@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.image.Image?>
@@ -8,14 +9,69 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.paint.Color?>
+<?import javafx.scene.paint.LinearGradient?>
 <?import javafx.scene.paint.RadialGradient?>
 <?import javafx.scene.paint.Stop?>
+<?import javafx.scene.shape.Arc?>
 <?import javafx.scene.shape.Circle?>
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" style="-fx-background-color: #1a1a1a;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
    <children>
+      <Circle fill="#15171600" layoutX="490.0" layoutY="301.0" radius="141.0" stroke="#e0363afc" strokeType="INSIDE" strokeWidth="3.0" />
+      <Arc fill="TRANSPARENT" layoutX="490.0" layoutY="300.0" length="180.0" radiusX="142.0" radiusY="141.0" stroke="#1a1a1a" strokeType="INSIDE" strokeWidth="5.0" />
+      <Line endX="-0.500030517578125" layoutX="729.5" layoutY="300.0" startX="-100.0" strokeWidth="3.0">
+         <stroke>
+            <LinearGradient endX="1.0" endY="1.0">
+               <stops>
+                  <Stop>
+                     <color>
+                        <Color red="0.9215686321258545" green="0.2235294133424759" blue="0.239215686917305" />
+                     </color>
+                  </Stop>
+                  <Stop offset="0.02601844860978869">
+                     <color>
+                        <Color red="0.9215686321258545" green="0.2235294133424759" blue="0.239215686917305" />
+                     </color>
+                  </Stop>
+                  <Stop offset="0.6904441453566621">
+                     <color>
+                        <Color red="0.1725490242242813" green="0.1568627506494522" blue="0.16078431904315948" opacity="0.6800000071525574" />
+                     </color>
+                  </Stop>
+                  <Stop offset="1.0">
+                     <color>
+                        <Color red="0.1725490242242813" green="0.1568627506494522" blue="0.16078431904315948" opacity="0.6800000071525574" />
+                     </color>
+                  </Stop>
+               </stops>
+            </LinearGradient>
+         </stroke>
+      </Line>
+      <Line endX="-0.500030517578125" layoutX="351.0" layoutY="300.0" startX="-100.0" strokeWidth="3.0">
+         <stroke>
+            <LinearGradient endX="1.0" endY="1.0">
+               <stops>
+                  <Stop>
+                     <color>
+                        <Color red="0.1725490242242813" green="0.1568627506494522" blue="0.16078431904315948" opacity="0.6800000071525574" />
+                     </color>
+                  </Stop>
+                  <Stop offset="0.3728129205921937">
+                     <color>
+                        <Color red="0.1725490242242813" green="0.1568627506494522" blue="0.16078431904315948" opacity="0.6800000071525574" />
+                     </color>
+                  </Stop>
+                  <Stop offset="1.0">
+                     <color>
+                        <Color red="0.9215686321258545" green="0.2235294133424759" blue="0.239215686917305" />
+                     </color>
+                  </Stop>
+               </stops>
+            </LinearGradient>
+         </stroke>
+      </Line>
      <Pane maxWidth="70.0" prefHeight="600.0" prefWidth="70.0" style="-fx-background-color: #232323">
        <children>
          <ImageView fitHeight="32.0" fitWidth="29.0" layoutX="21.0" layoutY="8.0" pickOnBounds="true">
@@ -37,27 +93,33 @@
               <Image url="@images/sidemenubutton2.png" />
             </image>
          </ImageView>
+            <ImageView fitHeight="42.0" fitWidth="43.0" layoutX="15.0" layoutY="383.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@images/sidemenubutton2.png" />
+               </image>
+            </ImageView>
        </children>
      </Pane>
-     <Pane layoutX="70.0" prefHeight="600.0" prefWidth="5.0" style="-fx-background-color: #131313;" />
-     <Pane layoutX="75.0" prefHeight="600.0" prefWidth="5.0" style="-fx-background-color: #13131355;" />
+     <Pane layoutX="70.0" prefHeight="600.0" prefWidth="2.0" style="-fx-background-color: #131313;" />
+     <Pane layoutX="72.0" prefHeight="600.0" prefWidth="2.0" style="-fx-background-color: #13131355;" />
      <ImageView fitHeight="25.0" fitWidth="25.0" layoutX="870.0" layoutY="5.0" pickOnBounds="true" preserveRatio="true">
        <image>
          <Image url="@images/headers/close.png" />
        </image>
      </ImageView>
-     <HBox layoutX="237.0" layoutY="563.5" prefWidth="500.0" style="-fx-background-radius: 15; -fx-border-radius: 15;">
+     <HBox layoutX="335.0" layoutY="558.5" prefWidth="300.0" style="-fx-background-radius: 15; -fx-border-radius: 15; -fx-background-color: #323232;">
        <children>
-         <Button minHeight="40.0" minWidth="100.0" mnemonicParsing="false" style="-fx-background-color: #343434;" textFill="#aeaeae" />
+         <Button minHeight="40.0" minWidth="100.0" mnemonicParsing="false" style="-fx-background-color: #323232; -fx-background-radius: 15;" textFill="#aeaeae" />
+         <Line endY="40.0" />
          <Line endY="40.0" />
          <Button minHeight="40.0" minWidth="100.0" mnemonicParsing="false" style="-fx-background-color: #343434;" textFill="#aeaeae" />
          <Line endY="40.0" />
-         <Button minHeight="40.0" minWidth="100.0" mnemonicParsing="false" style="-fx-background-color: #343434;" textFill="#aeaeae" />
          <Line endY="40.0" />
-         <Button minHeight="40.0" minWidth="100.0" mnemonicParsing="false" style="-fx-background-color: #343434;" textFill="#aeaeae" />
-         <Line endY="40.0" />
-         <Button minHeight="40.0" minWidth="100.0" mnemonicParsing="false" style="-fx-background-color: #343434;" textFill="#aeaeae" />
+         <Button minHeight="40.0" minWidth="100.0" mnemonicParsing="false" style="-fx-background-color: #343434; -fx-background-radius: 15;" textFill="#aeaeae" />
        </children>
+         <padding>
+            <Insets bottom="10.0" />
+         </padding>
      </HBox>
      <ImageView fitHeight="25.0" fitWidth="25.0" layoutX="844.0" layoutY="5.0" pickOnBounds="true" preserveRatio="true">
        <image>
@@ -132,7 +194,7 @@
 <Line endX="10.0" layoutX="166.08235509600522" layoutY="186.68805839711348" rotate="413.2394487827053" stroke="#6b6b6b" strokeLineCap="ROUND" strokeWidth="2.0" />
 <Line endX="10.0" layoutX="159.69360563025336" layoutY="190.98043400940855" rotate="418.9690267340135" stroke="#6b6b6b" strokeLineCap="ROUND" strokeWidth="2.0" />
 <Line endX="10.0" layoutX="152.9082507780056" layoutY="194.6135549353134" rotate="424.6986046853217" stroke="#6b6b6b" strokeLineCap="ROUND" strokeWidth="2.0" />
-            <Label alignment="CENTER" layoutX="75.0" layoutY="93.0" prefHeight="73.0" prefWidth="99.0" text="STOP" textFill="WHITE">
+            <Label alignment="CENTER" layoutX="75.0" layoutY="87.5" prefHeight="75.0" prefWidth="100.0" text="STOP" textFill="WHITE">
                <font>
                   <Font name="Yu Gothic Regular" size="37.0" />
                </font>
@@ -151,16 +213,36 @@
       </HBox>
       <Pane layoutX="130.0" layoutY="225.0" prefHeight="150.0" prefWidth="150.0">
          <children>
-            <Circle fill="#737070" layoutX="78.0" layoutY="71.0" radius="70.0" stroke="TRANSPARENT" strokeType="INSIDE" />
-            <Circle fill="#514e4e" layoutX="78.0" layoutY="71.0" radius="55.0" stroke="TRANSPARENT" strokeType="INSIDE" />
-            <Circle fill="#1a1a1a" layoutX="78.0" layoutY="71.0" radius="50.0" stroke="BLACK" strokeType="INSIDE" />
+            <Circle fill="#737070" layoutX="75.0" layoutY="75.0" radius="70.0" stroke="TRANSPARENT" strokeType="INSIDE" />
+            <Circle fill="#514e4e" layoutX="75.0" layoutY="75.0" radius="55.0" stroke="TRANSPARENT" strokeType="INSIDE" />
+            <Circle fill="#1a1a1a" layoutX="75.0" layoutY="75.0" radius="50.0" stroke="BLACK" strokeType="INSIDE" />
+            <ImageView fitHeight="45.0" fitWidth="45.0" layoutX="52.5" layoutY="52.5" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@images/data_import.png" />
+               </image>
+            </ImageView>
          </children>
       </Pane>
       <Pane layoutX="700.0" layoutY="225.0" prefHeight="150.0" prefWidth="150.0">
          <children>
-            <Circle fill="#737070" layoutX="74.0" layoutY="73.0" radius="70.0" stroke="TRANSPARENT" strokeType="INSIDE" />
-            <Circle fill="#514e4e" layoutX="74.0" layoutY="73.0" radius="55.0" stroke="TRANSPARENT" strokeType="INSIDE" />
-            <Circle fill="#1a1a1a" layoutX="74.0" layoutY="73.0" radius="50.0" stroke="BLACK" strokeType="INSIDE" />
+            <Circle fill="#737070" layoutX="75.0" layoutY="75.0" radius="70.0" stroke="TRANSPARENT" strokeType="INSIDE" />
+            <Circle fill="#514e4e" layoutX="75.0" layoutY="75.0" radius="55.0" stroke="TRANSPARENT" strokeType="INSIDE" />
+            <Circle fill="#1a1a1a" layoutX="75.0" layoutY="75.0" radius="50.0" stroke="BLACK" strokeType="INSIDE" />
+            <ImageView fitHeight="45.0" fitWidth="45.0" layoutX="52.5" layoutY="52.5" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@images/training_results.png" />
+               </image>
+            </ImageView>
+         </children>
+      </Pane>
+      <Pane layoutX="322.0" layoutY="178.0" prefHeight="50.0" prefWidth="50.0">
+         <children>
+            <Circle centerX="25.0" centerY="25.0" radius="25.0" stroke="BLACK" strokeType="INSIDE" />
+            <ImageView fitHeight="30.0" fitWidth="30.0" layoutX="10.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@images/training_results.png" />
+               </image>
+            </ImageView>
          </children>
       </Pane>
    </children>
