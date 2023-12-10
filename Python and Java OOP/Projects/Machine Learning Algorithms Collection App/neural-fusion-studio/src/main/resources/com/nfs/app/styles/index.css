@@ -1,0 +1,24 @@
+
+
+
+
+/* close botton hover */
+
+
+.close-button {
+    -fx-background-color: transparent;
+}
+
+.close-button:hover {
+    -fx-background-color: #aa2222;
+}
+
+/* minimze window bottn */
+
+.minimize-button {
+    -fx-background-color: transparent;
+}
+
+.minimize-button:hover {
+    -fx-background-color: rgba(201, 190, 190, 0.25);
+}
