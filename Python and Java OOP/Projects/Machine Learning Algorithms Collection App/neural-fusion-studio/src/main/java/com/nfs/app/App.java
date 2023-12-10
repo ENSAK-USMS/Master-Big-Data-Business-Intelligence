@@ -2,10 +2,17 @@ package com.nfs.app;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Group;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.StackPane;
+import javafx.scene.text.Font;
+import javafx.scene.text.FontPosture;
+import javafx.scene.text.FontWeight;
+import javafx.scene.text.Text;
+import javafx.scene.transform.Rotate;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
@@ -52,8 +59,35 @@ public class App extends Application {
         // remove all children
         contentPane.getChildren().clear();
 
-        // add new page
-        contentPane.getChildren().add(root);
+        Group textGroup = new Group();
+        Font font = Font.font("Times New Roman", FontWeight.BOLD, FontPosture.REGULAR, 25);
+
+    //Welcome to Java string
+    String welcome = "classification";
+    double rotation = -80;
+
+    double radius = 155d;
+
+    //Loop
+    for (char c : welcome.toCharArray()) {
+        // ignore whitespace, otherwise add rotated char
+        if (!Character.isWhitespace(c)) {
+            Text text = new Text(Character.toString(c));
+            text.setFont(font);
+
+            Rotate rotationMatrix = new Rotate(rotation, 0, radius);
+            text.getTransforms().add(rotationMatrix);
+
+            textGroup.getChildren().add(text);
+        }
+        rotation += 5;
+        textGroup.setTranslateX(422);
+        textGroup.setTranslateY(113);
+    }
+    
+    // add new page
+    contentPane.getChildren().add(root);
+    contentPane.getChildren().add(textGroup);
 
     }
 
