@@ -22,3 +22,26 @@
 .minimize-button:hover {
     -fx-background-color: rgba(201, 190, 190, 0.25);
 }
+
+/* footer bottons hover */
+
+.footer-button {
+    -fx-background-color: transparent;
+}
+
+.footer-left-button {
+    -fx-background-color: transparent;
+    /* do a border radus for right side only */
+    -fx-background-radius: 15 0 0 0;
+}
+
+.footer-right-button {
+    -fx-background-color: transparent;
+    /* do a border radus for left side only */
+    -fx-background-radius: 0 15 0 0;
+}
+
+
+.footer-button:hover , .footer-left-button:hover , .footer-right-button:hover {
+    -fx-background-color: rgba(201, 190, 190, 0.25);
+}

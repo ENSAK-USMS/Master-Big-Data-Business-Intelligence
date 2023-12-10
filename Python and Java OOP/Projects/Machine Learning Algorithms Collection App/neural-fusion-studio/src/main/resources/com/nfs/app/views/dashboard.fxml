@@ -21,6 +21,9 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="560.0" prefWidth="830.0" style="-fx-background-color: transparent;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.nfs.app.controllers.DashboardController">
    <children>
+      <Arc fill="TRANSPARENT" layoutX="415.0" layoutY="258.0" length="88.0" radiusX="162.0" radiusY="161.0" startAngle="1.0" stroke="#d43e3e" strokeType="INSIDE" strokeWidth="22.0" type="ROUND" />
+      <Arc fill="TRANSPARENT" layoutX="415.0" layoutY="258.0" length="88.0" radiusX="162.0" radiusY="161.0" startAngle="91.0" stroke="#d43e3e" strokeType="INSIDE" strokeWidth="22.0" type="ROUND" />
+      <Circle centerX="125.0" centerY="125.0" fill="#1a1a1a" layoutX="290.0" layoutY="135.0" radius="142.5" stroke="BLACK" strokeType="INSIDE" />
       <Circle fill="#15171600" layoutX="415.0" layoutY="261.0" radius="141.0" stroke="#e0363afc" strokeType="INSIDE" strokeWidth="3.0" />
       <Arc fill="TRANSPARENT" layoutX="415.0" layoutY="260.0" length="180.0" radiusX="142.0" radiusY="141.0" stroke="#1a1a1a" strokeType="INSIDE" strokeWidth="5.0" />
       <Line endX="-0.500030517578125" layoutX="654.0" layoutY="260.0" startX="-100.0" strokeWidth="3.0">
@@ -177,23 +180,32 @@
             </ImageView>
          </children>
       </Pane>
-      <HBox layoutX="260.0" layoutY="518.0" prefWidth="300.0" style="-fx-background-radius: 15; -fx-border-radius: 15; -fx-background-color: #323232;">
+      <HBox layoutX="313.0" layoutY="518.0" prefWidth="200.0" style="-fx-background-radius: 15; -fx-border-radius: 15; -fx-background-color: #323232;">
          <children>
-            <Button minHeight="40.0" minWidth="100.0" mnemonicParsing="false" style="-fx-background-radius: 15; -fx-background-color: #323232;" text="Regression" textFill="#aeaeae">
+            <Button graphicTextGap="6.0" lineSpacing="3.0" minHeight="40.0" minWidth="100.0" mnemonicParsing="false" styleClass="footer-left-button" stylesheets="@../styles/index.css" text="Classification" textFill="#aeaeae">
                <font>
-                  <Font name="Arial" size="12.0" />
+                  <Font name="Arial Bold" size="12.0" />
                </font>
             </Button>
             <Line endY="40.0" />
             <Line endY="40.0" />
-            <Button minHeight="40.0" minWidth="100.0" mnemonicParsing="false" style="-fx-background-color: #343434;" text="Classification" textFill="#aeaeae" />
             <Line endY="40.0" />
-            <Line endY="40.0" />
-            <Button minHeight="40.0" minWidth="100.0" mnemonicParsing="false" style="-fx-background-color: #343434; -fx-background-radius: 15;" text="Clustering " textFill="#aeaeae" />
+            <Button graphicTextGap="6.0" lineSpacing="3.0" minHeight="40.0" minWidth="100.0" mnemonicParsing="false" styleClass="footer-right-button" stylesheets="@../styles/index.css" text="Clustering " textFill="#aeaeae">
+               <font>
+                  <Font name="Arial Bold" size="12.0" />
+               </font>
+            </Button>
          </children>
          <padding>
             <Insets bottom="10.0" />
          </padding>
       </HBox>
+      <Pane layoutX="270.0" layoutY="477.0" prefHeight="26.0" style="-fx-background-color: #345678;">
+         <children>
+            <Button mnemonicParsing="false" text="Linear regression" />
+            <Button layoutX="106.0" mnemonicParsing="false" text="Decision Tree" />
+            <Button layoutX="193.0" mnemonicParsing="false" text="Random Forest" />
+         </children>
+      </Pane>
    </children>
 </AnchorPane>
