@@ -6,6 +6,8 @@ import javafx.scene.Group;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.StackPane;
 import javafx.scene.text.Font;
@@ -17,6 +19,17 @@ import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
 import java.io.IOException;
+import java.io.InputStream;
+import java.nio.file.FileSystems;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.nio.file.StandardWatchEventKinds;
+import java.nio.file.WatchEvent;
+import java.nio.file.WatchKey;
+import java.nio.file.WatchService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.ScheduledExecutorService;
+import java.util.concurrent.TimeUnit;
 
 
 /**
@@ -29,15 +42,19 @@ public class App extends Application {
     @Override
     public void start(Stage stage) throws IOException {
         scene = new Scene(loadFXML("base"), 900, 600);
-        switchPage("views/dashboard");
-        setPageBottons();
         stage.initStyle(StageStyle.UNDECORATED); // Remove the default window header
         stage.setScene(scene);
+        switchPage("views/dashboard");
+        setPageBottons();
         stage.show();
+        // watchResourcesChanges();
     }
 
     public static void setRoot(String fxml) throws IOException {
         scene.setRoot(loadFXML(fxml));
+    }
+    public static Scene getScene() {
+        return scene;
     }
 
     private static Parent loadFXML(String fxml) throws IOException {
@@ -113,4 +130,43 @@ public class App extends Application {
         
     }
 
+    // a function to load images from resources
+    public static ImageView loadImage(String path) {
+        Image image = new Image(App.class.getResource(path).toString());
+        ImageView imageView = new ImageView(image);
+        return imageView;
+    }
+
+    
+
+
+    // TODO: Add a function to watch for changes in the resources folder and reload the page
+    // private static void watchResourcesChanges() {
+        
+        // Path resourcesPath = Paths.get("src/main/resources");
+
+        // System.out.println(resourcesPath);
+
+        // ScheduledExecutorService executorService = Executors.newSingleThreadScheduledExecutor();
+        // executorService.scheduleAtFixedRate(() -> {
+        //     try {
+        //         WatchService watchService = FileSystems.getDefault().newWatchService();
+        //         resourcesPath.register(watchService, StandardWatchEventKinds.ENTRY_MODIFY);
+
+        //         WatchKey key;
+        //         while ((key = watchService.take()) != null) {
+        //             for (WatchEvent<?> event : key.pollEvents()) {
+        //                 if (event.kind() == StandardWatchEventKinds.ENTRY_MODIFY) {
+        //                     // Reload the page here
+        //                     // You can call a method or perform any necessary actions to reload the page
+        //                     System.out.println("Resources changed. Reloading page...");
+        //                 }
+        //             }
+        //             key.reset();
+        //         }
+        //     } catch (IOException | InterruptedException e) {
+        //         e.printStackTrace();
+        //     }
+        // }, 0, 1, TimeUnit.SECONDS);
+    // }
 }

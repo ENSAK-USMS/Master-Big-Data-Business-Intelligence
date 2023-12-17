@@ -1,10 +1,16 @@
 package com.nfs.app.controllers;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 import com.nfs.app.App;
 
 import javafx.fxml.FXML;
+import javafx.scene.Group;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
 import javafx.scene.shape.Line;
 import javafx.animation.KeyFrame;
@@ -19,6 +25,8 @@ public class BaseController {
     private Pane sideBar,sideBarShadow1,sideBarShadow2;
     @FXML
     private Line sideBareHline1,sideBareHline2,sideBareHline3,sideBareHline4;
+    @FXML
+    private ImageView closeImage;
     
 
     @FXML
@@ -71,5 +79,64 @@ public class BaseController {
 
         // Play the timeline animation
         timeline.play();
+    }
+
+
+
+    public void setHoverEffect() {
+        // get the scene
+        Scene scene = App.getScene();
+        // get all buttons with css class hoverable
+        ArrayList<Button> hoverableButtons = new ArrayList<>();
+        Parent root = (Parent) scene.getRoot();
+        root.lookupAll(".hoverable").forEach(node -> {
+            if (node instanceof Button) {
+                hoverableButtons.add((Button) node);
+            }
+        });
+        // add hover effect to all buttons
+        for (Button button : hoverableButtons) {
+            button.setOnMouseEntered(e -> {
+                // get the parent group
+                Group parent = (Group) button.getParent();
+                // get the image view
+                ImageView imageView = (ImageView) parent.getChildren().get(1);
+                // get the image name
+                String imageName = imageView.getImage().getUrl();
+                // remove everything before "/images"
+                String imagePath = imageName.substring(imageName.indexOf("images"));
+                // get the new image name
+                String newImageName = imagePath.replace(".png", "-hover.png");
+                // load the new image
+                ImageView newImageView = App.loadImage(newImageName);
+                // set the new image
+                imageView.setImage(newImageView.getImage());
+                System.out.println("hovered");
+            });
+            button.setOnMouseExited(e -> {
+                // get the parent group
+                Group parent = (Group) button.getParent();
+                // get the image view
+                ImageView imageView = (ImageView) parent.getChildren().get(1);
+                // get the image name
+                String imageName = imageView.getImage().getUrl();
+                // remove everything before "/images"
+                String imagePath = imageName.substring(imageName.indexOf("images"));
+                // get the new image name
+                String newImageName = imagePath.replace("-hover.png", ".png");
+                // load the new image
+                ImageView newImageView = App.loadImage(newImageName);
+                // set the new image
+                imageView.setImage(newImageView.getImage());
+            });
+        }
+    }
+    @FXML
+    public void initialize() {
+        Timeline timeline = new Timeline(new KeyFrame(Duration.seconds(1), event -> {
+            setHoverEffect();
+        }));
+        timeline.play();
+        System.out.println("BaseController initialized");
     }
 }

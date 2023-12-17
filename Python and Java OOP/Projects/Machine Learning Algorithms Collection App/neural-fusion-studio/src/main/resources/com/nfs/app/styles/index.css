@@ -10,7 +10,7 @@
 }
 
 .close-button:hover {
-    -fx-background-color: #aa2222;
+    -fx-background-color: #e81123;
 }
 
 /* minimze window bottn */
@@ -43,5 +43,12 @@
 
 
 .footer-button:hover , .footer-left-button:hover , .footer-right-button:hover {
+    -fx-background-color: rgba(201, 190, 190, 0.25);
+}
+
+.gray-hover {
+    -fx-background-color: transparent;
+}
+.gray-hover:hover {
     -fx-background-color: rgba(201, 190, 190, 0.25);
 }
