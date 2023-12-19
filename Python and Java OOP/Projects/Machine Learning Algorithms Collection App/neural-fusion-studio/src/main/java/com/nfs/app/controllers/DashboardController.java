@@ -6,28 +6,177 @@
 package com.nfs.app.controllers;
 
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Group;
 import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.control.ProgressIndicator;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.shape.Circle;
 import javafx.animation.RotateTransition;
 import javafx.animation.StrokeTransition;
 import javafx.animation.TranslateTransition;
+import javafx.concurrent.Task;
 import javafx.scene.transform.Rotate;
+import javafx.stage.FileChooser;
+import javafx.stage.Stage;
 import javafx.util.Duration;
+import weka.core.Instances;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Line;
+
+import java.io.File;
+import java.io.IOException;
+
+import com.nfs.app.App;
+import com.nfs.app.preprocessing.DataImportation;
+
 import javafx.animation.Interpolator;
 import javafx.animation.KeyFrame;
 import javafx.animation.KeyValue;
 import javafx.animation.Timeline;
 
 public class DashboardController {
+
+    @FXML
+    private AnchorPane dashboardAnchorPane;
     
     @FXML
     private Pane outerCirclePane;
 
     @FXML
-    private Circle testCircleAnimation1, testCircleAnimation2, testCircleAnimation3;
+    private Group dataSetSubCircleAnimation1, dataSetSubCircleAnimation2, dataSetSubCircleAnimation3,
+            dataSetLoadedIcon;
+
+    @FXML
+    private ProgressIndicator dataSetOpenProgress;
+
+    private Instances dataSet;
+
+
+    // create a function to let the user load a dataset allowed types are csv and arff funton name openDataSet
+    @FXML
+    private void openDataSet() {
+        FileChooser fileChooser = new FileChooser();
+        fileChooser.setTitle("Open Dataset");
+        fileChooser.setInitialDirectory(new File(System.getProperty("user.home") + "/Downloads")); // Set initial directory to the download folder
+        fileChooser.getExtensionFilters().addAll(
+            new FileChooser.ExtensionFilter("CSV Files", "*.csv"),
+            new FileChooser.ExtensionFilter("ARFF Files", "*.arff")
+        );
+        
+        Stage stage = (Stage) outerCirclePane.getScene().getWindow();
+        File selectedFile = fileChooser.showOpenDialog(stage);
+
+        if (selectedFile != null) {
+            dataSetOpenProgress.setVisible(true);
+            // The user selected a file, you can perform further actions with the file here
+            System.out.println("Selected file: " + selectedFile.getAbsolutePath());
+            String fileType = selectedFile.getName().substring(selectedFile.getName().lastIndexOf(".") + 1);
+            String filePath = selectedFile.getAbsolutePath();
+            try {
+                Task<Void> loadDataSetTask = new Task<Void>() {
+                                @Override
+                                protected Void call() throws Exception {
+                                    dataSet = DataImportation.getDataAsInstances(fileType, filePath);
+                                    return null;
+                                }
+                            };
+
+                            loadDataSetTask.setOnSucceeded(event -> {
+                                dataSetLoadedIcon.setVisible(true);
+                                dataSetOpenProgress.setVisible(false);
+                                try {
+                                FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/nfs/app/views/dashboard/data-set-edit.fxml"));
+                                Parent dataSetEditPage = loader.load();
+                                DataSetEditController dataSetEditController = loader.getController();
+                                
+                                // Now you can access the methods or properties of the DataSetEditController
+                                dataSetEditController.createTable(dataSet);
+                                BaseController.addPageToBasePane(dataSetEditPage);
+                            } catch (IOException e) {
+                                e.printStackTrace();
+                            }
+                            });
+                loadDataSetTask.setOnFailed(event -> {
+                    dataSetOpenProgress.setVisible(false);
+                });
+                new Thread(loadDataSetTask).start();
+                // TODO: create some animation showing that the data is loaded
+                // System.out.println(dashboardAnchorPane);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+
+        } else {
+            System.out.println("No file selected");
+            // Handle the case where the user canceled the file selection
+        }
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -36,9 +185,9 @@ public class DashboardController {
     @FXML
     private void onTestCircleHoverEntered() {
         // Create a TranslateTransition object
-        animateElement(testCircleAnimation1, -75, -75);
-        animateElement(testCircleAnimation2, -65-testCircleAnimation2.getRadius()*2, 0,0.125);
-        animateElement(testCircleAnimation3, -75, 75,0.25);
+        animateElement(dataSetSubCircleAnimation1, -75, -75);
+        animateElement(dataSetSubCircleAnimation2, -65-((Circle) dataSetSubCircleAnimation2.getChildren().get(0)).getRadius()*2, 0,0.125);
+        animateElement(dataSetSubCircleAnimation3, -75, 75,0.25);
     }
     
     
@@ -46,9 +195,9 @@ public class DashboardController {
     @FXML
     private void onTestCircleHoverExited() {
         // Create a TranslateTransition object
-        animateElement(testCircleAnimation1, 0, 0);
-        animateElement(testCircleAnimation2, 0, 0,0.125);
-        animateElement(testCircleAnimation3, 0, 0,0.25);
+        animateElement(dataSetSubCircleAnimation1, 0, 0);
+        animateElement(dataSetSubCircleAnimation2, 0, 0,0.125);
+        animateElement(dataSetSubCircleAnimation3, 0, 0,0.25);
     }
 
 

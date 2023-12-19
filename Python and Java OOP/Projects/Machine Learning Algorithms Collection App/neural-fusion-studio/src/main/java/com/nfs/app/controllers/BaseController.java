@@ -11,6 +11,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.shape.Line;
 import javafx.animation.KeyFrame;
@@ -27,6 +28,8 @@ public class BaseController {
     private Line sideBareHline1,sideBareHline2,sideBareHline3,sideBareHline4;
     @FXML
     private ImageView closeImage;
+    @FXML
+    private AnchorPane basePane;
     
 
     @FXML
@@ -129,6 +132,23 @@ public class BaseController {
                 // set the new image
                 imageView.setImage(newImageView.getImage());
             });
+        }
+    }
+    // blur base page
+    public static void blurBasePage() {
+        AnchorPane pagePane = (AnchorPane) App.getScene().lookup("#pagePane");
+        pagePane.setEffect(new javafx.scene.effect.BoxBlur(1, 1, 3));
+    }
+    // add page to base pane
+    public static void addPageToBasePane(Parent root) {
+        AnchorPane basePane = (AnchorPane) App.getScene().lookup("#basePane");
+        basePane.getChildren().add(root);
+    }
+    // remove page from base pane check if it is not pagepane
+    public static void removePageFromBasePane() {
+        AnchorPane basePane = (AnchorPane) App.getScene().lookup("#basePane");
+        if (basePane.getChildren().size() > 1) {
+            basePane.getChildren().remove(basePane.getChildren().size() - 1);
         }
     }
     @FXML

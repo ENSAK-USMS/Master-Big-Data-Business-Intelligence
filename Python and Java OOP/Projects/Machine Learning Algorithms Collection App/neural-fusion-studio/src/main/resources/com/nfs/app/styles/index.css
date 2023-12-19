@@ -32,13 +32,13 @@
 .footer-left-button {
     -fx-background-color: transparent;
     /* do a border radus for right side only */
-    -fx-background-radius: 15 0 0 0;
+    -fx-background-radius: 10 0 0 0;
 }
 
 .footer-right-button {
     -fx-background-color: transparent;
     /* do a border radus for left side only */
-    -fx-background-radius: 0 15 0 0;
+    -fx-background-radius: 0 10 0 0;
 }
 
 

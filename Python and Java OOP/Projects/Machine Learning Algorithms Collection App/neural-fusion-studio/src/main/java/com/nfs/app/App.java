@@ -43,8 +43,10 @@ public class App extends Application {
     public void start(Stage stage) throws IOException {
         scene = new Scene(loadFXML("base"), 900, 600);
         stage.initStyle(StageStyle.UNDECORATED); // Remove the default window header
+        // chage scene bg color to 191919
+        scene.setFill(javafx.scene.paint.Color.valueOf("#191919"));
         stage.setScene(scene);
-        switchPage("views/dashboard");
+        switchPage("views/dashboard/index");
         setPageBottons();
         stage.show();
         // watchResourcesChanges();
@@ -65,6 +67,8 @@ public class App extends Application {
     public static void main(String[] args) throws Exception {
         launch();
     }
+
+
 
     // a funtction to swithc between page by adding and removing them from the anchor pane with the id of "contentPane" and also load an unload the controllers
     public static void switchPage(String fxml) throws IOException {
@@ -104,7 +108,7 @@ public class App extends Application {
     
     // add new page
     contentPane.getChildren().add(root);
-    contentPane.getChildren().add(textGroup);
+    // contentPane.getChildren().add(textGroup);
 
     }
 
