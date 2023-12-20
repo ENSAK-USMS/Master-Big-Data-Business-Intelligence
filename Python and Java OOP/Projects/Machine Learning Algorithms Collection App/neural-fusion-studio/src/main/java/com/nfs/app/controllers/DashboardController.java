@@ -87,17 +87,6 @@ public class DashboardController {
                             loadDataSetTask.setOnSucceeded(event -> {
                                 dataSetLoadedIcon.setVisible(true);
                                 dataSetOpenProgress.setVisible(false);
-                                try {
-                                FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/nfs/app/views/dashboard/data-set-edit.fxml"));
-                                Parent dataSetEditPage = loader.load();
-                                DataSetEditController dataSetEditController = loader.getController();
-                                
-                                // Now you can access the methods or properties of the DataSetEditController
-                                dataSetEditController.createTable(dataSet);
-                                BaseController.addPageToBasePane(dataSetEditPage);
-                            } catch (IOException e) {
-                                e.printStackTrace();
-                            }
                             });
                 loadDataSetTask.setOnFailed(event -> {
                     dataSetOpenProgress.setVisible(false);
@@ -115,7 +104,37 @@ public class DashboardController {
         }
     }
 
+    @FXML 
+    private void showDataSetEditPage(){
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/nfs/app/views/dashboard/data-set-edit.fxml"));
+            Parent dataSetEditPage = loader.load();
+            DataSetEditController dataSetEditController = loader.getController();
+            
+            // Now you can access the methods or properties of the DataSetEditController
+            dataSetEditController.createTable(dataSet);
+            BaseController.blurBasePage();
+            BaseController.addPageToBasePane(dataSetEditPage);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 
+    @FXML
+    private void showDatasetFiltersPage() {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/nfs/app/views/dashboard/filters.fxml"));
+            Parent dataSetFiltersPage = loader.load();
+            DataSetFiltersController dataSetFiltersController = loader.getController();
+            
+            // // Now you can access the methods or properties of the DataSetFiltersController
+            // dataSetFiltersController.createTable(dataSet);
+            BaseController.blurBasePage();
+            BaseController.addPageToBasePane(dataSetFiltersPage);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 
 
 

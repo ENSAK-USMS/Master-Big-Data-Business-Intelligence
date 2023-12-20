@@ -5,6 +5,7 @@
 */
 package com.nfs.app.controllers;
 
+import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -27,6 +28,7 @@ import weka.core.Instances;
 public class DataSetEditController {
     @FXML
     private Pane tablePane;
+
     
     private TableView<ObservableList<StringProperty>> tableView;
     private ObservableList<ObservableList<StringProperty>> data;
@@ -96,10 +98,16 @@ public class DataSetEditController {
 
         tableView.setItems(data);
         tableView.setEditable(true);
-        tableView.setPrefSize(600, 400);
-        tableView.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY);
+        tableView.setPrefSize(tablePane.getPrefWidth(), tablePane.getPrefHeight());
+        tableView.setColumnResizePolicy((param) -> true );
 
         tablePane.getChildren().add(tableView);
+    }
+
+    @FXML
+    public void closeDataSetEdit() {
+        BaseController.unblurBasePage();
+        BaseController.removePageFromBasePane();
     }
 }
 

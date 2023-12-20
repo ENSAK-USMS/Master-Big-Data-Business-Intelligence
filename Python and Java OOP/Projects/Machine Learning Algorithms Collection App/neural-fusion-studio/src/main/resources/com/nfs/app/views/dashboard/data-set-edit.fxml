@@ -3,25 +3,48 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
+<?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
-
 
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" style="-fx-background-color: transparent;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.nfs.app.controllers.DataSetEditController">
    <children>
       <AnchorPane layoutX="100.0" layoutY="75.0" maxHeight="450.0" maxWidth="700.0" minHeight="450.0" minWidth="700.0" prefHeight="450.0" prefWidth="700.0" style="-fx-background-color: #3b3b3b; -fx-border-color: black;">
          <children>
-            <Button layoutX="420.0" layoutY="413.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="131.0" style="-fx-background-color: #4d4d4d; -fx-background-radius: 0; -fx-border-radius: 0;" text="Export" textFill="#c4c4c4">
-               <font>
-                  <Font name="Arial Black" size="12.0" />
-               </font>
-            </Button>
-            <Button layoutX="560.0" layoutY="413.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="131.0" style="-fx-background-color: #4d4d4d; -fx-background-radius: 0; -fx-border-radius: 0;" text="Close" textFill="#c4c4c4">
-               <font>
-                  <Font name="Arial Black" size="12.0" />
-               </font>
-            </Button>
+            <HBox layoutX="50.0" layoutY="412.0" prefHeight="27.0" prefWidth="600.0">
+               <children>
+                  <Button mnemonicParsing="false" prefHeight="27.0" prefWidth="134.5" style="-fx-background-color: #4d4d4d; -fx-background-radius: 0; -fx-border-radius: 0;" text="Undo" textFill="#c4c4c4">
+                     <font>
+                        <Font name="Arial Black" size="12.0" />
+                     </font>
+                  </Button>
+                  <Line endY="27.0" stroke="TRANSPARENT" strokeLineCap="BUTT" strokeWidth="20.0" />
+                  <Button mnemonicParsing="false" prefHeight="27.0" prefWidth="134.5" style="-fx-background-color: #4d4d4d; -fx-background-radius: 0; -fx-border-radius: 0;" text="Delete" textFill="#c4c4c4">
+                     <font>
+                        <Font name="Arial Black" size="12.0" />
+                     </font>
+                  </Button>
+                  <Line endY="27.0" stroke="TRANSPARENT" strokeLineCap="BUTT" strokeWidth="20.0" />
+                  <Button mnemonicParsing="false" prefHeight="27.0" prefWidth="134.5" style="-fx-background-color: #4d4d4d; -fx-background-radius: 0; -fx-border-radius: 0;" text="Export" textFill="#c4c4c4">
+                     <font>
+                        <Font name="Arial Black" size="12.0" />
+                     </font>
+                  </Button>
+                  <Line endY="27.0" stroke="TRANSPARENT" strokeLineCap="BUTT" strokeWidth="20.0" />
+                  <Button mnemonicParsing="false" onAction="#closeDataSetEdit" prefHeight="27.0" prefWidth="134.5" style="-fx-background-color: #4d4d4d; -fx-background-radius: 0; -fx-border-radius: 0;" text="Close" textFill="#c4c4c4">
+                     <font>
+                        <Font name="Arial Black" size="12.0" />
+                     </font>
+                  </Button>
+               </children>
+            </HBox>
             <Pane fx:id="tablePane" layoutX="2.0" layoutY="38.0" prefHeight="365.0" prefWidth="696.0" style="-fx-background-color: #6c6c6c;" />
+            <Button layoutX="667.0" layoutY="5.0" mnemonicParsing="false" onAction="#closeDataSetEdit" prefHeight="27.0" prefWidth="27.0" style="-fx-background-color: #4d4d4d; -fx-background-radius: 0; -fx-border-radius: 0;" text="+" textFill="#c4c4c4">
+               <font>
+                  <Font name="Arial Black" size="12.0" />
+               </font>
+            </Button>
          </children>
          <effect>
             <DropShadow blurType="TWO_PASS_BOX" height="32.7" offsetX="-2.0" radius="18.1875" width="42.05" />

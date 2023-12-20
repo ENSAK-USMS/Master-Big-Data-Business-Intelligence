@@ -155,7 +155,7 @@
          <children>
             <Group layoutX="55.0" layoutY="55.0">
                <children>
-                  <Group fx:id="dataSetSubCircleAnimation1">
+                  <Group fx:id="dataSetSubCircleAnimation1" onMouseClicked="#showDataSetEditPage">
                      <children>
                         <Circle fill="#2c2d2e" layoutX="20.0" layoutY="20.0" radius="20.0" stroke="#00000066" strokeType="INSIDE" />
                         <ImageView fitHeight="29.0" fitWidth="26.0" layoutX="9.0" layoutY="9.0" pickOnBounds="true" preserveRatio="true">
@@ -165,7 +165,7 @@
                         </ImageView>
                      </children>
                   </Group>
-                  <Group fx:id="dataSetSubCircleAnimation2">
+                  <Group fx:id="dataSetSubCircleAnimation2" onMouseClicked="#showDatasetFiltersPage">
                      <children>
                         <Circle fill="#2c2d2e" layoutX="20.0" layoutY="20.0" radius="20.0" stroke="#00000066" strokeType="INSIDE" />
                         <ImageView fitHeight="29.0" fitWidth="26.0" layoutX="7.0" layoutY="7.0" pickOnBounds="true" preserveRatio="true">
