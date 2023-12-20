@@ -128,7 +128,8 @@ public class DashboardController {
             DataSetFiltersController dataSetFiltersController = loader.getController();
             
             // // Now you can access the methods or properties of the DataSetFiltersController
-            // dataSetFiltersController.createTable(dataSet);
+            dataSetFiltersController.setDataSet(dataSet);
+            dataSetFiltersController.addInstancesGrid();
             BaseController.blurBasePage();
             BaseController.addPageToBasePane(dataSetFiltersPage);
         } catch (IOException e) {
