@@ -16,7 +16,7 @@
    <children>
       <AnchorPane layoutX="310.0" layoutY="137.0" maxHeight="450.0" maxWidth="350.0" minHeight="250.0" minWidth="350.0" prefHeight="250.0" prefWidth="350.0" style="-fx-background-color: #3b3b3b; -fx-border-color: black;">
          <children>
-            <ScrollPane layoutX="9.0" layoutY="41.0" prefHeight="200.0" prefWidth="339.0" stylesheets="@../../styles/index.css">
+            <ScrollPane hbarPolicy="NEVER" layoutX="9.0" layoutY="41.0" prefHeight="200.0" prefWidth="339.0" style="-fx-background-color: transparent;" styleClass="scroll_pane" stylesheets="@../../styles/index.css">
                <content>
                   <FlowPane fx:id="instancesPane" alignment="CENTER" columnHalignment="CENTER" maxHeight="200.0" prefWidth="329.6" style="-fx-background-color: #6c6c6c;" />
                </content>
