@@ -139,6 +139,11 @@ public class BaseController {
         AnchorPane pagePane = (AnchorPane) App.getScene().lookup("#pagePane");
         pagePane.setEffect(new javafx.scene.effect.BoxBlur(1, 1, 3));
     }
+    // unblur base page
+    public static void unblurBasePage() {
+        AnchorPane pagePane = (AnchorPane) App.getScene().lookup("#pagePane");
+        pagePane.setEffect(null);
+    }
     // add page to base pane
     public static void addPageToBasePane(Parent root) {
         AnchorPane basePane = (AnchorPane) App.getScene().lookup("#basePane");
