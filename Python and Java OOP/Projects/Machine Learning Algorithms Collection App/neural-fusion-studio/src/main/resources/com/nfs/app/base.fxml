@@ -17,6 +17,7 @@
    <children>
       <AnchorPane fx:id="pagePane" layoutX="-0.5">
          <children>
+            <Pane layoutX="0.5" mouseTransparent="true" pickOnBounds="false" prefHeight="600.0" prefWidth="900.0" style="-fx-border-color: #121212;" />
             <AnchorPane>
                <children>
                  <Pane fx:id="sideBar" layoutX="2.0" layoutY="1.0" maxWidth="70.0" prefHeight="598.0" prefWidth="245.0" style="-fx-background-color: #232323;">
@@ -43,21 +44,26 @@
                      <Line fx:id="sideBareHline2" endX="70.0" layoutY="300.0" />
                      <Line fx:id="sideBareHline3" endX="70.0" layoutY="370.0" />
                      <Line fx:id="sideBareHline4" endX="70.0" layoutY="440.0" />
-                        <Group layoutX="15.0" layoutY="8.0">
+                        <Group layoutX="15.0" layoutY="8.0" onMouseClicked="#swithToHomePage">
                            <children>
-                              <Button layoutX="-15.0" layoutY="223.0" mnemonicParsing="false" prefHeight="65.0" prefWidth="68.0" style="-fx-background-color: transparent;" styleClass="hoverable" stylesheets="@styles/index.css" />
-                           <ImageView fitHeight="42.0" fitWidth="43.0" layoutY="236.0" mouseTransparent="true" preserveRatio="true">
+                              <Button layoutX="-15.0" layoutY="223.0" mnemonicParsing="false" onMouseClicked="#swithToHomePage" prefHeight="65.0" prefWidth="68.0" style="-fx-background-color: transparent;" styleClass="hoverable" stylesheets="@styles/index.css" />
+                           <ImageView fitHeight="42.0" fitWidth="43.0" layoutY="236.0" mouseTransparent="true" onMouseClicked="#swithToHomePage" preserveRatio="true">
                               <image>
                                 <Image url="@images/sidemenubutton1.png" />
                               </image>
                            </ImageView>
                            </children>
                         </Group>
-                     <ImageView fitHeight="42.0" fitWidth="43.0" layoutX="15.0" layoutY="315.0" pickOnBounds="true" preserveRatio="true">
-                        <image>
-                          <Image url="@images/sidemenubutton2.png" />
-                        </image>
-                     </ImageView>
+                        <Group onMouseClicked="#swithToHistoryPage">
+                           <children>
+                              <Button layoutX="-1.0" layoutY="299.0" mnemonicParsing="false" onAction="#swithToHistoryPage" prefHeight="69.0" prefWidth="67.0" style="-fx-background-color: transparent;" styleClass="hoverable" />
+                           <ImageView fitHeight="42.0" fitWidth="43.0" layoutX="15.0" layoutY="315.0" mouseTransparent="true" preserveRatio="true">
+                              <image>
+                                <Image url="@images/sidemenubutton2.png" />
+                              </image>
+                           </ImageView>
+                           </children>
+                        </Group>
                         <ImageView fitHeight="42.0" fitWidth="43.0" layoutX="15.0" layoutY="383.0" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@images/neural-network.png" />
@@ -111,7 +117,6 @@
                </children>
             </HBox>
             <AnchorPane fx:id="contentPane" layoutX="70.5" layoutY="40.0" prefHeight="560.0" prefWidth="830.0" />
-            <Pane layoutX="0.5" mouseTransparent="true" pickOnBounds="false" prefHeight="600.0" prefWidth="900.0" style="-fx-border-color: #121212;" />
          </children>
       </AnchorPane>
    </children>
