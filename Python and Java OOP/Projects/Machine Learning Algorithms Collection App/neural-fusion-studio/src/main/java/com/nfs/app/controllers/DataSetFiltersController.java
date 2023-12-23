@@ -46,7 +46,7 @@ public class DataSetFiltersController {
         HBox hBox = new HBox();
         hBox.setPrefHeight(39.0);
         hBox.setPrefWidth(164.8);
-        hBox.setStyle("-fx-border-width: 5; -fx-border-color: #676767;");
+        hBox.setStyle("-fx-border-width: 2; -fx-border-color: #6c6c6c;");
 
         CheckBox checkBox = new CheckBox();
         HBox.setMargin(checkBox, new Insets(5.0, 5.0, 5.0, 5.0));

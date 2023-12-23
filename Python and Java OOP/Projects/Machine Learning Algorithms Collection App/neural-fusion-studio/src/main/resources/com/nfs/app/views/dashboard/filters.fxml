@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.effect.DropShadow?>
@@ -8,20 +10,35 @@
 <?import javafx.scene.layout.FlowPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
-<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" style="-fx-background-color: transparent;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.nfs.app.controllers.DataSetFiltersController">
    <children>
-      <AnchorPane layoutX="310.0" layoutY="137.0" maxHeight="450.0" maxWidth="350.0" minHeight="250.0" minWidth="350.0" prefHeight="250.0" prefWidth="350.0" style="-fx-background-color: #3b3b3b; -fx-border-color: black;">
+      <AnchorPane layoutX="42.0" layoutY="87.0" maxHeight="450.0" maxWidth="810.0" minHeight="250.0" minWidth="350.0" prefHeight="438.0" prefWidth="810.0" style="-fx-background-color: #3b3b3b; -fx-border-color: black;">
          <children>
-            <ScrollPane hbarPolicy="NEVER" layoutX="9.0" layoutY="41.0" prefHeight="200.0" prefWidth="339.0" style="-fx-background-color: transparent;" styleClass="scroll_pane" stylesheets="@../../styles/index.css">
-               <content>
-                  <FlowPane fx:id="instancesPane" alignment="CENTER" columnHalignment="CENTER" maxHeight="200.0" prefWidth="329.6" style="-fx-background-color: #6c6c6c;" />
-               </content>
-            </ScrollPane>
-            <HBox layoutX="9.0" layoutY="6.0" prefHeight="27.0" prefWidth="331.0">
+            <Pane layoutX="11.0" layoutY="107.0" prefHeight="291.0" prefWidth="339.0" style="-fx-border-width: 2; -fx-border-color: red;">
+               <children>
+                  <ScrollPane hbarPolicy="NEVER" layoutX="4.0" layoutY="46.0" maxHeight="242.0" prefHeight="242.0" prefWidth="330.0" style="-fx-background-color: #6c6c6c;" styleClass="scroll_pane" stylesheets="@../../styles/index.css">
+                     <content>
+                        <FlowPane fx:id="instancesPane" alignment="CENTER" columnHalignment="CENTER" maxHeight="200.0" prefWidth="164.8" style="-fx-background-color: #6c6c6c;" />
+                     </content>
+                  </ScrollPane>
+                  <HBox layoutX="13.0" layoutY="13.0" prefHeight="26.0" prefWidth="312.0" spacing="25.0">
+                     <children>
+                        <Button mnemonicParsing="false" prefWidth="90.0" style="-fx-background-color: #a4a4a4; -fx-background-radius: 2;" text="All" />
+                        <Button mnemonicParsing="false" prefWidth="90.0" style="-fx-background-color: #a4a4a4; -fx-background-radius: 2;" text="None" />
+                        <Button mnemonicParsing="false" prefWidth="90.0" style="-fx-background-color: #a4a4a4; -fx-background-radius: 2;" text="Invert" />
+                     </children>
+                  </HBox>
+                  <Label layoutX="17.0" layoutY="-11.0" style="-fx-background-color: #3b3b3b;" text="Attributes" textFill="#d1d116">
+                     <padding>
+                        <Insets bottom="3.0" left="5.0" right="5.0" top="3.0" />
+                     </padding>
+                  </Label>
+               </children>
+            </Pane>
+            <HBox layoutX="9.0" layoutY="6.0" prefHeight="27.0" prefWidth="790.0">
                <children>
                   <Button mnemonicParsing="false" style="-fx-background-color: #121212;" text="Filters" textFill="#eaeaea">
                      <font>
@@ -29,38 +46,120 @@
                      </font>
                   </Button>
                   <Line endY="27.0" stroke="TRANSPARENT" strokeLineCap="BUTT" strokeWidth="10.0" />
-                  <TextField editable="false" prefHeight="26.0" prefWidth="186.0" promptText="← Click Filters to See Options" style="-fx-background-color: #737070;" />
-                  <Line endY="27.0" stroke="TRANSPARENT" strokeLineCap="BUTT" strokeWidth="28.0" />
-                  <Button mnemonicParsing="false" prefHeight="26.0" prefWidth="56.0" style="-fx-background-color: #121212;" text="Apply" textFill="#eaeaea">
+                  <TextField editable="false" prefHeight="26.0" prefWidth="594.0" promptText="← Click Filters to See Options" style="-fx-background-color: #737070;" />
+                  <Line endY="27.0" stroke="TRANSPARENT" strokeLineCap="BUTT" strokeWidth="10.0" />
+                  <Button mnemonicParsing="false" prefHeight="26.0" prefWidth="59.0" style="-fx-background-color: #121212;" text="Apply" textFill="#eaeaea">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Button>
+                  <Line endY="27.0" stroke="TRANSPARENT" strokeLineCap="BUTT" strokeWidth="10.0" />
+                  <Button mnemonicParsing="false" prefHeight="18.0" prefWidth="56.0" style="-fx-background-color: #78787855;" text="Stop" textFill="#eaeaea">
                      <font>
                         <Font name="System Bold" size="12.0" />
                      </font>
                   </Button>
                </children>
             </HBox>
+            <HBox layoutX="513.0" layoutY="403.0" prefHeight="27.0" prefWidth="290.0">
+               <children>
+                  <Button mnemonicParsing="false" prefHeight="27.0" prefWidth="134.5" style="-fx-background-color: #4d4d4d; -fx-background-radius: 0; -fx-border-radius: 0;" text="Undo" textFill="#c4c4c4">
+                     <font>
+                        <Font name="Arial Black" size="12.0" />
+                     </font>
+                  </Button>
+                  <Line endY="27.0" stroke="TRANSPARENT" strokeLineCap="BUTT" strokeWidth="20.0" />
+                  <Button mnemonicParsing="false" onAction="#closeDataSetEdit" prefHeight="27.0" prefWidth="134.5" style="-fx-background-color: #4d4d4d; -fx-background-radius: 0; -fx-border-radius: 0;" text="Close" textFill="#c4c4c4">
+                     <font>
+                        <Font name="Arial Black" size="12.0" />
+                     </font>
+                  </Button>
+               </children>
+               <effect>
+                  <DropShadow height="35.04" radius="17.605" width="37.38" />
+               </effect>
+            </HBox>
+            <Pane layoutX="10.0" layoutY="47.0" prefHeight="50.0" prefWidth="339.0" style="-fx-background-color: #3b3b3b; -fx-border-width: 2; -fx-border-color: red;">
+               <children>
+                  <Label layoutX="4.0" layoutY="5.0" style="-fx-background-color: #3b3b3b;" text="Relation :" textFill="#d1d116">
+                     <padding>
+                        <Insets bottom="3.0" left="5.0" right="5.0" top="3.0" />
+                     </padding>
+                  </Label>
+                  <Label layoutX="14.0" layoutY="-12.0" style="-fx-background-color: #3b3b3b;" text="Current relation" textFill="#d1d116">
+                     <padding>
+                        <Insets bottom="3.0" left="5.0" right="5.0" top="3.0" />
+                     </padding>
+                  </Label>
+                  <Label layoutX="226.0" layoutY="5.0" style="-fx-background-color: #3b3b3b;" text="Attr :" textFill="#d1d116">
+                     <padding>
+                        <Insets bottom="3.0" left="5.0" right="5.0" top="3.0" />
+                     </padding>
+                  </Label>
+                  <Label layoutX="4.0" layoutY="24.0" style="-fx-background-color: #3b3b3b;" text="Sum of Weights :" textFill="#d1d116">
+                     <padding>
+                        <Insets bottom="3.0" left="5.0" right="5.0" top="3.0" />
+                     </padding>
+                  </Label>
+                  <Label layoutX="199.0" layoutY="23.0" style="-fx-background-color: #3b3b3b;" text="Instances : " textFill="#d1d116">
+                     <padding>
+                        <Insets bottom="3.0" left="5.0" right="5.0" top="3.0" />
+                     </padding>
+                  </Label>
+               </children>
+            </Pane>
+            <Button layoutX="12.0" layoutY="404.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="337.0" style="-fx-background-color: #a4a4a4; -fx-background-radius: 2;" text="Remove" />
+            <Pane layoutX="666.0" layoutY="47.0" prefHeight="140.0" prefWidth="135.0" style="-fx-background-color: #3b3b3b; -fx-border-width: 2; -fx-border-color: red;">
+               <children>
+                  <Label layoutX="13.0" layoutY="5.0" style="-fx-background-color: #3b3b3b;" text="Name :" textFill="#d1d116">
+                     <padding>
+                        <Insets bottom="3.0" left="5.0" right="5.0" top="3.0" />
+                     </padding>
+                  </Label>
+                  <Label layoutX="14.0" layoutY="-12.0" style="-fx-background-color: #3b3b3b;" text="Info" textFill="#d1d116">
+                     <padding>
+                        <Insets bottom="3.0" left="5.0" right="5.0" top="3.0" />
+                     </padding>
+                  </Label>
+                  <Label layoutX="19.0" layoutY="45.0" style="-fx-background-color: #3b3b3b;" text="Type :" textFill="#d1d116">
+                     <padding>
+                        <Insets bottom="3.0" left="5.0" right="5.0" top="3.0" />
+                     </padding>
+                  </Label>
+                  <Label layoutX="4.0" layoutY="24.0" style="-fx-background-color: #3b3b3b;" text="Missing : " textFill="#d1d116">
+                     <padding>
+                        <Insets bottom="3.0" left="5.0" right="5.0" top="3.0" />
+                     </padding>
+                  </Label>
+                  <Label layoutX="6.0" layoutY="63.0" style="-fx-background-color: #3b3b3b;" text="Unique :" textFill="#d1d116">
+                     <padding>
+                        <Insets bottom="3.0" left="5.0" right="5.0" top="3.0" />
+                     </padding>
+                  </Label>
+               </children>
+            </Pane>
+            <Pane layoutX="369.0" layoutY="195.0" prefHeight="202.0" prefWidth="432.0" style="-fx-background-color: #3b3b3b; -fx-border-width: 2; -fx-border-color: red;">
+               <children>
+                  <Label layoutX="14.0" layoutY="-11.0" style="-fx-background-color: #3b3b3b;" text="Visual REpresentation" textFill="#d1d116">
+                     <padding>
+                        <Insets bottom="3.0" left="5.0" right="5.0" top="3.0" />
+                     </padding>
+                  </Label>
+               </children>
+            </Pane>
+            <Pane layoutX="369.0" layoutY="47.0" prefHeight="140.0" prefWidth="284.0" style="-fx-background-color: #3b3b3b; -fx-border-width: 2; -fx-border-color: red;">
+               <children>
+                  <Label layoutX="14.0" layoutY="-12.0" style="-fx-background-color: #3b3b3b;" text="Statistics" textFill="#d1d116">
+                     <padding>
+                        <Insets bottom="3.0" left="5.0" right="5.0" top="3.0" />
+                     </padding>
+                  </Label>
+               </children>
+            </Pane>
          </children>
          <effect>
             <DropShadow blurType="TWO_PASS_BOX" height="32.7" offsetX="-2.0" radius="18.1875" width="42.05" />
          </effect>
       </AnchorPane>
-      <HBox layoutX="340.0" layoutY="403.0" prefHeight="27.0" prefWidth="290.0">
-         <children>
-            <Button mnemonicParsing="false" prefHeight="27.0" prefWidth="134.5" style="-fx-background-color: #4d4d4d; -fx-background-radius: 0; -fx-border-radius: 0;" text="Undo" textFill="#c4c4c4">
-               <font>
-                  <Font name="Arial Black" size="12.0" />
-               </font>
-            </Button>
-            <Line endY="27.0" stroke="TRANSPARENT" strokeLineCap="BUTT" strokeWidth="20.0" />
-            <Button mnemonicParsing="false" onAction="#closeDataSetEdit" prefHeight="27.0" prefWidth="134.5" style="-fx-background-color: #4d4d4d; -fx-background-radius: 0; -fx-border-radius: 0;" text="Close" textFill="#c4c4c4">
-               <font>
-                  <Font name="Arial Black" size="12.0" />
-               </font>
-            </Button>
-         </children>
-         <effect>
-            <DropShadow height="35.04" radius="17.605" width="37.38" />
-         </effect>
-      </HBox>
-      <VBox layoutX="319.0" layoutY="170.0" prefWidth="331.0" style="-fx-background-color: red;" />
    </children>
 </Pane>
