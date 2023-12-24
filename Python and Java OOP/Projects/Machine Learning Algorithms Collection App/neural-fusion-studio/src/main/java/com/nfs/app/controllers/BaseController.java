@@ -30,12 +30,6 @@ public class BaseController {
     private ImageView closeImage;
     @FXML
     private AnchorPane basePane;
-    
-
-    @FXML
-    private void switchToSecondary() throws IOException {
-        App.setRoot("secondary");
-    }
 
 
 
@@ -156,6 +150,21 @@ public class BaseController {
             basePane.getChildren().remove(basePane.getChildren().size() - 1);
         }
     }
+
+
+
+    @FXML
+    public void swithToHistoryPage() throws IOException {
+        App.switchPage("views/History");
+    }
+
+    @FXML
+    public void swithToHomePage() throws IOException {
+        App.switchPage("views/dashboard/index");
+    }
+
+
+
     @FXML
     public void initialize() {
         Timeline timeline = new Timeline(new KeyFrame(Duration.seconds(1), event -> {
