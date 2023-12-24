@@ -28,11 +28,7 @@ public class Preprocessing {
         instances.deleteWithMissing(attributeIndex);
     }
 
-    public void ReplaceMissingValuesWithMean() throws Exception {
-        ReplaceMissingValues replaceMissingValues = new ReplaceMissingValues();
-        replaceMissingValues.setInputFormat(instances);
-        instances = Filter.useFilter(instances, replaceMissingValues);
-    }
+
 
     public void nominalToBinary(String attributeName) throws Exception {
         NominalToBinary nominalToBinary = new NominalToBinary();

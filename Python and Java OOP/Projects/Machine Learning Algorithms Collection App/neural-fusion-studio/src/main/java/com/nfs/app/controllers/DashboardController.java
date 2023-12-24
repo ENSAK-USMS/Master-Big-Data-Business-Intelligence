@@ -11,13 +11,17 @@ import javafx.scene.Group;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.control.ProgressIndicator;
+import javafx.scene.control.TextField;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.shape.Circle;
 import javafx.animation.RotateTransition;
 import javafx.animation.StrokeTransition;
 import javafx.animation.TranslateTransition;
 import javafx.concurrent.Task;
+import javafx.event.ActionEvent;
 import javafx.scene.transform.Rotate;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
@@ -25,11 +29,14 @@ import javafx.util.Duration;
 import weka.core.Instances;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Line;
+import javafx.scene.control.Button;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.HashMap;
 
 import com.nfs.app.App;
+import com.nfs.app.algorithms.Algorithm_Abstract;
 import com.nfs.app.preprocessing.DataImportation;
 
 import javafx.animation.Interpolator;
@@ -46,14 +53,123 @@ public class DashboardController {
     private Pane outerCirclePane;
 
     @FXML
+    private ImageView datasetIcon;
+
+    @FXML
     private Group dataSetSubCircleAnimation1, dataSetSubCircleAnimation2, dataSetSubCircleAnimation3,
             dataSetLoadedIcon;
 
     @FXML
     private ProgressIndicator dataSetOpenProgress;
 
+    @FXML
+    private HBox clasificationOptions,clustringOptions,optionalArgs;
+
+    @FXML
+    private TextField optionsField;
+
     private Instances dataSet;
 
+    private Algorithm_Abstract trainingAlgorithm;
+
+    private String selectedAlgorithm;
+
+    private HashMap<String, Algorithm_Abstract> algorithms = new HashMap<String, Algorithm_Abstract>();
+
+
+    @FXML
+    private void showClasificationOptions() {
+        if(!checkIfDataSetIsLoaded()){
+            return;
+        }
+        // if optional args is visible hide it
+        if(optionalArgs.isVisible()){
+            optionalArgs.setVisible(false);
+        }
+        // if already selected hide the option
+        if(clasificationOptions.isVisible()){
+            clasificationOptions.setVisible(false);
+            return;
+        }
+        clasificationOptions.setVisible(true);
+        clustringOptions.setVisible(false);
+    }
+
+    @FXML
+    private void showClustringOptions() {
+        if(!checkIfDataSetIsLoaded()){
+            return;
+        }
+        // if optional args is visible hide it
+        if(optionalArgs.isVisible()){
+            optionalArgs.setVisible(false);
+        }
+        // if already selected hide the option
+        if(clustringOptions.isVisible()){
+            clustringOptions.setVisible(false);
+            return;
+        }
+        clustringOptions.setVisible(true);
+        clasificationOptions.setVisible(false);
+    }
+
+
+    @FXML
+    private void selectAlgorithm(ActionEvent event) {
+        // get the text of the button
+        String algorithmName = ((Button) event.getSource()).getText();
+        // if selected algorithm isnt null and is the same as the selected algorithm hide the optional args
+        if(selectedAlgorithm != null && selectedAlgorithm.equals(algorithmName)){
+            showOptionalArgs(event);
+            return;
+        }
+        // if another algorithm is selected hide the optional args
+        if(selectedAlgorithm != null && !selectedAlgorithm.equals(algorithmName)){
+            optionalArgs.setVisible(false);
+        }
+        // set the selected algorithm
+        selectedAlgorithm = algorithmName;
+
+        showOptionalArgs(event);
+        optionsField.setText(algorithms.get(selectedAlgorithm).getDefaultOptions());
+    }
+
+
+    private void showOptionalArgs(ActionEvent event) {
+
+        // if already selected hide the option
+        if(optionalArgs.isVisible()){
+            optionalArgs.setVisible(false);
+            return;
+        }
+        optionalArgs.setVisible(true);
+    }
+
+    @FXML
+    private void setTrainingAlgorithm(){
+        // get selected algorithm
+        if(selectedAlgorithm == null){
+            return;
+        }
+        // get the algorithm from the hashmap
+        trainingAlgorithm = algorithms.get(selectedAlgorithm);
+        // set the options
+        try {
+            trainingAlgorithm.setOptions(optionsField.getText());
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+    }
+
+    // on start get the selected algorithm and the optional args and run the algorithm
+    @FXML
+    private void runAlgorithm() {
+        // get the selected algorithm
+        System.out.println(selectedAlgorithm);
+        // get the optional args
+        System.out.println(trainingAlgorithm.getDefaultOptions());
+    }
 
     // create a function to let the user load a dataset allowed types are csv and arff funton name openDataSet
     @FXML
@@ -94,6 +210,9 @@ public class DashboardController {
                 new Thread(loadDataSetTask).start();
                 // TODO: create some animation showing that the data is loaded
                 // System.out.println(dashboardAnchorPane);
+
+                // load Algorithms
+                loadAlgorithms();
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -104,8 +223,26 @@ public class DashboardController {
         }
     }
 
+    private void loadAlgorithms() {
+        algorithms.put("Linear Regression", new com.nfs.app.algorithms.classification.LinearRegressionAlgorithm());
+        algorithms.put("Logistic Regression", new com.nfs.app.algorithms.classification.LogisticRegressionAlgorithm());
+        algorithms.put("Decision Tree", new com.nfs.app.algorithms.classification.DecisionTreeAlgorithm());
+        algorithms.put("Random Forest", new com.nfs.app.algorithms.classification.RandomForestAlgorithm());
+        // algorithms.put("K-Means", new com.nfs.app.algorithms.clustering.KMeansAlgorithm());
+        // algorithms.put("DBSCAN", new com.nfs.app.algorithms.clustering.DBSCANAlgorithm());
+        // algorithms.put("Hierarchical Based", new com.nfs.app.algorithms.clustering.HierarchicalBasedAlgorithm());
+        // algorithms.put("Density Based", new com.nfs.app.algorithms.clustering.DensityBasedAlgorithm());
+
+   
+}
+
+
+
     @FXML 
     private void showDataSetEditPage(){
+        if(!checkIfDataSetIsLoaded()){
+            return;
+        }
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/nfs/app/views/dashboard/data-set-edit.fxml"));
             Parent dataSetEditPage = loader.load();
@@ -120,8 +257,13 @@ public class DashboardController {
         }
     }
 
+    
+
     @FXML
     private void showDatasetFiltersPage() {
+        if(!checkIfDataSetIsLoaded()){
+            return;
+        }
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/nfs/app/views/dashboard/filters.fxml"));
             Parent dataSetFiltersPage = loader.load();
@@ -136,6 +278,27 @@ public class DashboardController {
             e.printStackTrace();
         }
     }
+
+    @FXML
+    private void showDatasetVisualizerPage() {
+        if(!checkIfDataSetIsLoaded()){
+            return;
+        }
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/nfs/app/views/dashboard/visualizer.fxml"));
+            Parent dataSetVisualizerPage = loader.load();
+            DataSetVisualizerController dataSetVisualizerController = loader.getController();
+            
+            // // Now you can access the methods or properties of the DataSetVisualizerController
+            dataSetVisualizerController.setDataSet(dataSet);
+            dataSetVisualizerController.addInstancesGrid();
+            BaseController.blurBasePage();
+            BaseController.addPageToBasePane(dataSetVisualizerPage);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+    
 
 
 
@@ -201,6 +364,18 @@ public class DashboardController {
 
 
     // i want to change the possition of the circle in animation when the mouse is hovering outside the circle
+
+    private Boolean checkIfDataSetIsLoaded() {
+        if (dataSet == null) {
+            // Bounce the dataset icon
+            animateElement(datasetIcon, 0, -20, 0.1);
+            animateElement(datasetIcon, 0, 0, 0.2);
+            animateElement(datasetIcon, 0, -10, 0.3);
+            animateElement(datasetIcon, 0, 0, 0.4);
+            return false;
+        }
+        return true;
+    }
 
     @FXML
     private void onTestCircleHoverEntered() {
