@@ -6,6 +6,7 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ProgressIndicator?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -78,7 +79,7 @@
             </LinearGradient>
          </stroke>
       </Line>
-      <Pane layoutX="290.0" layoutY="135.0" onMouseEntered="#onCentercircleHoverEntered" onMouseExited="#onCentercircleHoverExited" prefHeight="250.0" prefWidth="250.0" styleClass="rotating-button" stylesheets="@../../styles/index.css">
+      <Pane layoutX="290.0" layoutY="135.0" onMouseClicked="#runAlgorithm" onMouseEntered="#onCentercircleHoverEntered" onMouseExited="#onCentercircleHoverExited" prefHeight="250.0" prefWidth="250.0" styleClass="rotating-button" stylesheets="@../../styles/index.css">
          <children>
             <Circle fill="#161817ad" layoutX="125.0" layoutY="125.0" radius="127.5" stroke="TRANSPARENT" strokeType="INSIDE" />
             <Pane fx:id="outerCirclePane" prefHeight="250.0" prefWidth="250.0">
@@ -144,7 +145,7 @@
             <Line endX="10.0" layoutX="166.08235509600522" layoutY="186.68805839711348" rotate="413.2394487827053" stroke="#6b6b6b" strokeLineCap="ROUND" strokeWidth="2.0" />
             <Line endX="10.0" layoutX="159.69360563025336" layoutY="190.98043400940855" rotate="418.9690267340135" stroke="#6b6b6b" strokeLineCap="ROUND" strokeWidth="2.0" />
             <Line endX="10.0" layoutX="152.9082507780056" layoutY="194.6135549353134" rotate="424.6986046853217" stroke="#6b6b6b" strokeLineCap="ROUND" strokeWidth="2.0" />
-            <Label alignment="CENTER" layoutX="75.0" layoutY="87.5" prefHeight="75.0" prefWidth="100.0" text="STOP" textFill="WHITE">
+            <Label alignment="CENTER" layoutX="68.0" layoutY="88.0" prefHeight="75.0" prefWidth="122.0" text="GO" textFill="WHITE">
                <font>
                   <Font name="Yu Gothic Regular" size="37.0" />
                </font>
@@ -175,7 +176,7 @@
                         </ImageView>
                      </children>
                   </Group>
-                  <Group fx:id="dataSetSubCircleAnimation3">
+                  <Group fx:id="dataSetSubCircleAnimation3" onMouseClicked="#showDatasetVisualizerPage">
                      <children>
                         <Circle fill="#2c2d2e" layoutX="20.0" layoutY="20.0" radius="20.0" stroke="#00000066" strokeType="INSIDE" />
                         <ImageView fitHeight="29.0" fitWidth="26.0" layoutX="7.0" layoutY="7.0" pickOnBounds="true" preserveRatio="true">
@@ -190,7 +191,7 @@
             <Circle fill="#737070" layoutX="75.0" layoutY="75.0" radius="70.0" stroke="TRANSPARENT" strokeType="INSIDE" />
             <Circle fill="#514e4e" layoutX="75.0" layoutY="75.0" radius="55.0" stroke="TRANSPARENT" strokeType="INSIDE" />
             <Circle fill="#1a1a1a" layoutX="75.0" layoutY="75.0" onMouseClicked="#openDataSet" radius="50.0" stroke="BLACK" strokeType="INSIDE" />
-            <ImageView fitHeight="45.0" fitWidth="45.0" layoutX="52.5" layoutY="52.5" mouseTransparent="true" preserveRatio="true">
+            <ImageView fx:id="datasetIcon" fitHeight="45.0" fitWidth="45.0" layoutX="52.5" layoutY="52.5" mouseTransparent="true" preserveRatio="true">
                <image>
                   <Image url="@../../images/data_import.png" />
                </image>
@@ -234,13 +235,13 @@
       </Pane>
       <HBox layoutX="313.0" layoutY="518.0" prefWidth="200.0" style="-fx-background-radius: 10 10 0 0; -fx-border-radius: 5; -fx-background-color: #323232;">
          <children>
-            <Button graphicTextGap="6.0" lineSpacing="3.0" minHeight="40.0" minWidth="100.0" mnemonicParsing="false" styleClass="footer-left-button" stylesheets="@../../styles/index.css" text="Classification" textFill="#aeaeae">
+            <Button graphicTextGap="6.0" lineSpacing="3.0" minHeight="40.0" minWidth="100.0" mnemonicParsing="false" onAction="#showClasificationOptions" styleClass="footer-left-button" stylesheets="@../../styles/index.css" text="Classification" textFill="#aeaeae">
                <font>
                   <Font name="Arial Bold" size="12.0" />
                </font>
             </Button>
             <Line endY="40.0" />
-            <Button graphicTextGap="6.0" lineSpacing="3.0" minHeight="40.0" minWidth="100.0" mnemonicParsing="false" styleClass="footer-right-button" stylesheets="@../../styles/index.css" text="Clustering " textFill="#aeaeae">
+            <Button graphicTextGap="6.0" lineSpacing="3.0" minHeight="40.0" minWidth="100.0" mnemonicParsing="false" onAction="#showClustringOptions" styleClass="footer-right-button" stylesheets="@../../styles/index.css" text="Clustering " textFill="#aeaeae">
                <font>
                   <Font name="Arial Bold" size="12.0" />
                </font>
@@ -268,5 +269,28 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
+      <HBox fx:id="clasificationOptions" layoutX="162.0" layoutY="484.0" prefHeight="27.0" prefWidth="503.0" spacing="5.0" visible="false">
+         <children>
+            <Button mnemonicParsing="false" onAction="#selectAlgorithm" prefHeight="26.0" prefWidth="127.0" style="-fx-background-color: #313131;" text="Linear Regression" textFill="#838383" />
+            <Button mnemonicParsing="false" onAction="#selectAlgorithm" prefHeight="26.0" prefWidth="127.0" style="-fx-background-color: #313131;" text="Logistic Regression" textFill="#838383" />
+            <Button mnemonicParsing="false" onAction="#selectAlgorithm" prefHeight="26.0" prefWidth="127.0" style="-fx-background-color: #313131;" text="Decision Tree" textFill="#838383" />
+            <Button mnemonicParsing="false" onAction="#selectAlgorithm" prefHeight="26.0" prefWidth="127.0" style="-fx-background-color: #313131;" text="Random Forest" textFill="#838383" />
+         </children>
+      </HBox>
+      <HBox fx:id="clustringOptions" layoutX="162.0" layoutY="484.0" prefHeight="27.0" prefWidth="503.0" spacing="5.0" visible="false">
+         <children>
+            <Button mnemonicParsing="false" onAction="#selectAlgorithm" prefHeight="26.0" prefWidth="127.0" style="-fx-background-color: #313131;" text="Density Based" textFill="#838383" />
+            <Button mnemonicParsing="false" onAction="#selectAlgorithm" prefHeight="26.0" prefWidth="127.0" style="-fx-background-color: #313131;" text="K-means" textFill="#838383" />
+            <Button mnemonicParsing="false" onAction="#selectAlgorithm" prefHeight="26.0" prefWidth="127.0" style="-fx-background-color: #313131;" text="Hierarchical-based" textFill="#838383" />
+            <Button mnemonicParsing="false" onAction="#selectAlgorithm" prefHeight="26.0" prefWidth="127.0" style="-fx-background-color: #313131;" text="DBSCAN " textFill="#838383" />
+         </children>
+      </HBox>
+      <HBox fx:id="optionalArgs" layoutX="163.0" layoutY="452.0" spacing="5.0" visible="false">
+         <children>
+            <TextField fx:id="optionsField" prefHeight="26.0" prefWidth="286.0" />
+            <Button mnemonicParsing="false" prefHeight="26.0" prefWidth="78.0" style="-fx-background-color: #313131;" text="Use Default" textFill="#838383" />
+            <Button mnemonicParsing="false" onAction="#setTrainingAlgorithm" prefHeight="26.0" prefWidth="127.0" style="-fx-background-color: #313131;" text="Apply" textFill="#838383" />
+         </children>
+      </HBox>
    </children>
 </AnchorPane>

@@ -1,0 +1,60 @@
+
+
+.custom-progress-indicator .indicator {
+    -fx-background-color: transparent;
+}
+
+.custom-progress-indicator {
+    -fx-progress-color: #182f35ac; /* Change the color to green */
+}
+
+.custom-progress-indicator .percentage {
+   -fx-fill:null;
+   visibility: hidden;
+}
+
+
+
+
+.invisibleBox{
+    -fx-background-color: transparent;
+}
+
+.topBar{
+    -fx-background-radius: 25 25 0 0;
+    -fx-background-color: #233236;
+}
+
+.background{
+    -fx-background-color: #233236;
+    -fx-background-radius: 25;
+}
+
+
+.closeButton{
+    -fx-background-color:#233236;
+}
+
+.closeButton:hover{
+    -fx-background-color: #e94e50;
+}
+
+
+.chart{
+    -fx-background-color: #233236;
+    -fx-font-size: 10;
+    -fx-text-fill: rgb(0, 0, 0);
+    -fx-legend-visible: false;
+}
+
+.axis-label {
+    -fx-text-fill: #000000;
+}
+
+.chart-plot-background {
+    -fx-background-color:transparent;
+}
+
+.default-color0.chart-series-line { -fx-stroke: #238591; }
+.default-color1.chart-series-line { -fx-stroke: #e5d849; }
+.default-color2.chart-series-line { -fx-stroke: #ed4d51; }
