@@ -15,6 +15,13 @@
 
 
 
+.combo-box .list-cell {
+  -fx-text-fill: #838383;
+}
+
+.combo-box .list-view .list-cell {
+  -fx-text-fill: black;
+}
 
 .invisibleBox{
     -fx-background-color: transparent;

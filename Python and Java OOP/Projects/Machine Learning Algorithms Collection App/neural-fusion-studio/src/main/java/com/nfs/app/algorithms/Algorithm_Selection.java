@@ -6,16 +6,11 @@
 
 package com.nfs.app.algorithms;
 
+import com.nfs.app.App;
 import com.nfs.app.algorithms.classification.DecisionTreeAlgorithm;
 import com.nfs.app.algorithms.classification.LinearRegressionAlgorithm;
 import com.nfs.app.algorithms.classification.LogisticRegressionAlgorithm;
 import com.nfs.app.algorithms.classification.RandomForestAlgorithm;
-
-import weka.classifiers.Evaluation;
-import weka.classifiers.functions.LinearRegression;
-import weka.classifiers.functions.Logistic;
-import weka.classifiers.trees.RandomTree;
-import weka.classifiers.trees.RandomForest;
 import weka.core.Instances;
 import weka.core.converters.ConverterUtils;
 
@@ -50,7 +45,7 @@ public class Algorithm_Selection {
             randomForestAlgorithm.setOptions("");
             randomForestAlgorithm.evaluate();
         } catch (Exception e) {
-            e.printStackTrace();
+            App.showExceptionWindow(e);
         }
     }
 

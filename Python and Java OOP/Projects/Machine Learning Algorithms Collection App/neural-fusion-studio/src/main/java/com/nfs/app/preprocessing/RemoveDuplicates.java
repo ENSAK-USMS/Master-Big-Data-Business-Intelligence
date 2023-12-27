@@ -5,6 +5,8 @@
 */
 package com.nfs.app.preprocessing;
 
+import com.nfs.app.App;
+
 import weka.core.Instances;
 
 public class RemoveDuplicates {
@@ -25,7 +27,7 @@ public class RemoveDuplicates {
             filter.setInputFormat(filteredData);
             filteredData = weka.filters.Filter.useFilter(filteredData, filter);
         } catch (Exception e) {
-            e.printStackTrace();
+            App.showExceptionWindow(e);
         }
 
         // Update the data with the filtered instances

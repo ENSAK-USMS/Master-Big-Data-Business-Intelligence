@@ -18,6 +18,13 @@ public abstract class Algorithm_Abstract {
 
         public abstract void setOptions(String options) throws Exception;
 
+        public void setClassAttribute(String classAttribute) {
+            if (dataset == null) {
+                throw new IllegalStateException("Dataset is not set");
+            }
+            dataset.setClass(dataset.attribute(classAttribute));
+        }
+
         public abstract void evaluate();
 
         public String getDefaultOptions() {

@@ -4,6 +4,7 @@
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.Group?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ProgressIndicator?>
 <?import javafx.scene.control.TextField?>
@@ -285,10 +286,11 @@
             <Button mnemonicParsing="false" onAction="#selectAlgorithm" prefHeight="26.0" prefWidth="127.0" style="-fx-background-color: #313131;" text="DBSCAN " textFill="#838383" />
          </children>
       </HBox>
-      <HBox fx:id="optionalArgs" layoutX="163.0" layoutY="452.0" spacing="5.0" visible="false">
+      <HBox fx:id="optionalArgs" layoutX="99.0" layoutY="452.0" prefHeight="26.0" prefWidth="666.0" spacing="5.0" visible="false">
          <children>
-            <TextField fx:id="optionsField" prefHeight="26.0" prefWidth="286.0" />
+            <TextField fx:id="optionsField" prefHeight="26.0" prefWidth="286.0" style="-fx-background-color: #313131; -fx-text-fill: #838383;" />
             <Button mnemonicParsing="false" prefHeight="26.0" prefWidth="78.0" style="-fx-background-color: #313131;" text="Use Default" textFill="#838383" />
+            <ComboBox fx:id="targetClassesOptions" prefWidth="150.0" promptText="Select Target Class" style="-fx-background-color: #313131;" styleClass="combo-box" stylesheets="@../../styles/dashboard.css" />
             <Button mnemonicParsing="false" onAction="#setTrainingAlgorithm" prefHeight="26.0" prefWidth="127.0" style="-fx-background-color: #313131;" text="Apply" textFill="#838383" />
          </children>
       </HBox>

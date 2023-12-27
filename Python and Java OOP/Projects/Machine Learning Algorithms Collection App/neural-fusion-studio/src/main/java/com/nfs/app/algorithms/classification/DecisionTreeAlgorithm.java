@@ -5,8 +5,10 @@
 */
 package com.nfs.app.algorithms.classification;
 
+import com.nfs.app.App;
 import com.nfs.app.algorithms.Algorithm_Abstract;
 
+import weka.classifiers.Evaluation;
 import weka.classifiers.trees.RandomTree;
 
 public class DecisionTreeAlgorithm extends Algorithm_Abstract {
@@ -28,6 +30,12 @@ public class DecisionTreeAlgorithm extends Algorithm_Abstract {
             // Build the decision tree model
             randomTree.buildClassifier(dataset);
 
+            // Initialize evaluation
+            Evaluation evaluation = new Evaluation(dataset);
+
+            // Evaluate the model
+            evaluation.evaluateModel(randomTree, dataset);
+
             // Print evaluation results
             System.out.println("Decision Tree Evaluation Results:");
             System.out.println(evaluation.toSummaryString());
@@ -36,7 +44,7 @@ public class DecisionTreeAlgorithm extends Algorithm_Abstract {
             System.out.println("Default Parameters:");
             System.out.println(randomTree.getOptions().toString());
         } catch (Exception e) {
-            e.printStackTrace();
+            App.showExceptionWindow(e);
         }
     }
 

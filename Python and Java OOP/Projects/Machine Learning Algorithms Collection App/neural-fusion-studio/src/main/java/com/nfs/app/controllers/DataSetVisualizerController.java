@@ -6,10 +6,8 @@
 package com.nfs.app.controllers;
 
 import javafx.fxml.FXML;
-import javafx.scene.control.Label;
 import javafx.scene.layout.GridPane;
 import javafx.scene.paint.Color;
-import javafx.scene.paint.Paint;
 import javafx.scene.shape.Rectangle;
 import weka.core.Instances;
 import weka.core.matrix.Matrix;

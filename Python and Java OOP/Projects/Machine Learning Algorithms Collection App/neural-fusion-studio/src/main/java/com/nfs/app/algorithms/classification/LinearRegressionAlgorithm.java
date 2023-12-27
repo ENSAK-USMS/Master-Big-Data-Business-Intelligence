@@ -4,8 +4,10 @@
  * Time: 5:01:44 PM
 */
 package com.nfs.app.algorithms.classification;
+import com.nfs.app.App;
 import com.nfs.app.algorithms.Algorithm_Abstract;
 
+import weka.classifiers.Evaluation;
 import weka.classifiers.functions.LinearRegression;
 
 public class LinearRegressionAlgorithm extends Algorithm_Abstract {
@@ -23,10 +25,16 @@ public class LinearRegressionAlgorithm extends Algorithm_Abstract {
     }
 
     @Override
-    public void evaluate() {
+    public void evaluate(){
         try {
             // Build the linear regression model
             linearRegression.buildClassifier(dataset);
+            
+            // Initialize evaluation
+            evaluation = new Evaluation(dataset);
+
+            // Evaluate the model
+            evaluation.evaluateModel(linearRegression, dataset);
 
             // Print evaluation results
             System.out.println("Linear Regression Evaluation Results:");
@@ -36,7 +44,7 @@ public class LinearRegressionAlgorithm extends Algorithm_Abstract {
             System.out.println("Default Parameters:");
             System.out.println(linearRegression.getOptions().toString());
         } catch (Exception e) {
-            e.printStackTrace();
+            App.showExceptionWindow(e);
         }
     }
 

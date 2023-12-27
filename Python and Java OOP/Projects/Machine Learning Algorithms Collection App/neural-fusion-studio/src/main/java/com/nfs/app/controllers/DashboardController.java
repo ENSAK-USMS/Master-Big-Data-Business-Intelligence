@@ -30,6 +30,7 @@ import weka.core.Instances;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Line;
 import javafx.scene.control.Button;
+import javafx.scene.control.ComboBox;
 
 import java.io.File;
 import java.io.IOException;
@@ -67,6 +68,9 @@ public class DashboardController {
 
     @FXML
     private TextField optionsField;
+
+    @FXML
+    private ComboBox<String> targetClassesOptions;
 
     private Instances dataSet;
 
@@ -157,18 +161,36 @@ public class DashboardController {
         try {
             trainingAlgorithm.setOptions(optionsField.getText());
         } catch (Exception e) {
-            e.printStackTrace();
+            App.showExceptionWindow(e);
         }
+        // hide optional args and algorithm options
+        optionalArgs.setVisible(false);
+        clasificationOptions.setVisible(false);
 
     }
 
     // on start get the selected algorithm and the optional args and run the algorithm
     @FXML
     private void runAlgorithm() {
+        // check if a dataset is loaded and an algorithm is selected and the optional args are set
+        if(!checkIfDataSetIsLoaded() || trainingAlgorithm == null){
+            return;
+        }
+
+        
+
         // get the selected algorithm
-        System.out.println(selectedAlgorithm);
-        // get the optional args
-        System.out.println(trainingAlgorithm.getDefaultOptions());
+        try {
+            System.out.println(selectedAlgorithm);
+            // get the optional args
+            System.out.println(trainingAlgorithm.getDefaultOptions());
+
+            trainingAlgorithm.setup(dataSet);
+            trainingAlgorithm.setClassAttribute(targetClassesOptions.getValue());
+            trainingAlgorithm.evaluate();
+        } catch (Exception e) {
+            App.showExceptionWindow(e);
+        }
     }
 
     // create a function to let the user load a dataset allowed types are csv and arff funton name openDataSet
@@ -203,18 +225,17 @@ public class DashboardController {
                             loadDataSetTask.setOnSucceeded(event -> {
                                 dataSetLoadedIcon.setVisible(true);
                                 dataSetOpenProgress.setVisible(false);
+                                loadAlgorithms();
+                                setTargetClassesOptions();
                             });
                 loadDataSetTask.setOnFailed(event -> {
                     dataSetOpenProgress.setVisible(false);
                 });
                 new Thread(loadDataSetTask).start();
                 // TODO: create some animation showing that the data is loaded
-                // System.out.println(dashboardAnchorPane);
-
-                // load Algorithms
-                loadAlgorithms();
+                // System.out.println(dashboardAnchorPane);                
             } catch (Exception e) {
-                e.printStackTrace();
+                App.showExceptionWindow(e);
             }
 
         } else {
@@ -222,7 +243,6 @@ public class DashboardController {
             // Handle the case where the user canceled the file selection
         }
     }
-
     private void loadAlgorithms() {
         algorithms.put("Linear Regression", new com.nfs.app.algorithms.classification.LinearRegressionAlgorithm());
         algorithms.put("Logistic Regression", new com.nfs.app.algorithms.classification.LogisticRegressionAlgorithm());
@@ -231,10 +251,16 @@ public class DashboardController {
         // algorithms.put("K-Means", new com.nfs.app.algorithms.clustering.KMeansAlgorithm());
         // algorithms.put("DBSCAN", new com.nfs.app.algorithms.clustering.DBSCANAlgorithm());
         // algorithms.put("Hierarchical Based", new com.nfs.app.algorithms.clustering.HierarchicalBasedAlgorithm());
-        // algorithms.put("Density Based", new com.nfs.app.algorithms.clustering.DensityBasedAlgorithm());
+        // algorithms.put("Density Based", new com.nfs.app.algorithms.clustering.DensityBasedAlgorithm()); 
+    }
 
-   
-}
+    private void setTargetClassesOptions() {
+        targetClassesOptions.getItems().clear();
+        for (int i = 0; i < dataSet.numAttributes(); i++) {
+            targetClassesOptions.getItems().add(dataSet.attribute(i).name());
+        }
+    }
+
 
 
 
@@ -253,7 +279,7 @@ public class DashboardController {
             BaseController.blurBasePage();
             BaseController.addPageToBasePane(dataSetEditPage);
         } catch (IOException e) {
-            e.printStackTrace();
+            App.showExceptionWindow(e);
         }
     }
 
@@ -275,7 +301,7 @@ public class DashboardController {
             BaseController.blurBasePage();
             BaseController.addPageToBasePane(dataSetFiltersPage);
         } catch (IOException e) {
-            e.printStackTrace();
+            App.showExceptionWindow(e);
         }
     }
 
@@ -295,7 +321,7 @@ public class DashboardController {
             BaseController.blurBasePage();
             BaseController.addPageToBasePane(dataSetVisualizerPage);
         } catch (IOException e) {
-            e.printStackTrace();
+            App.showExceptionWindow(e);
         }
     }
     

@@ -5,8 +5,10 @@
 */
 package com.nfs.app.algorithms.classification;
 
+import com.nfs.app.App;
 import com.nfs.app.algorithms.Algorithm_Abstract;
 
+import weka.classifiers.Evaluation;
 import weka.classifiers.trees.RandomForest;
 
 public class RandomForestAlgorithm extends Algorithm_Abstract {
@@ -28,6 +30,12 @@ public class RandomForestAlgorithm extends Algorithm_Abstract {
             // Build the random forest model
             randomForest.buildClassifier(dataset);
 
+            // Initialize evaluation
+            evaluation = new Evaluation(dataset);
+
+            // Evaluate the model
+            evaluation.evaluateModel(randomForest, dataset);
+
             // Print evaluation results
             System.out.println("Random Forest Evaluation Results:");
             System.out.println(evaluation.toSummaryString());
@@ -36,7 +44,7 @@ public class RandomForestAlgorithm extends Algorithm_Abstract {
             System.out.println("Default Parameters:");
             System.out.println(randomForest.getOptions().toString());
         } catch (Exception e) {
-            e.printStackTrace();
+            App.showExceptionWindow(e);
         }
     }
 

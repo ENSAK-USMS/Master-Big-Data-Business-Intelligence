@@ -9,12 +9,12 @@ package com.nfs.app.algorithms;
 import java.io.File;
 import java.util.concurrent.TimeUnit;
 
+import com.nfs.app.App;
+
 import weka.core.Instances;
 import weka.core.converters.CSVLoader;
 
 public class X extends Thread {
-
-    private static int readingProgress = 0;
 
     public static void main(String[] args) {
         X x = new X();
@@ -27,7 +27,7 @@ public class X extends Thread {
         String csvFilePath = "C:/Users/abdob/Downloads/penguins_binary_classification.csv";
         csvFilePath = "C:/Users/abdob/Downloads/vote.csv";
 
-        Instances csvInstances = readCSVFile(csvFilePath);
+        readCSVFile(csvFilePath);
 
         // Do something with the instances if needed
         // System.out.println("CSV Instances: " + csvInstances);
@@ -49,7 +49,7 @@ public class X extends Thread {
 
             return data;
         } catch (Exception e) {
-            e.printStackTrace();
+            App.showExceptionWindow(e);
             return null;
         }
     }

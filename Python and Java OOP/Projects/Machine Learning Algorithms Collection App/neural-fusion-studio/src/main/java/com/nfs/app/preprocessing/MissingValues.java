@@ -6,6 +6,9 @@
 package com.nfs.app.preprocessing;
 
 import weka.core.Instances;
+
+import com.nfs.app.App;
+
 import weka.core.Instance;
 import weka.filters.Filter;
 import weka.filters.unsupervised.attribute.ReplaceMissingValues;
@@ -28,7 +31,7 @@ public class MissingValues {
             filter.setInputFormat(filteredData);
             filteredData = Filter.useFilter(filteredData, filter);
         } catch (Exception e) {
-            e.printStackTrace();
+            App.showExceptionWindow(e);
         }
 
         // Update the data with the filtered instances
@@ -47,7 +50,7 @@ public class MissingValues {
             filter.setInputFormat(filteredData);
             filteredData = Filter.useFilter(filteredData, filter);
         } catch (Exception e) {
-            e.printStackTrace();
+            App.showExceptionWindow(e);
         }
 
         // Update the data with the filtered instances
@@ -66,7 +69,7 @@ public class MissingValues {
             filter.setInputFormat(filteredData);
             filteredData = Filter.useFilter(filteredData, filter);
         } catch (Exception e) {
-            e.printStackTrace();
+            App.showExceptionWindow(e);
         }
 
         // Update the data with the filtered instances
@@ -84,7 +87,7 @@ public class MissingValues {
             filter.setInputFormat(filteredData);
             filteredData = Filter.useFilter(filteredData, filter);
         } catch (Exception e) {
-            e.printStackTrace();
+            App.showExceptionWindow(e);
         }
 
         // Update the data with the filtered instances
@@ -103,7 +106,7 @@ public class MissingValues {
             filter.setInputFormat(filteredData);
             filteredData = Filter.useFilter(filteredData, filter);
         } catch (Exception e) {
-            e.printStackTrace();
+            App.showExceptionWindow(e);
         }
 
         // Update the data with the filtered instances
