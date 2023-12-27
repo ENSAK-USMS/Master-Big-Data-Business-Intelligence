@@ -5,7 +5,6 @@ import javafx.animation.KeyValue;
 import javafx.animation.Timeline;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
@@ -70,7 +69,7 @@ public class HistoryController implements Initializable {
     }
 
     private void onDropDownClick(Pane historyPane, Line line, ImageView dropDown) {
-        if (historyPane.getHeight() == 54) {
+        if (!line.isVisible()) {
         Timeline timeline = new Timeline(
             new KeyFrame(Duration.seconds(0),
                 new KeyValue(historyPane.prefHeightProperty(), historyPane.getPrefHeight())),
