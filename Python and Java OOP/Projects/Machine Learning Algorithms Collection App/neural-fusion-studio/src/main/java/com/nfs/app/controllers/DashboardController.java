@@ -297,6 +297,7 @@ public class DashboardController {
             
             // // Now you can access the methods or properties of the DataSetFiltersController
             dataSetFiltersController.setDataSet(dataSet);
+            dataSetFiltersController.onInit();
             dataSetFiltersController.addInstancesGrid();
             BaseController.blurBasePage();
             BaseController.addPageToBasePane(dataSetFiltersPage);
