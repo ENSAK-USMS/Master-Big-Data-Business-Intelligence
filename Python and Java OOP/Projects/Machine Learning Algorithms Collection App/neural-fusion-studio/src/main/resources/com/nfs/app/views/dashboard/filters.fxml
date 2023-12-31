@@ -62,24 +62,6 @@
                   </Button>
                </children>
             </HBox>
-            <HBox layoutX="513.0" layoutY="403.0" prefHeight="27.0" prefWidth="290.0">
-               <children>
-                  <Button mnemonicParsing="false" prefHeight="27.0" prefWidth="134.5" style="-fx-background-color: #4d4d4d; -fx-background-radius: 0; -fx-border-radius: 0;" text="Undo" textFill="#c4c4c4">
-                     <font>
-                        <Font name="Arial Black" size="12.0" />
-                     </font>
-                  </Button>
-                  <Line endY="27.0" stroke="TRANSPARENT" strokeLineCap="BUTT" strokeWidth="20.0" />
-                  <Button mnemonicParsing="false" onAction="#closeDataSetEdit" prefHeight="27.0" prefWidth="134.5" style="-fx-background-color: #4d4d4d; -fx-background-radius: 0; -fx-border-radius: 0;" text="Close" textFill="#c4c4c4">
-                     <font>
-                        <Font name="Arial Black" size="12.0" />
-                     </font>
-                  </Button>
-               </children>
-               <effect>
-                  <DropShadow height="35.04" radius="17.605" width="37.38" />
-               </effect>
-            </HBox>
             <Pane layoutX="10.0" layoutY="47.0" prefHeight="50.0" prefWidth="339.0" style="-fx-background-color: #3b3b3b; -fx-border-width: 2; -fx-border-color: red;">
                <children>
                   <Label layoutX="4.0" layoutY="5.0" style="-fx-background-color: #3b3b3b;" text="Relation :" textFill="#d1d116">
@@ -218,6 +200,30 @@
                   <Line endX="100.0" layoutX="42.0" layoutY="2.0" startX="99.99996948242188" startY="135.0" stroke="RED" strokeWidth="2.0" />
                </children>
             </Pane>
+            <HBox layoutX="368.0" layoutY="403.0" prefHeight="27.0" prefWidth="432.0">
+               <children>
+                  <Button mnemonicParsing="false" prefHeight="27.0" prefWidth="134.5" style="-fx-background-color: #4d4d4d; -fx-background-radius: 0; -fx-border-radius: 0;" text="Validate" textFill="#c4c4c4">
+                     <font>
+                        <Font name="Arial Black" size="12.0" />
+                     </font>
+                  </Button>
+                  <Line endY="27.0" stroke="TRANSPARENT" strokeLineCap="BUTT" strokeWidth="20.0" />
+                  <Button mnemonicParsing="false" prefHeight="27.0" prefWidth="134.5" style="-fx-background-color: #4d4d4d; -fx-background-radius: 0; -fx-border-radius: 0;" text="Undo" textFill="#c4c4c4">
+                     <font>
+                        <Font name="Arial Black" size="12.0" />
+                     </font>
+                  </Button>
+                  <Line endY="27.0" stroke="TRANSPARENT" strokeLineCap="BUTT" strokeWidth="20.0" />
+                  <Button mnemonicParsing="false" onAction="#closeDataSetFilter" prefHeight="27.0" prefWidth="134.5" style="-fx-background-color: #4d4d4d; -fx-background-radius: 0; -fx-border-radius: 0;" text="Close" textFill="#c4c4c4">
+                     <font>
+                        <Font name="Arial Black" size="12.0" />
+                     </font>
+                  </Button>
+               </children>
+               <effect>
+                  <DropShadow height="35.04" radius="17.605" width="37.38" />
+               </effect>
+            </HBox>
          </children>
          <effect>
             <DropShadow blurType="TWO_PASS_BOX" height="32.7" offsetX="-2.0" radius="18.1875" width="42.05" />

@@ -213,7 +213,7 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Pane>
-      <Pane layoutX="625.0" layoutY="185.0" prefHeight="150.0" prefWidth="150.0">
+      <Pane layoutX="625.0" layoutY="185.0" onMouseClicked="#showTrainingResultsPage" prefHeight="150.0" prefWidth="150.0">
          <children>
             <Circle fill="#737070" layoutX="75.0" layoutY="75.0" radius="70.0" stroke="TRANSPARENT" strokeType="INSIDE" />
             <Circle fill="#514e4e" layoutX="75.0" layoutY="75.0" radius="55.0" stroke="TRANSPARENT" strokeType="INSIDE" />
@@ -223,16 +223,19 @@
                   <Image url="@../../images/training_results.png" />
                </image>
             </ImageView>
-            <Pane layoutX="174.0" layoutY="-12.0" prefHeight="176.0" prefWidth="29.0" style="-fx-background-color: #2f2f2f; -fx-background-radius: 7 0 0 7; -fx-border-radius: 7;">
+            <Pane fx:id="rightSideBarPane" layoutX="174.0" layoutY="-12.0" onMouseEntered="#showRightSideBar" onMouseExited="#hideRightSideBar" prefHeight="176.0" prefWidth="29.0" style="-fx-background-color: #2f2f2f; -fx-background-radius: 7 0 0 7; -fx-border-radius: 7;">
                <children>
-                  <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="2.0" layoutY="12.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="rightSideBarIcon" fitHeight="150.0" fitWidth="200.0" layoutX="2.0" layoutY="12.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../../images/left-menu.png" />
+                        <Image url="@../../images/right-menu.png" />
                      </image>
                   </ImageView>
                </children>
             </Pane>
          </children>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
       </Pane>
       <HBox layoutX="313.0" layoutY="518.0" prefWidth="200.0" style="-fx-background-radius: 10 10 0 0; -fx-border-radius: 5; -fx-background-color: #323232;">
          <children>
