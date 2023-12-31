@@ -5,31 +5,43 @@
 package com.nfs.app.preprocessing;
 
 import weka.core.Instances;
+
+import com.nfs.app.App;
+
 import weka.core.Instance;
 import weka.filters.Filter;
 import weka.filters.unsupervised.attribute.ReplaceMissingValues;
+import weka.filters.unsupervised.attribute.ReplaceMissingWithUserConstant;
+import weka.filters.unsupervised.instance.RemoveWithValues;
 
 public class MissingValues {
-    // Solution 1: Remove missing records
+    /**
+     * Removes instances with missing values in the specified attribute from the
+     * given dataset.
+     *
+     * @param data          The dataset containing instances.
+     * @param attributeName The name of the attribute with missing values.
+     * @return The dataset with missing records removed.
+     */
     public static Instances removeMissingRecords(Instances data, String attributeName) {
-        // Create a new Instances object to store the filtered data
-        Instances filteredData = new Instances(data);
-
-        // Apply the RemoveWithValues filter to remove instances with missing values on the specified attribute
         try {
-            Filter filter = new weka.filters.unsupervised.instance.RemoveWithValues();
-            filter.setInputFormat(filteredData);
-            filter.setOptions(new String[]{"-S", String.valueOf(filteredData.attribute(attributeName).index() + 1), "-C", "last"});
-            filteredData = Filter.useFilter(filteredData, filter);
+            // remove row with missing values in the specified attribute
+            data.removeIf(instance -> instance.isMissing(data.attribute(attributeName)));
         } catch (Exception e) {
-            e.printStackTrace();
+            App.showExceptionWindow(e);
         }
-
-        return filteredData;
+        System.out.println("DATA \n " + data.toSummaryString());
+        return data;
     }
 
-    // Solution 2: Fill missing values with a global constant or attribute mean/median
-    // with mean
+    /**
+     * Fills missing values in the specified attribute with the mean value of the
+     * attribute.
+     *
+     * @param data          The dataset containing instances.
+     * @param attributeName The name of the attribute with missing values.
+     * @return The dataset with missing values filled using the mean value.
+     */
     public static Instances fillMissingValuesWithMean(Instances data, String attributeName) {
         // Create a new Instances object to store the filtered data
         Instances filteredData = new Instances(data);
@@ -39,62 +51,39 @@ public class MissingValues {
             ReplaceMissingValues filter = new ReplaceMissingValues();
             filter.setOptions(new String[]{"-A", String.valueOf(filteredData.attribute(attributeName).index() + 1)});
             filter.setInputFormat(filteredData);
+            filter.setOptions(new String[]{"-S", String.valueOf(filteredData.attribute(attributeName).index() + 1), "-C", "last"});
             filteredData = Filter.useFilter(filteredData, filter);
         } catch (Exception e) {
-            e.printStackTrace();
+            App.showExceptionWindow(e);
         }
 
         return filteredData;
     }
     
-    // with median
-    public static Instances fillMissingValuesWithMedian(Instances data){
+
+
+    /**
+     * Fills missing values in the specified attribute with a custom value.
+     *
+     * @param data          The dataset containing instances.
+     * @param attributeName The name of the attribute with missing values.
+     * @param value         The custom value to fill missing values with.
+     * @return The dataset with missing values filled using the custom value.
+     */
+    public static Instances fillMissingWithCustomValue(Instances data, String attributeName, double value) {
         // Create a new Instances object to store the filtered data
         Instances filteredData = new Instances(data);
 
-        // Apply the ReplaceMissingValues filter with median option to fill missing values
+        // Apply the ReplaceMissingValues filter with custom value option to fill
+        // missing values
         try {
-            ReplaceMissingValues filter = new ReplaceMissingValues();
-            filter.setOptions(new String[]{"-M", "0"});
+            ReplaceMissingWithUserConstant filter = new ReplaceMissingWithUserConstant();
+            filter.setOptions(new String[] {  "-A", attributeName, "-N", String.valueOf(value), "-R", "1" });
             filter.setInputFormat(filteredData);
             filteredData = Filter.useFilter(filteredData, filter);
         } catch (Exception e) {
-            e.printStackTrace();
-        }
-
-        return filteredData;
-    }
-    // with mode
-    public static Instances fillMissingValuesWithMode(Instances data){
-        // Create a new Instances object to store the filtered data
-        Instances filteredData = new Instances(data);
-
-        // Apply the ReplaceMissingValues filter with mode option to fill missing values
-        try {
-            ReplaceMissingValues filter = new ReplaceMissingValues();
-            filter.setOptions(new String[]{"-M", "1"});
-            filter.setInputFormat(filteredData);
-            filteredData = Filter.useFilter(filteredData, filter);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-
-        return filteredData;
-    }
-
-    // with custom value
-    public static Instances fillMissingWithCustomValue(Instances data, double value){
-        // Create a new Instances object to store the filtered data
-        Instances filteredData = new Instances(data);
-
-        // Apply the ReplaceMissingValues filter with custom value option to fill missing values
-        try {
-            ReplaceMissingValues filter = new ReplaceMissingValues();
-            filter.setOptions(new String[]{"-M", "2", "-R", "first-last", "-V", String.valueOf(value)});
-            filter.setInputFormat(filteredData);
-            filteredData = Filter.useFilter(filteredData, filter);
-        } catch (Exception e) {
-            e.printStackTrace();
+            System.out.println("Failed to fill missing values with custom value: " + e.getMessage());
+            App.showExceptionWindow(e);
         }
 
         return filteredData;

@@ -2,6 +2,7 @@ module com.nfs.app {
     requires javafx.controls;
     requires javafx.fxml;
     requires weka.stable;
+    requires javafx.base;
     requires javafx.graphics;
 
     opens com.nfs.app to javafx.fxml, weka.stable;

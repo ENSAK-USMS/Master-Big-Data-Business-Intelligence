@@ -108,7 +108,6 @@ public class BaseController {
                 ImageView newImageView = App.loadImage(newImageName);
                 // set the new image
                 imageView.setImage(newImageView.getImage());
-                System.out.println("hovered");
             });
             button.setOnMouseExited(e -> {
                 // get the parent group

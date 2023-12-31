@@ -9,27 +9,12 @@ import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.StackPane;
-import javafx.scene.text.Font;
-import javafx.scene.text.FontPosture;
-import javafx.scene.text.FontWeight;
-import javafx.scene.text.Text;
-import javafx.scene.transform.Rotate;
+import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
+import javafx.scene.control.Label;
 import java.io.IOException;
-import java.io.InputStream;
-import java.nio.file.FileSystems;
-import java.nio.file.Path;
-import java.nio.file.Paths;
-import java.nio.file.StandardWatchEventKinds;
-import java.nio.file.WatchEvent;
-import java.nio.file.WatchKey;
-import java.nio.file.WatchService;
-import java.util.concurrent.Executors;
-import java.util.concurrent.ScheduledExecutorService;
-import java.util.concurrent.TimeUnit;
 
 
 /**
@@ -38,7 +23,8 @@ import java.util.concurrent.TimeUnit;
 public class App extends Application {
 
     private static Scene scene;
-
+    private static boolean exceptionWindowEventsAdded = false;
+    
     @Override
     public void start(Stage stage) throws IOException {
         scene = new Scene(loadFXML("base"), 900, 600);
@@ -76,39 +62,10 @@ public class App extends Application {
         Parent root = loadFXML(fxml);
         // get contentPane by fx:id
         AnchorPane contentPane = (AnchorPane) scene.lookup("#contentPane");
-
         // remove all children
         contentPane.getChildren().clear();
-
-        Group textGroup = new Group();
-        Font font = Font.font("Times New Roman", FontWeight.BOLD, FontPosture.REGULAR, 25);
-
-    //Welcome to Java string
-    String welcome = "classification";
-    double rotation = -80;
-
-    double radius = 155d;
-
-    //Loop
-    for (char c : welcome.toCharArray()) {
-        // ignore whitespace, otherwise add rotated char
-        if (!Character.isWhitespace(c)) {
-            Text text = new Text(Character.toString(c));
-            text.setFont(font);
-
-            Rotate rotationMatrix = new Rotate(rotation, 0, radius);
-            text.getTransforms().add(rotationMatrix);
-
-            textGroup.getChildren().add(text);
-        }
-        rotation += 5;
-        textGroup.setTranslateX(422);
-        textGroup.setTranslateY(113);
-    }
-    
-    // add new page
-    contentPane.getChildren().add(root);
-    // contentPane.getChildren().add(textGroup);
+        // add new page
+        contentPane.getChildren().add(root);
 
     }
 
@@ -141,6 +98,91 @@ public class App extends Application {
         return imageView;
     }
 
+
+
+    // error window
+    // TODO: Make it in its own file instead of visible false
+
+    public static void showExceptionWindow(Exception exception) {
+        Pane exceptionOuterPane = (Pane) scene.lookup("#exceptionOuterPane");
+        Pane exceptionWindow = (Pane) scene.lookup("#exceptionWindow");
+
+        String exceptionMessage = exception.getMessage();
+        String exceptionName = exception.getClass().getName();
+        String exceptionStackTrace = exception.getStackTrace().toString();
+
+        Label exceptionMessageLabel = (Label) exceptionWindow.lookup("#exceptionMessage");
+        exceptionMessageLabel.setText(exceptionMessage);
+
+        Label exceptionNameLabel = (Label) exceptionWindow.lookup("#exceptionName");
+        if (exceptionName.length() > 35) {
+            exceptionName = exceptionName.substring(0, 35) + "...";
+        }
+        exceptionNameLabel.setText(exceptionName);
+
+        Group showStackTrace = (Group) exceptionWindow.lookup("#showStackTrace");
+        Button closeButton = (Button) exceptionWindow.lookup("#closeExceptionButton");
+
+        
+        Label stackTraceLabel = (Label) exceptionWindow.lookup("#stackTrace");
+        stackTraceLabel.setVisible(false);
+        
+        if (!exceptionWindowEventsAdded) {
+            showStackTrace.addEventHandler(javafx.scene.input.MouseEvent.MOUSE_CLICKED, e -> {
+                toggleStackTrace(exceptionWindow, exceptionStackTrace);
+            });
+            
+            Pane closeArea = (Pane) exceptionOuterPane.lookup("#closeArea");
+            closeArea.setOnMouseClicked(e -> {
+                hideExceptionWindow(exceptionOuterPane);
+            });
+            
+            closeButton.setOnMouseClicked(e -> {
+                hideExceptionWindow(exceptionOuterPane);
+            });
+            
+            exceptionWindowEventsAdded = true;
+        }
+        
+        exceptionOuterPane.setVisible(true);
+    }
+
+    private static void hideExceptionWindow(Pane exceptionWindow) {
+        Label stackTraceLabel = (Label) exceptionWindow.lookup("#stackTrace");
+        stackTraceLabel.setVisible(false);
+        stackTraceLabel.setPrefHeight(0);
+        stackTraceLabel.setLayoutY(0);
+        exceptionWindow.setPrefHeight(80);
+
+        Label exceptionMessageLabel = (Label) exceptionWindow.lookup("#exceptionMessage");
+        exceptionMessageLabel.setText("");
+
+        Label exceptionNameLabel = (Label) exceptionWindow.lookup("#exceptionName");
+        exceptionNameLabel.setText("");
+
+        stackTraceLabel.setText("");
+
+        exceptionWindow.setVisible(false);
+        
+    }
+
+    private static void toggleStackTrace(Pane exceptionWindow, String exceptionStackTrace) {
+        Label stackTraceLabel = (Label) exceptionWindow.lookup("#stackTrace");
+        System.out.println("toggleStackTrace : " + stackTraceLabel.isVisible());
+
+        if (stackTraceLabel.isVisible()) {
+            stackTraceLabel.setVisible(false);
+            stackTraceLabel.setPrefHeight(0);
+            stackTraceLabel.setLayoutY(0);
+            exceptionWindow.setPrefHeight(80);
+        } else {
+            stackTraceLabel.setText(exceptionStackTrace);
+            stackTraceLabel.setPrefHeight(320);
+            stackTraceLabel.setLayoutY(80);
+            stackTraceLabel.setVisible(true);
+            exceptionWindow.setPrefHeight(400);
+        }
+    }
     
 
 
@@ -169,7 +211,7 @@ public class App extends Application {
         //             key.reset();
         //         }
         //     } catch (IOException | InterruptedException e) {
-        //         e.printStackTrace();
+        //         App.showExceptionWindow(e);
         //     }
         // }, 0, 1, TimeUnit.SECONDS);
     // }

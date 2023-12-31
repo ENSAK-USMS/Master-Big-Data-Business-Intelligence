@@ -3,7 +3,7 @@
  * Date: Dec 04, 2023
  * Time: 10:08:57 AM
 */
-package com.nfs.app.algorithms;
+package com.nfs.app.algorithms.classification;
 
 public class LinearRegression {
     private final double intercept, slope;

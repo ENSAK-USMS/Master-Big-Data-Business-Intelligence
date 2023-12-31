@@ -6,11 +6,13 @@
 <?import javafx.scene.Group?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
+<?import javafx.scene.paint.Color?>
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
@@ -124,6 +126,55 @@
                  <Pane fx:id="sideBarShadow2" layoutX="72.5" prefHeight="600.0" prefWidth="2.0" style="-fx-background-color: #13131355;" />
                </children>
             </AnchorPane>
+            <Pane fx:id="exceptionOuterPane" layoutY="42.4" prefHeight="560.0" prefWidth="902.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="42.0">
+               <children>
+                  <Pane fx:id="closeArea" prefHeight="560.0" prefWidth="900.0" />
+                  <Pane fx:id="exceptionWindow" layoutX="283.0" layoutY="47.0" prefWidth="400.0" style="-fx-background-color: #121112; -fx-background-radius: 5;">
+                     <children>
+                        <Label layoutX="4.0" layoutY="3.0" text="Exception" textFill="#cccccc">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="exceptionMessage" layoutX="6.0" layoutY="27.0" prefHeight="42.0" prefWidth="271.0" textFill="#c7c4c4" wrapText="true" />
+                        <Group layoutX="365.0">
+                           <children>
+                              <Button fx:id="closeExceptionButton" layoutX="11.0" mnemonicParsing="false" prefHeight="23.0" prefWidth="24.0" style="-fx-background-radius: 0 5 0 0; -fx-border-radius: 0;" stylesheets="@styles/index.css">
+                                 <styleClass>
+                                    <String fx:value="close-button" />
+                                    <String fx:value="hoverable" />
+                                 </styleClass>
+                              </Button>
+                              <ImageView fx:id="closeImage1" fitHeight="18.0" fitWidth="16.0" layoutX="14.800003051757812" layoutY="5.0" mouseTransparent="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@images/headers/close.png" />
+                                 </image>
+                              </ImageView>
+                           </children>
+                        </Group>
+                        <Group fx:id="showStackTrace" layoutX="319.0" layoutY="49.0">
+                           <children>
+                              <Label text="Read More" />
+                              <ImageView fitHeight="15.0" fitWidth="15.0" layoutX="61.0" layoutY="2.0" pickOnBounds="true" preserveRatio="true" rotate="-90.0">
+                                 <image>
+                                    <Image url="@images/readmore.png" />
+                                 </image>
+                              </ImageView>
+                           </children>
+                        </Group>
+                        <Label fx:id="stackTrace" alignment="TOP_CENTER" layoutX="6.0" prefHeight="0.0" prefWidth="392.0" textAlignment="JUSTIFY" textFill="#c7c4c4" visible="false" wrapText="true" />
+                        <Label fx:id="exceptionName" layoutX="86.0" layoutY="8.0" prefHeight="1.0" prefWidth="271.0" textFill="#c7c4c4" wrapText="true" />
+                     </children>
+                     <effect>
+                        <DropShadow blurType="GAUSSIAN" height="30.36" radius="21.115000000000002" width="56.1">
+                           <color>
+                              <Color red="0.25728654861450195" green="0.08350877463817596" blue="0.35789474844932556" />
+                           </color>
+                        </DropShadow>
+                     </effect>
+                  </Pane>
+               </children>
+            </Pane>
          </children>
       </AnchorPane>
    </children>

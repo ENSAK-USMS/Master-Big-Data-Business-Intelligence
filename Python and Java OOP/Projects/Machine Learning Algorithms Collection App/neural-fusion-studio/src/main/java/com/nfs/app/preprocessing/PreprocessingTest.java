@@ -18,12 +18,12 @@ public class PreprocessingTest {
 
         
         // Test ReplaceMissingValuesWithMean()
-        try {
-            preprocessing.ReplaceMissingValuesWithMean();
-            System.out.println("Missing values replaced with mean successfully.");
-        } catch (Exception e) {
-            System.out.println("Failed to replace missing values with mean: " + e.getMessage());
-        }
+        // try {
+        //     preprocessing.ReplaceMissingValuesWithMean();
+        //     System.out.println("Missing values replaced with mean successfully.");
+        // } catch (Exception e) {
+        //     System.out.println("Failed to replace missing values with mean: " + e.getMessage());
+        // }
 
         // Test removeInstancesWithNullValue(String attributeName)
         String attributeNameToRemove = "education-spending";

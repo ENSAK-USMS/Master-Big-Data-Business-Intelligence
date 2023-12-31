@@ -11,13 +11,14 @@ public class calc {
 
     public static void main(String[] args) {
         getWithPercentageRange();
-        // getWithLinesCount();
+        getWithLinesCount();
     }
 
     private static void getWithLinesCount() {
         System.out.print("Give the number of Lines you want to generate: ");
         Scanner sc = new Scanner(System.in);
         int numPoints = sc.nextInt();
+        sc.close();
 
         float lineLength = 7.0f;
         float lineStrokeWidth = 2.0f;
@@ -48,6 +49,7 @@ public class calc {
         
         Scanner sc = new Scanner(System.in);
         int percentage = sc.nextInt();
+        sc.close();
 
         // Validate the percentage input
         if (percentage < 0 || percentage > 100) {

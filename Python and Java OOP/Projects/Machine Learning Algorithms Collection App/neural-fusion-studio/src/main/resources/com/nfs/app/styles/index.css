@@ -10,7 +10,7 @@
 }
 
 .close-button:hover {
-    -fx-background-color: #e81123;
+    -fx-background-color: rgb(32, 60, 209);
 }
 
 /* minimze window bottn */
