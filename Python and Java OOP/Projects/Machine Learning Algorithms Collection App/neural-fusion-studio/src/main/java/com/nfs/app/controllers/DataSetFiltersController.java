@@ -25,6 +25,7 @@ import javafx.scene.chart.BarChart;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.FlowPane;
@@ -55,6 +56,9 @@ public class DataSetFiltersController {
 
     @FXML
     private Label attr_info_missing;
+
+    @FXML
+    private Button close_filter_pane_btn;
 
     @FXML
     private Label attr_info_name;
@@ -112,6 +116,12 @@ public class DataSetFiltersController {
         filters_pane_container.setVisible(true);
         filters_vbox.getChildren().clear();
         filters_vbox.getChildren().add(createFilterPane_MissingValues());
+    }
+
+    @FXML
+    void close_filter_pane(ActionEvent event) {
+        filters_pane_container.setVisible(false);
+        filters_vbox.getChildren().clear();
     }
 
     public void onInit() {
@@ -184,7 +194,8 @@ public class DataSetFiltersController {
 
     @FXML
     void closeDataSetEdit(ActionEvent event) {
-
+        BaseController.unblurBasePage();
+        BaseController.removePageFromBasePane();
     }
 
     @FXML
@@ -271,7 +282,7 @@ public class DataSetFiltersController {
         attr_info_name.setText(attr_name);
         attr_info_type.setText(dataSet.attribute(index_of_attribute).type() == 0 ? "Numeric" : "Nominal");
         attr_info_unique.setText(String.valueOf(dataSet.attribute(index_of_attribute).numValues()));
-        attr_info_missing.setText(String.valueOf(dataSet.attributeStats(index_of_attribute).uniqueCount));
+        attr_info_missing.setText(String.valueOf(dataSet.attributeStats(index_of_attribute).missingCount));
     }
 
     public void setDataSet(Instances dataSet) {
@@ -446,6 +457,9 @@ public class DataSetFiltersController {
         removeMissingValuesLabel.setTextFill(Color.web("#d1d116"));
         removeMissingValuesLabel.setPadding(new Insets(3, 5, 3, 5));
 
+        // add margin top 4, right 4, bottom 0, left 4
+        VBox.setMargin(removeMissingValuesPane, new Insets(4, 4, 0, 4));
+
         removeMissingValuesPane.getChildren().add(removeMissingValuesLabel);
 
         Pane replaceWithMeanPane = new Pane();
@@ -462,13 +476,65 @@ public class DataSetFiltersController {
         replaceWithMeanLabel.setTextFill(Color.web("#d1d116"));
         replaceWithMeanLabel.setPadding(new Insets(3, 5, 3, 5));
 
-        // for all filterpanes add margin top 4, right 4, bottom 0, left 4
-        VBox.setMargin(removeMissingValuesPane, new Insets(4, 4, 0, 4));
+        // add margin top 4, right 4, bottom 0, left 4
         VBox.setMargin(replaceWithMeanPane, new Insets(4, 4, 0, 4));
 
         replaceWithMeanPane.getChildren().add(replaceWithMeanLabel);
 
-        vBox.getChildren().addAll(removeMissingValuesPane, replaceWithMeanPane);
+
+        Pane replaceWithNeighborPane = new Pane();
+        replaceWithNeighborPane.setPrefHeight(40);
+        replaceWithNeighborPane.setPrefWidth(414);
+        replaceWithNeighborPane.setStyle("-fx-background-color: #2a2a2a;");
+        replaceWithNeighborPane.setVisible(false);
+
+        Label replaceWithNeighborLabel = new Label();
+        replaceWithNeighborLabel.setLayoutX(14);
+        replaceWithNeighborLabel.setLayoutY(8);
+        replaceWithNeighborLabel.setStyle("-fx-background-color: transparent;");
+        replaceWithNeighborLabel.setText("Replace with mean");
+        replaceWithNeighborLabel.setTextFill(Color.web("#d1d116"));
+        replaceWithNeighborLabel.setPadding(new Insets(3, 5, 3, 5));
+
+        // add margin top 4, right 4, bottom 0, left 4
+        VBox.setMargin(replaceWithNeighborPane, new Insets(4, 4, 0, 4));
+
+        replaceWithNeighborPane.getChildren().add(replaceWithNeighborLabel);
+
+        Pane replaceWithCustomValuePane = new Pane();
+        replaceWithCustomValuePane.setPrefHeight(40);
+        replaceWithCustomValuePane.setPrefWidth(414);
+        replaceWithCustomValuePane.setStyle("-fx-background-color: #2a2a2a;");
+        replaceWithCustomValuePane.setVisible(false);
+
+        Label replaceWithCustomValueLabel = new Label();
+        replaceWithCustomValueLabel.setLayoutX(14);
+        replaceWithCustomValueLabel.setLayoutY(8);
+        replaceWithCustomValueLabel.setStyle("-fx-background-color: transparent;");
+        replaceWithCustomValueLabel.setText("Replace with custom value");
+        replaceWithCustomValueLabel.setTextFill(Color.web("#d1d116"));
+        replaceWithCustomValueLabel.setPadding(new Insets(3, 5, 3, 5));
+
+        Label ValueFieldLabel = new Label();
+        ValueFieldLabel.setLayoutX(300);
+        ValueFieldLabel.setLayoutY(8);
+        ValueFieldLabel.setStyle("-fx-background-color: transparent;");
+        ValueFieldLabel.setText("value :");
+        ValueFieldLabel.setTextFill(Color.web("#d1d116"));
+        ValueFieldLabel.setPadding(new Insets(3, 5, 3, 5));
+
+        TextField textField = new TextField();
+        textField.setLayoutX(340.0);
+        textField.setLayoutY(8.0);
+        textField.setPrefHeight(25.0);
+        textField.setPrefWidth(50.0);
+        //
+        // add margin top 4, right 4, bottom 0, left 4
+        VBox.setMargin(replaceWithCustomValuePane, new Insets(4, 4, 0, 4));
+
+        replaceWithCustomValuePane.getChildren().addAll(replaceWithCustomValueLabel, ValueFieldLabel, textField);
+
+        vBox.getChildren().addAll(removeMissingValuesPane, replaceWithMeanPane, replaceWithCustomValuePane, replaceWithNeighborPane);
 
         pane.getChildren().addAll(imageView, label, vBox);
 
@@ -477,13 +543,18 @@ public class DataSetFiltersController {
             if (removeMissingValuesPane.isVisible()) {
                 removeMissingValuesPane.setVisible(false);
                 replaceWithMeanPane.setVisible(false);
+                replaceWithCustomValuePane.setVisible(false);
+                replaceWithNeighborPane.setVisible(false);
                 pane.setPrefHeight(40);
                 imageView.setRotate(0);
             } else {
                 removeMissingValuesPane.setVisible(true);
                 replaceWithMeanPane.setVisible(true);
-                pane.setPrefHeight(126);
+                replaceWithCustomValuePane.setVisible(true);
+                replaceWithNeighborPane.setVisible(true);
+                pane.setPrefHeight(212);
                 imageView.setRotate(90);
+
             }
         });
 
@@ -519,6 +590,28 @@ public class DataSetFiltersController {
                     if (checkBox.isSelected()) {
                         String attribute_name = checkBox.getId();
                         this.dataSet = MissingValues.removeMissingRecords(this.dataSet, attribute_name);
+                    }
+                }
+            }
+
+            filters_pane_container.setVisible(false);
+            filters_vbox.getChildren().clear();
+
+            instancesPane.getChildren().clear();
+            addInstancesGrid();
+            onInit();
+        });
+
+        replaceWithCustomValuePane.setOnMouseClicked(event -> {
+
+            if (!checkBoxMap.isEmpty()) {
+                Iterator<Map.Entry<String, CheckBox>> iterator = checkBoxMap.entrySet().iterator();
+                while (iterator.hasNext()) {
+                    Map.Entry<String, CheckBox> entry = iterator.next();
+                    CheckBox checkBox = entry.getValue();
+                    if (checkBox.isSelected()) {
+                        String attribute_name = checkBox.getId();
+                        MissingValues.fillMissingWithCustomValue(dataSet, attribute_name, Double.valueOf(textField.getText()));
                     }
                 }
             }

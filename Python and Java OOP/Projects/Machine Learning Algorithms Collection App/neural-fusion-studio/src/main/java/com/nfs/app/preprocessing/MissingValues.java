@@ -51,6 +51,7 @@ public class MissingValues {
             ReplaceMissingValues filter = new ReplaceMissingValues();
             filter.setOptions(new String[]{"-A", String.valueOf(filteredData.attribute(attributeName).index() + 1)});
             filter.setInputFormat(filteredData);
+            filter.setOptions(new String[]{"-S", String.valueOf(filteredData.attribute(attributeName).index() + 1), "-C", "last"});
             filteredData = Filter.useFilter(filteredData, filter);
         } catch (Exception e) {
             App.showExceptionWindow(e);

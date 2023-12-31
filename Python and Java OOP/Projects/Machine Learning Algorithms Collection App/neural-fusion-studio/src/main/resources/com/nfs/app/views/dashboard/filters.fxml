@@ -231,11 +231,12 @@
       </AnchorPane>
       <Pane fx:id="filters_pane_container" layoutX="213.0" layoutY="169.0" prefHeight="291.0" prefWidth="467.0" style="-fx-background-color: #3b3b3b; -fx-border-color: #1a1a1a; -fx-border-width: 2;" visible="false">
          <children>
-            <ScrollPane hbarPolicy="NEVER" prefHeight="291.0" prefWidth="467.0" styleClass="scroll_pane" stylesheets="@../../styles/index.css">
+            <ScrollPane hbarPolicy="NEVER" prefHeight="253.0" prefWidth="467.0" styleClass="scroll_pane" stylesheets="@../../styles/index.css">
                <content>
-                  <VBox fx:id="filters_vbox" prefHeight="291.0" prefWidth="467.0" spacing="3.0" />
+                  <VBox fx:id="filters_vbox" prefHeight="253.0" prefWidth="467.0" spacing="3.0" />
                </content>
             </ScrollPane>
+            <Button fx:id="close_filter_pane_btn" layoutX="405.0" layoutY="260.0" mnemonicParsing="false" onAction="#close_filter_pane" prefHeight="25.0" prefWidth="56.0" style="-fx-background-color: #a4a4a4; -fx-background-radius: 2;" text="Close" />
          </children>
       </Pane>
    </children>
