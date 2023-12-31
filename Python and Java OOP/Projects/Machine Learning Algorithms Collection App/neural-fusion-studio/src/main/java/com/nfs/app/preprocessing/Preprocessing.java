@@ -4,10 +4,16 @@ import weka.core.Instances;
 import weka.filters.Filter;
 import weka.filters.unsupervised.attribute.Remove;
 import weka.filters.unsupervised.attribute.ReplaceMissingValues;
+import weka.filters.unsupervised.attribute.ReplaceMissingWithUserConstant;
 import weka.filters.unsupervised.attribute.StringToNominal;
 import weka.filters.unsupervised.attribute.NominalToBinary;
 import weka.filters.unsupervised.attribute.Normalize;
+
+import com.nfs.app.App;
+
 import weka.core.Attribute;
+import weka.core.Instance;
+import weka.filters.unsupervised.instance.RemoveWithValues;
 
 public class Preprocessing {
     private Instances instances;
@@ -92,5 +98,64 @@ public class Preprocessing {
 
     public void setInstances(Instances instances) {
         this.instances = instances;
+    }
+
+    /**
+     * Removes instances with missing values in the specified attribute from the
+     * given dataset.
+     *
+     * @param data          The dataset containing instances.
+     * @param attributeName The name of the attribute with missing values.
+     * @return The dataset with missing records removed.
+     */
+    public static Instances removeMissingRecords(Instances data, String attributeName) {
+        try {
+            // remove row with missing values in the specified attribute
+            data.removeIf(instance -> instance.isMissing(data.attribute(attributeName)));
+        } catch (Exception e) {
+            App.showExceptionWindow(e);
+        }
+        System.out.println("DATA \n "+data.toSummaryString());
+        return data;
+    }
+
+    public static Instances fillMissingWithCustomValue(Instances data, double value, String attributeName) {
+        // Create a new Instances object to store the filtered data
+        Instances filteredData = new Instances(data);
+
+        // Apply the ReplaceMissingValues filter with custom value option to fill
+        // missing values
+        try {
+            ReplaceMissingWithUserConstant filter = new ReplaceMissingWithUserConstant();
+            filter.setOptions(new String[] { "-A", attributeName, "-N", String.valueOf(value), "-R", "1" });
+            filter.setInputFormat(filteredData);
+            filteredData = Filter.useFilter(filteredData, filter);
+        } catch (Exception e) {
+            System.out.println("Failed to fill missing values with custom value: " + e.getMessage());
+            App.showExceptionWindow(e);
+        }
+
+        return filteredData;
+    }
+    
+   
+
+    public static Instances fillMissingValuesWithMean(Instances data, String attributeName) {
+
+        // Find the index of the specified attribute
+        int attributeIndex = data.attribute(attributeName).index();
+
+        // Compute the mean value for the attribute
+        double mean = data.meanOrMode(attributeIndex);
+
+        // Replace missing values with the mean value
+        for (Instance instance : data) {
+            if (instance.isMissing(attributeIndex)) {
+                instance.setValue(attributeIndex, mean);
+            }
+        }
+
+        return data;
+        
     }
 }

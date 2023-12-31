@@ -26,6 +26,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
@@ -215,9 +216,10 @@ public class DataSetFiltersController {
     }
 
     @FXML
-    public void closeDataSetEdit() {
+    private void closeDataSetFilter(ActionEvent event) {
         BaseController.unblurBasePage();
         BaseController.removePageFromBasePane();
+        System.out.println("closeDataSetFilter");
     }
 
     public void addInstancesGrid() {
