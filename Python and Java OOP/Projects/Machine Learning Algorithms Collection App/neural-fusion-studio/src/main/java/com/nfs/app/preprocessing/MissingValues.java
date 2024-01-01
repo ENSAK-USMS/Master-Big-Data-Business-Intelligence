@@ -90,21 +90,21 @@ public class MissingValues {
     }
 
     // Solution 3: Fill missing values using backward/forward fill method
-    public static Instances fillMissingValuesWithNeighbor(Instances data) {
+    public static Instances fillMissingValuesWithNeighbor(Instances data, String attributeName) {
+        // Get the index of the attribute
+        int attributeIndex = data.attribute(attributeName).index();
+
         // Iterate over each instance
         for (int i = 0; i < data.numInstances(); i++) {
             Instance instance = data.instance(i);
 
-            // Iterate over each attribute
-            for (int j = 0; j < data.numAttributes(); j++) {
-                // Check if the attribute value is missing
-                if (instance.isMissing(j)) {
-                    // Fill the missing value with the previous or next value
-                    if (i > 0 && !data.instance(i - 1).isMissing(j)) {
-                        instance.setValue(j, data.instance(i - 1).value(j));
-                    } else if (i < data.numInstances() - 1 && !data.instance(i + 1).isMissing(j)) {
-                        instance.setValue(j, data.instance(i + 1).value(j));
-                    }
+            // Check if the attribute value is missing
+            if (instance.isMissing(attributeIndex)) {
+                // Fill the missing value with the previous or next value
+                if (i > 0 && !data.instance(i - 1).isMissing(attributeIndex)) {
+                    instance.setValue(attributeIndex, data.instance(i - 1).value(attributeIndex));
+                } else if (i < data.numInstances() - 1 && !data.instance(i + 1).isMissing(attributeIndex)) {
+                    instance.setValue(attributeIndex, data.instance(i + 1).value(attributeIndex));
                 }
             }
         }

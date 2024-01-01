@@ -17,7 +17,7 @@ public class RemoveDuplicates {
     }
 
     // Solution 1: Remove duplicate records
-    public void removeDuplicates() {
+    public Instances removeDuplicates() {
         // Create a new Instances object to store the filtered data
         Instances filteredData = new Instances(data);
 
@@ -31,11 +31,11 @@ public class RemoveDuplicates {
         }
 
         // Update the data with the filtered instances
-        data = filteredData;
+        return filteredData;
     }
 
     // Solution 2: Remove duplicate attributes
-    public void removeDuplicateAttributes() {
+    public Instances removeDuplicateAttributes() {
         // Create a new Instances object to store the filtered data
         Instances filteredData = new Instances(data);
 
@@ -48,6 +48,6 @@ public class RemoveDuplicates {
             }
         }
         // Update the data with the filtered instances
-        data = filteredData;
+        return filteredData;
     }
 }
