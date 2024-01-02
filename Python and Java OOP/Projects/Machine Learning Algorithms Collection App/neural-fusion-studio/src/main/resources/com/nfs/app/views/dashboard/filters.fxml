@@ -47,9 +47,9 @@
                      </font>
                   </Button>
                   <Line endY="27.0" stroke="TRANSPARENT" strokeLineCap="BUTT" strokeWidth="10.0" />
-                  <TextField editable="false" prefHeight="26.0" prefWidth="594.0" promptText="← Click Filters to See Options" style="-fx-background-color: #737070;" />
+                  <TextField fx:id="textFieldFiltersOptions" editable="false" prefHeight="26.0" prefWidth="594.0" promptText="← Click Filters to See Options" style="-fx-background-color: #737070;" />
                   <Line endY="27.0" stroke="TRANSPARENT" strokeLineCap="BUTT" strokeWidth="10.0" />
-                  <Button mnemonicParsing="false" prefHeight="26.0" prefWidth="59.0" style="-fx-background-color: #121212;" text="Apply" textFill="#eaeaea">
+                  <Button fx:id="applyiFIlterBtn" mnemonicParsing="false" onAction="#applyFilterBtnClick" prefHeight="26.0" prefWidth="59.0" style="-fx-background-color: #121212;" text="Apply" textFill="#eaeaea">
                      <font>
                         <Font name="System Bold" size="12.0" />
                      </font>
