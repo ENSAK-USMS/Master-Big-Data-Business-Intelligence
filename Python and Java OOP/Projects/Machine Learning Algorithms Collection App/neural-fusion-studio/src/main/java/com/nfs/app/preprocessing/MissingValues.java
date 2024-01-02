@@ -73,6 +73,7 @@ public class MissingValues {
     public static Instances fillMissingWithCustomValue(Instances data, String attributeName, double value) {
         // Create a new Instances object to store the filtered data
         Instances filteredData = new Instances(data);
+        System.out.println("the custom value is "+value+ " and the attribute name is "+attributeName);
 
         // Apply the ReplaceMissingValues filter with custom value option to fill
         // missing values
@@ -85,6 +86,8 @@ public class MissingValues {
             System.out.println("Failed to fill missing values with custom value: " + e.getMessage());
             App.showExceptionWindow(e);
         }
+
+        System.out.println(filteredData.toSummaryString());
 
         return filteredData;
     }

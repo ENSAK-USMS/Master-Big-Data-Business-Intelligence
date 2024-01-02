@@ -30,15 +30,14 @@ public class RemoveDuplicates {
         // Create a new Instances object to store the filtered data
         Instances filteredData = new Instances(data);
 
-        // loop over the attributes and remove duplicate attributes
+        // Loop over the attributes and remove duplicate attributes
         for (int i = 0; i < filteredData.numAttributes(); i++) {
             for (int j = i + 1; j < filteredData.numAttributes(); j++) {
-                if (filteredData.attribute(i).name().equals(filteredData.attribute(j).name())) {
+                if (filteredData.attribute(i).equals(filteredData.attribute(j))) {
                     filteredData.deleteAttributeAt(j);
                 }
             }
         }
-        
         // Return the filtered instances
         return filteredData;
     }

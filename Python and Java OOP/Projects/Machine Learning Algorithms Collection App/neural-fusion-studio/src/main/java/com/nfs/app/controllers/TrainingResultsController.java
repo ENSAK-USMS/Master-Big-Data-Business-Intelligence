@@ -18,6 +18,8 @@ import java.io.FileOutputStream;
 import java.io.ObjectOutputStream;
 import java.io.File;
 import java.nio.file.Paths;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.Optional;
 
 import javafx.scene.control.TextInputDialog;
@@ -71,6 +73,11 @@ public class TrainingResultsController {
                 // User canceled the dialog, do nothing
                 return;
             }
+            // add date to model 
+            Date date = new Date();
+            SimpleDateFormat formatter = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss");
+            model.setDate(formatter.format(date));
+
 
             // if the dir models in C:\Users\abdob\Downloads\ does not exist, create it
             if (!Paths.get(System.getProperty("user.home") + File.separator+"Downloads" + File.separator + "models").toFile().exists()) {
