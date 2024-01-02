@@ -1,8 +1,3 @@
-/**
- * @author abdobella
- * Date: Dec 07, 2023
- * Time: 3:15:10 PM
-*/
 package com.nfs.app.preprocessing;
 
 import com.nfs.app.App;
@@ -10,14 +5,11 @@ import com.nfs.app.App;
 import weka.core.Instances;
 
 public class RemoveDuplicates {
-    private Instances data;
     
-    public RemoveDuplicates(Instances data) {
-        this.data = data;
-    }
 
     // Solution 1: Remove duplicate records
-    public Instances removeDuplicates() {
+
+    public static Instances removeDuplicates(Instances data) {
         // Create a new Instances object to store the filtered data
         Instances filteredData = new Instances(data);
 
@@ -29,13 +21,13 @@ public class RemoveDuplicates {
         } catch (Exception e) {
             App.showExceptionWindow(e);
         }
-
-        // Update the data with the filtered instances
+        // Return the filtered instances
         return filteredData;
     }
 
     // Solution 2: Remove duplicate attributes
-    public Instances removeDuplicateAttributes() {
+
+    public static Instances removeDuplicateAttributes(Instances data) {
         // Create a new Instances object to store the filtered data
         Instances filteredData = new Instances(data);
 
@@ -47,7 +39,7 @@ public class RemoveDuplicates {
                 }
             }
         }
-        // Update the data with the filtered instances
+        // Return the filtered instances
         return filteredData;
     }
 }

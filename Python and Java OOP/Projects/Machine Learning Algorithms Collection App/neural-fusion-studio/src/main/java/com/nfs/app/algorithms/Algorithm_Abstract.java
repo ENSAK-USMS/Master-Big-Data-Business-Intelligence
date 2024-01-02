@@ -5,12 +5,16 @@
 */
 package com.nfs.app.algorithms;
 
+import java.io.Serializable;
+
 import weka.classifiers.Evaluation;
 import weka.core.Instances;
 
-public abstract class Algorithm_Abstract {
+public abstract class Algorithm_Abstract implements Serializable {
         protected Instances dataset;
         protected Evaluation evaluation;
+        protected String filePath;
+        protected String fileName;
 
         public void setup(Instances dataset) {
             this.dataset = dataset;
@@ -27,7 +31,20 @@ public abstract class Algorithm_Abstract {
 
         public abstract void evaluate();
 
+        public abstract Evaluation getEvaluationResults();
+
+        public void setFilePath(String filePath) {
+            this.filePath = filePath;
+            // set file name
+            // get the last index of the file separator
+            int lastIndexOfFileSeparator = filePath.lastIndexOf(System.getProperty("file.separator"));
+            // get the file name
+            fileName = filePath.substring(lastIndexOfFileSeparator + 1);
+        }
+
         public String getDefaultOptions() {
             return "";
         }
+
+        public abstract String getName();
     }

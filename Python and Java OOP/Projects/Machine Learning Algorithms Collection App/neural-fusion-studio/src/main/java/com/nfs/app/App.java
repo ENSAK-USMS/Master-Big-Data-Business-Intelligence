@@ -109,7 +109,7 @@ public class App extends Application {
 
         String exceptionMessage = exception.getMessage();
         String exceptionName = exception.getClass().getName();
-        String exceptionStackTrace = exception.getStackTrace().toString();
+        String exceptionStackTrace = exception.toString();
 
         Label exceptionMessageLabel = (Label) exceptionWindow.lookup("#exceptionMessage");
         exceptionMessageLabel.setText(exceptionMessage);

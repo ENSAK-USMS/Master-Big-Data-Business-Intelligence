@@ -13,9 +13,11 @@ import javafx.scene.Parent;
 import javafx.scene.control.ProgressIndicator;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
+import javafx.scene.layout.VBox;
 import javafx.scene.shape.Circle;
 import javafx.animation.RotateTransition;
 import javafx.animation.StrokeTransition;
@@ -31,6 +33,7 @@ import javafx.scene.paint.Color;
 import javafx.scene.shape.Line;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.Label;
 
 import java.io.File;
 import java.io.IOException;
@@ -44,6 +47,7 @@ import javafx.animation.Interpolator;
 import javafx.animation.KeyFrame;
 import javafx.animation.KeyValue;
 import javafx.animation.Timeline;
+
 
 public class DashboardController {
 
@@ -72,6 +76,12 @@ public class DashboardController {
     @FXML
     private ComboBox<String> targetClassesOptions;
 
+    @FXML
+    private Pane rightSideBarPane;
+
+    @FXML
+    private ImageView rightSideBarIcon;
+
     private Instances dataSet;
 
     private Algorithm_Abstract trainingAlgorithm;
@@ -79,6 +89,9 @@ public class DashboardController {
     private String selectedAlgorithm;
 
     private HashMap<String, Algorithm_Abstract> algorithms = new HashMap<String, Algorithm_Abstract>();
+
+    private String filePath;
+
 
 
     @FXML
@@ -222,14 +235,16 @@ public class DashboardController {
                                 }
                             };
 
-                            loadDataSetTask.setOnSucceeded(event -> {
-                                dataSetLoadedIcon.setVisible(true);
-                                dataSetOpenProgress.setVisible(false);
-                                loadAlgorithms();
-                                setTargetClassesOptions();
-                            });
+                loadDataSetTask.setOnSucceeded(event -> {
+                    dataSetLoadedIcon.setVisible(true);
+                    dataSetOpenProgress.setVisible(false);
+                    this.filePath = selectedFile.getAbsolutePath();
+                    loadAlgorithms();
+                    setTargetClassesOptions();
+                });
                 loadDataSetTask.setOnFailed(event -> {
                     dataSetOpenProgress.setVisible(false);
+                    System.out.println("Failed to load dataset");
                 });
                 new Thread(loadDataSetTask).start();
                 // TODO: create some animation showing that the data is loaded
@@ -283,8 +298,8 @@ public class DashboardController {
         }
     }
 
-    
 
+    
     @FXML
     private void showDatasetFiltersPage() {
         if(!checkIfDataSetIsLoaded()){
@@ -327,8 +342,140 @@ public class DashboardController {
     }
     
 
+    
+    
+    @FXML
+    private void showTrainingResultsPage() {
+        if(!checkIfDataSetIsLoaded()){
+            return;
+        }
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/nfs/app/views/dashboard/training-results.fxml"));
+            Parent trainingResultsPage = loader.load();
+            TrainingResultsController trainingResultsController = loader.getController();
+            
+            // // Now you can access the methods or properties of the TrainingResultsController
+            trainingResultsController.setDataSet(dataSet);
+            // set the evaluation results
+            System.out.println(trainingAlgorithm.getEvaluationResults().toSummaryString());
+            trainingAlgorithm.setFilePath(this.filePath);
+            trainingResultsController.setModel(trainingAlgorithm);
+            trainingResultsController.setResult();
+            BaseController.blurBasePage();
+            BaseController.addPageToBasePane(trainingResultsPage);
+        } catch (IOException e) {
+            App.showExceptionWindow(e);
+            e.printStackTrace();
+        }
+    }
 
 
+    @FXML
+    private void showRightSideBar(MouseEvent event) {
+
+
+        // change the image of the icon
+        rightSideBarIcon.setImage(App.loadImage("/com/nfs/app/images/right-menu-hover.png").getImage());
+
+
+        // text color #343434 paddint top and bottom 10 padding
+        String style = "-fx-text-fill: #737070; -fx-font-weight: bold; -fx-padding: 4 0 4 0;";
+
+        // add vbox to the right side bar pane size 200 * 150
+        VBox rightSideBarVBox = new VBox();
+        rightSideBarVBox.setPrefSize(200, 150);
+        // add 6 label with min size of 200 * 25
+        Label label1 = new Label("PC INFO"); 
+        label1.setStyle(style);
+        // get user windows edition
+        String osName = System.getProperty("os.name");
+        Label label2 = new Label(osName);
+        label2.setStyle(style);
+        // prossessor info
+        String prossessorInfo = "Intel(R) Core(TM) i5-7400 CPU @ 3.00GHz";
+        Label label3 = new Label(prossessorInfo);
+        label3.setStyle(style);
+        // Gpu info
+        String gpuInfo = "NVIDIA GeForce GTX 1050 Ti";
+        Label label4 = new Label(gpuInfo);
+        label4.setStyle(style);
+        // ram info
+        String ramInfo =  "7.7 GB";
+        Label label5 = new Label(ramInfo);
+        label5.setStyle(style);
+        // more info
+        Label label6 = new Label("More Info");
+        // underline the text
+        label6.setUnderline(true);
+        // onhover change the color of the text
+        label6.setOnMouseEntered(e -> {
+            label6.setStyle("-fx-text-fill: #b73437; -fx-font-weight: bold; -fx-padding: 4 0 4 0;");
+        });
+        // on exit change the color of the text
+        label6.setOnMouseExited(e -> {
+            label6.setStyle(style);
+        });
+        label6.setStyle(style);
+        // add labels to vbox
+        rightSideBarVBox.getChildren().addAll(label1,label2,label3,label4,label5,label6);
+
+        // vbox lyout 35 10
+        rightSideBarVBox.setLayoutX(35);
+        rightSideBarVBox.setLayoutY(10);
+        // add vbox to the right side bar pane
+        rightSideBarPane.getChildren().add(rightSideBarVBox);
+
+        
+
+
+        // Create a timeline for the animation
+        Timeline timeline = new Timeline();
+
+        // Create a KeyValue for changing the prefWidth property
+        KeyValue prefWidthKeyValue = new KeyValue(rightSideBarPane.prefWidthProperty(), 290);
+
+        // Create a KeyValue for changing the layoutX property
+        KeyValue layoutXKeyValue = new KeyValue(rightSideBarPane.layoutXProperty(), -50);
+
+        // Create a KeyFrame with the desired duration and key values
+        KeyFrame keyFrame = new KeyFrame(Duration.seconds(.3), prefWidthKeyValue, layoutXKeyValue);
+
+        // Add the key frame to the timeline
+        timeline.getKeyFrames().add(keyFrame);
+
+        // Play the timeline animation
+        timeline.play();
+    }
+
+    @FXML
+    private void hideRightSideBar(MouseEvent event) {
+
+        // Create a timeline for the animation
+        Timeline timeline = new Timeline();
+
+        // Create a KeyValue for changing the prefWidth property
+        KeyValue prefWidthKeyValue = new KeyValue(rightSideBarPane.prefWidthProperty(), 29);
+
+        // Create a KeyValue for changing the layoutX property
+        KeyValue layoutXKeyValue = new KeyValue(rightSideBarPane.layoutXProperty(), 174);
+
+        // Create a KeyFrame with the desired duration and key values
+        KeyFrame keyFrame = new KeyFrame(Duration.seconds(.3), prefWidthKeyValue, layoutXKeyValue);
+
+        // Add the key frame to the timeline
+        timeline.getKeyFrames().add(keyFrame);
+
+        // Set the OnFinished event handler
+        timeline.setOnFinished(e -> {
+            // change the image of the icon
+            rightSideBarIcon.setImage(App.loadImage("/com/nfs/app/images/right-menu.png").getImage());
+            // remove the vbox from the right side bar pane
+            rightSideBarPane.getChildren().remove(1);
+        });
+
+        // Play the timeline animation
+        timeline.play();
+    }
 
 
 

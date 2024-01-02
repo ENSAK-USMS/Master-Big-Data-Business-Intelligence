@@ -26,6 +26,7 @@ import javafx.scene.control.CheckBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
@@ -49,10 +50,7 @@ public class DataSetFiltersController {
     @FXML
     private Label attr_info_missing;
 
-    @FXML
-    private TextField textFieldFiltersOptions;
 
-    @FXML
     private Button close_filter_pane_btn;
 
     @FXML
@@ -115,6 +113,12 @@ public class DataSetFiltersController {
         filters_vbox.getChildren().clear();
         filters_vbox.getChildren().add(createFilterPane_MissingValues());
         filters_vbox.getChildren().add(createFilterPane_duplicate());
+    }
+
+    @FXML
+    void close_filter_pane(ActionEvent event) {
+        filters_pane_container.setVisible(false);
+        filters_vbox.getChildren().clear();
     }
 
     @FXML
@@ -226,9 +230,10 @@ public class DataSetFiltersController {
     }
 
     @FXML
-    public void closeDataSetEdit() {
+    private void closeDataSetFilter(ActionEvent event) {
         BaseController.unblurBasePage();
         BaseController.removePageFromBasePane();
+        System.out.println("closeDataSetFilter");
     }
 
     public void addInstancesGrid() {
@@ -479,6 +484,7 @@ public class DataSetFiltersController {
 
         replaceWithMeanPane.getChildren().add(replaceWithMeanLabel);
 
+
         Pane replaceWithNeighborPane = new Pane();
         replaceWithNeighborPane.setPrefHeight(40);
         replaceWithNeighborPane.setPrefWidth(414);
@@ -490,6 +496,7 @@ public class DataSetFiltersController {
         replaceWithNeighborLabel.setLayoutY(8);
         replaceWithNeighborLabel.setStyle("-fx-background-color: transparent;");
         replaceWithNeighborLabel.setText("Replace with neighbor");
+
         replaceWithNeighborLabel.setTextFill(Color.web("#d1d116"));
         replaceWithNeighborLabel.setPadding(new Insets(3, 5, 3, 5));
 
@@ -531,8 +538,9 @@ public class DataSetFiltersController {
 
         replaceWithCustomValuePane.getChildren().addAll(replaceWithCustomValueLabel, ValueFieldLabel, textField);
 
-        vBox.getChildren().addAll(removeMissingValuesPane, replaceWithMeanPane, replaceWithCustomValuePane,
-                replaceWithNeighborPane);
+
+        vBox.getChildren().addAll(removeMissingValuesPane, replaceWithMeanPane, replaceWithCustomValuePane, replaceWithNeighborPane);
+
 
         pane.getChildren().addAll(imageView, label, vBox);
 
@@ -714,6 +722,28 @@ public class DataSetFiltersController {
             filters_vbox.getChildren().clear();
             instancesPane.getChildren().clear();
 
+            addInstancesGrid();
+            onInit();
+        });
+
+        replaceWithCustomValuePane.setOnMouseClicked(event -> {
+
+            if (!checkBoxMap.isEmpty()) {
+                Iterator<Map.Entry<String, CheckBox>> iterator = checkBoxMap.entrySet().iterator();
+                while (iterator.hasNext()) {
+                    Map.Entry<String, CheckBox> entry = iterator.next();
+                    CheckBox checkBox = entry.getValue();
+                    if (checkBox.isSelected()) {
+                        String attribute_name = checkBox.getId();
+                        MissingValues.fillMissingWithCustomValue(dataSet, attribute_name, Double.valueOf(textField.getText()));
+                    }
+                }
+            }
+
+            filters_pane_container.setVisible(false);
+            filters_vbox.getChildren().clear();
+
+            instancesPane.getChildren().clear();
             addInstancesGrid();
             onInit();
         });

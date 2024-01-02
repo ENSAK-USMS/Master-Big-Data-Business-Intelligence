@@ -113,6 +113,15 @@
                                 <Image url="@images/sidemenubutton2.png" />
                               </image>
                            </ImageView>
+                              <Label layoutX="-17.0" layoutY="416.0" rotate="50.0" style="-fx-background-color: red;" text="Beta" textFill="#fafafa">
+                                 <padding>
+                                    <Insets left="20.0" right="15.0" />
+                                 </padding>
+                                 <font>
+                                    <Font name="Bookshelf Symbol 7" size="12.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="1.0" layoutY="441.0" mouseTransparent="true" pickOnBounds="false" prefWidth="37.0" style="-fx-background-color: #232323;" />
                            </children>
                         </Group>
                         <ImageView fitHeight="42.0" fitWidth="43.0" layoutX="15.0" layoutY="383.0" pickOnBounds="true" preserveRatio="true">

@@ -5,13 +5,15 @@
 */
 package com.nfs.app.algorithms.classification;
 
+import java.io.Serializable;
+
 import com.nfs.app.App;
 import com.nfs.app.algorithms.Algorithm_Abstract;
 
 import weka.classifiers.Evaluation;
 import weka.classifiers.trees.RandomForest;
 
-public class RandomForestAlgorithm extends Algorithm_Abstract {
+public class RandomForestAlgorithm extends Algorithm_Abstract implements Serializable {
     private RandomForest randomForest;
 
     public RandomForestAlgorithm() {
@@ -56,5 +58,21 @@ public class RandomForestAlgorithm extends Algorithm_Abstract {
             optionString += option + " ";
         }
         return optionString;
+    }
+
+    @Override
+    public Evaluation getEvaluationResults() {
+        return evaluation;
+    }
+    
+    @Override
+    public String getName() {
+        // get the object name
+        String objectName = this.getClass().getName();
+        // get the last index of the dot
+        int lastIndexOfDot = objectName.lastIndexOf(".");
+        // get the name
+        String name = objectName.substring(lastIndexOfDot + 1);
+        return name;
     }
 }

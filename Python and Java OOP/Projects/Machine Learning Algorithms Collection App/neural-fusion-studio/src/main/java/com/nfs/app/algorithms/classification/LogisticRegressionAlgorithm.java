@@ -5,13 +5,15 @@
 */
 package com.nfs.app.algorithms.classification;
 
+import java.io.Serializable;
+
 import com.nfs.app.App;
 import com.nfs.app.algorithms.Algorithm_Abstract;
 
 import weka.classifiers.Evaluation;
 import weka.classifiers.functions.Logistic;
 
-public class LogisticRegressionAlgorithm extends Algorithm_Abstract {
+public class LogisticRegressionAlgorithm extends Algorithm_Abstract implements Serializable {
     private Logistic logistic;
 
     public LogisticRegressionAlgorithm() {
@@ -56,6 +58,22 @@ public class LogisticRegressionAlgorithm extends Algorithm_Abstract {
             optionString += option + " ";
         }
         return optionString;
+    }
+
+    @Override
+    public Evaluation getEvaluationResults() {
+        return evaluation;
+    }
+    
+    @Override
+    public String getName() {
+        // get the object name
+        String objectName = this.getClass().getName();
+        // get the last index of the dot
+        int lastIndexOfDot = objectName.lastIndexOf(".");
+        // get the name
+        String name = objectName.substring(lastIndexOfDot + 1);
+        return name;
     }
 }
 
