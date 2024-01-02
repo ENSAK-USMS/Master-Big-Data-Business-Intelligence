@@ -15,12 +15,25 @@
 <?import javafx.scene.paint.Color?>
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
+<?import org.controlsfx.control.ToggleSwitch?>
 
 <AnchorPane fx:id="basePane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" style="-fx-background-color: #1a1a1a; -fx-border-color: #121212aa;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.nfs.app.controllers.BaseController">
    <children>
       <AnchorPane fx:id="pagePane" layoutX="-0.5">
          <children>
-            <Pane layoutX="0.5" mouseTransparent="true" pickOnBounds="false" prefHeight="600.0" prefWidth="900.0" style="-fx-border-color: #121212;" />
+            <Pane layoutX="0.5" mouseTransparent="true" pickOnBounds="false" prefHeight="600.0" prefWidth="900.0" style="-fx-border-color: #121212;">
+               <children>
+                  <Label layoutX="80.0" layoutY="5.0" prefHeight="18.0" prefWidth="38.0" text="Sync" textFill="#5e5e5e" underline="true">
+                     <font>
+                        <Font name="Leelawadee UI" size="13.0" />
+                     </font>
+                  </Label>
+                  <ToggleSwitch layoutX="106.0" layoutY="6.0" prefHeight="18.0" prefWidth="35.0" selected="true" styleClass="purple" stylesheets="@styles/dashboard.css">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </ToggleSwitch>
+               </children></Pane>
             <AnchorPane layoutX="791.0" prefHeight="35.0" prefWidth="109.0">
                <children>
                   <Group layoutX="74.0">
@@ -104,6 +117,9 @@
                               </image>
                            </ImageView>
                            </children>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
                         </Group>
                         <Group onMouseClicked="#swithToHistoryPage">
                            <children>
@@ -123,6 +139,9 @@
                               </Label>
                               <Label layoutX="1.0" layoutY="441.0" mouseTransparent="true" pickOnBounds="false" prefWidth="37.0" style="-fx-background-color: #232323;" />
                            </children>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
                         </Group>
                         <ImageView fitHeight="42.0" fitWidth="43.0" layoutX="15.0" layoutY="383.0" pickOnBounds="true" preserveRatio="true">
                            <image>

@@ -42,9 +42,9 @@
             </Text>
          </children>
       </Pane>
-      <ScrollPane hbarPolicy="NEVER" layoutX="25.0" layoutY="145.0" prefHeight="378.0" prefWidth="780.0" style="-fx-border-width: 0;" styleClass="scroll_pane" stylesheets="@../styles/index.css">
+      <ScrollPane hbarPolicy="NEVER" layoutX="25.0" layoutY="145.0" prefHeight="378.0" prefWidth="780.0" style="-fx-border-width: 0;" styleClass="scroll_pane" stylesheets="@../../styles/index.css">
          <content>
-            <VBox fx:id="history_vbox"  prefWidth="780.0" spacing="6.0">
+            <VBox fx:id="history_vbox" prefWidth="780.0" spacing="6.0">
             </VBox>
          </content>
       </ScrollPane>

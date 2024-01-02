@@ -65,3 +65,15 @@
 .default-color0.chart-series-line { -fx-stroke: #238591; }
 .default-color1.chart-series-line { -fx-stroke: #e5d849; }
 .default-color2.chart-series-line { -fx-stroke: #ed4d51; }
+
+.activatebutton{
+    -fx-text-fill: #dcdcdc;
+}
+
+.activatebutton:hover{
+    -fx-text-fill: #ffffff;
+}
+
+.purple:selected .thumb-area {
+    -fx-background-color: #57379b;
+}

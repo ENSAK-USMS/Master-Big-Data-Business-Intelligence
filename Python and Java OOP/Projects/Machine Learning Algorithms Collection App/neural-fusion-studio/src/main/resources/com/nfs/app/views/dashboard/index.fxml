@@ -255,17 +255,17 @@
             <Insets bottom="10.0" />
          </padding>
       </HBox>
-      <Button layoutX="638.0" layoutY="524.0" mnemonicParsing="false" prefHeight="20.0" prefWidth="38.0" style="-fx-border-color: #525252; -fx-background-radius: 2; -fx-border-radius: 2;" styleClass="gray-hover" stylesheets="@../../styles/index.css">
+      <Button layoutX="660.0" layoutY="525.0" mnemonicParsing="false" prefHeight="20.0" prefWidth="38.0" style="-fx-border-color: #525252; -fx-background-radius: 2; -fx-border-radius: 2;" styleClass="gray-hover" stylesheets="@../../styles/index.css">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
-      <ImageView fitHeight="36.0" fitWidth="48.0" layoutX="638.0" layoutY="520.0" mouseTransparent="true" preserveRatio="true">
+      <ImageView fitHeight="36.0" fitWidth="48.0" layoutX="660.0" layoutY="520.0" mouseTransparent="true" preserveRatio="true">
          <image>
             <Image url="@../../images/key.png" />
          </image>
       </ImageView>
-      <Button layoutX="682.0" layoutY="524.0" mnemonicParsing="false" prefHeight="27.2" prefWidth="140.0" style="-fx-background-color: #ff8800;" text="Activate Now" textFill="#ffffff6e">
+      <Button layoutX="700.0" layoutY="525.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="122.0" style="-fx-background-color: #ff8800;" styleClass="activatebutton" stylesheets="@../../styles/dashboard.css" text="Activate Now" textFill="#ffffff6e">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
@@ -297,5 +297,20 @@
             <Button mnemonicParsing="false" onAction="#setTrainingAlgorithm" prefHeight="26.0" prefWidth="127.0" style="-fx-background-color: #313131;" text="Apply" textFill="#838383" />
          </children>
       </HBox>
+      <Pane layoutX="563.0" layoutY="494.0" prefHeight="65.0" prefWidth="266.0" style="-fx-background-color: #2f2f2f; -fx-background-radius: 5 0 0 0;" visible="false">
+         <children>
+            <TextField layoutX="4.0" layoutY="36.0" prefHeight="25.0" prefWidth="233.0" style="-fx-background-color: #9e9e9e;" />
+            <Button layoutX="241.0" layoutY="35.0" mnemonicParsing="false" style="-fx-background-color: #838383;" text="⟫">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+            <Label layoutX="49.0" layoutY="5.0" prefHeight="34.0" prefWidth="186.0" text="Activate You  Version Now" textFill="#838383">
+               <font>
+                  <Font name="Dubai Medium" size="15.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
    </children>
 </AnchorPane>
