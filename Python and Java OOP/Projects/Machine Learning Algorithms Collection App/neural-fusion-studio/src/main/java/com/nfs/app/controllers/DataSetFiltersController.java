@@ -611,7 +611,7 @@ public class DataSetFiltersController {
                     CheckBox checkBox = entry.getValue();
                     if (checkBox.isSelected()) {
                         String attribute_name = checkBox.getId();
-                        MissingValues.fillMissingWithCustomValue(dataSet, attribute_name, Double.valueOf(textField.getText()));
+                        this.dataSet = MissingValues.fillMissingWithCustomValue(dataSet, attribute_name, Double.valueOf(textField.getText()));
                     }
                 }
             }
@@ -627,4 +627,12 @@ public class DataSetFiltersController {
         return pane;
     }
 
+
+    // validatefilterToOriginalDataset
+    @FXML
+    void validatefilterToOriginalDataset(ActionEvent event) {
+        DashboardController.dataSet = this.dataSet;
+        // close the filter pane
+        closeDataSetFilter(event);
+    }
 }

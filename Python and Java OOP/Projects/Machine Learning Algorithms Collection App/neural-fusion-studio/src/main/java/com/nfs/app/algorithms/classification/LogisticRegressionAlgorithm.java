@@ -75,5 +75,11 @@ public class LogisticRegressionAlgorithm extends Algorithm_Abstract implements S
         String name = objectName.substring(lastIndexOfDot + 1);
         return name;
     }
+
+    @Override
+    public String getAccuracy() {
+        double accuracy = evaluation.pctCorrect();
+        return String.format("%.2f", accuracy)+" %";
+    }
 }
 

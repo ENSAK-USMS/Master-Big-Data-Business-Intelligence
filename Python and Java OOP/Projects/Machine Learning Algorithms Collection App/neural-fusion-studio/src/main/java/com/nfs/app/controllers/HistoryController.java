@@ -4,7 +4,9 @@ import javafx.animation.KeyFrame;
 import javafx.animation.KeyValue;
 import javafx.animation.Timeline;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
@@ -15,8 +17,17 @@ import java.io.File;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.ResourceBundle;
+
+// import for sorting algorithms by date
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.Date;
+
 
 import com.nfs.app.App;
 import com.nfs.app.algorithms.Algorithm_Abstract;
@@ -25,20 +36,17 @@ public class HistoryController implements Initializable {
 
 
     // create a hashmap to store the algorithm name and the algorithm object
-    private HashMap<String, Algorithm_Abstract> algorithms = new HashMap<String, Algorithm_Abstract>();
+    private ArrayList<Algorithm_Abstract> algorithms = new ArrayList<Algorithm_Abstract>();
 
     @FXML
     private VBox history_vbox;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        // You can set the number of panes you want to create dynamically
-        int numberOfPanes = 5;
+        // get the length of the hashmap
+        
 
-        for (int i = 0; i < numberOfPanes; i++) {
-            createHistoryPane(i);
-        }
-
+        
         // get the algorithms from downloads / models folder and add them to the hashmap
         File folder = new File(System.getProperty("user.home") + "/Downloads/models");
         File[] algorithmFiles = folder.listFiles();
@@ -51,74 +59,54 @@ public class HistoryController implements Initializable {
                     Algorithm_Abstract algorithm = (Algorithm_Abstract) objectInputStream.readObject();
                     objectInputStream.close();
                     // add the algorithm to the hashmap
-                    algorithms.put(algorithm.getName(), algorithm);
+                    algorithms.add(algorithm);
                     System.out.println("found algorithm " + algorithm.getName());
                 } catch (IOException | ClassNotFoundException e) {
                     // TODO Auto-generated catch block
                     e.printStackTrace();
                 }
             }
+            Collections.sort(algorithms, new Comparator<Algorithm_Abstract>() {
+            SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss");
+                @Override
+                public int compare(Algorithm_Abstract algorithm1, Algorithm_Abstract algorithm2) {
+                    try {
+                        Date date1 = dateFormat.parse(algorithm1.getDate());
+                        Date date2 = dateFormat.parse(algorithm2.getDate());
+                        return date1.compareTo(date2)*-1;
+                    } catch (ParseException e) {
+                        e.printStackTrace();
+                    }
+                    return 0;
+                }
+            });
             System.out.println(algorithms);
+            for (int i = 0; i < algorithms.size(); i++) {
+                // get hashmap value by index
+                Algorithm_Abstract algorithm = (Algorithm_Abstract) algorithms.get(i);
+                createHistoryPane(i, algorithm);
+                System.out.println("created history pane for " + algorithm.getName());
+            }
             return;
         }
         System.out.println("No algorithms found");
     }
 
-    private void createHistoryPane(int index) {
-        Pane historyPane = new Pane();
-        historyPane.setId("history_pane" + index);
-        historyPane.setPrefSize(780.0, 54.0);
-        historyPane.setStyle("-fx-border-width: 0; -fx-background-color: #363636;");
-
-        Line line1 = new Line(100.0, 55.0, 670.0, 55.0);
-        line1.setStroke(javafx.scene.paint.Color.valueOf("#1a1a1a"));
-        line1.setVisible(false);
-
-        ImageView dropDown = App.loadImage("images/drop_down.png");
-        dropDown.setFitHeight(25.0);
-        dropDown.setFitWidth(25.0);
-        dropDown.setLayoutX(14.0);
-        dropDown.setLayoutY(16.0);
-        dropDown.setOnMouseClicked(event -> onDropDownClick(historyPane, line1, dropDown));
-
-        Line line2 = new Line(-100.0, 0.0, -100.0, 42.0);
-        line2.setLayoutX(317.0);
-        line2.setLayoutY(7.0);
-        line2.setStroke(javafx.scene.paint.Color.valueOf("#1a1a1a"));
-
-        Line line3 = new Line(-100.0, 0.0, -100.0, 42.0);
-        line3.setLayoutX(505.0);
-        line3.setLayoutY(7.0);
-        line3.setStroke(javafx.scene.paint.Color.valueOf("#1a1a1a"));
-
-        Line line4 = new Line(-100.0, 0.0, -100.0, 42.0);
-        line4.setLayoutX(693.0);
-        line4.setLayoutY(7.0);
-        line4.setStroke(javafx.scene.paint.Color.valueOf("#1a1a1a"));
-
-        historyPane.getChildren().addAll(dropDown, line1, line2, line3, line4);
-
-        this.history_vbox.getChildren().add(historyPane);
-    }
-
-    private void onDropDownClick(Pane historyPane, Line line, ImageView dropDown) {
-        if (!line.isVisible()) {
-        Timeline timeline = new Timeline(
-            new KeyFrame(Duration.seconds(0),
-                new KeyValue(historyPane.prefHeightProperty(), historyPane.getPrefHeight())),
-            new KeyFrame(Duration.seconds(0.25), new KeyValue(historyPane.prefHeightProperty(), 111.0)),
-            new KeyFrame(Duration.seconds(0.25), new KeyValue(dropDown.rotateProperty(), 90)));
-        timeline.play();
-        line.setVisible(true);
-        } else {
-        Timeline timeline = new Timeline(
-            new KeyFrame(Duration.seconds(0),
-                new KeyValue(historyPane.prefHeightProperty(), historyPane.getPrefHeight())),
-            new KeyFrame(Duration.seconds(0.25), new KeyValue(historyPane.prefHeightProperty(), 54.0)),
-            new KeyFrame(Duration.seconds(0.25), new KeyValue(dropDown.rotateProperty(), 0)));
-        timeline.play();
-        line.setVisible(false);
+    private void createHistoryPane(int index,Algorithm_Abstract algorithm) {
+        // load the history pane page
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/nfs/app/views/history_view/row_component.fxml"));
+        Parent row_component;
+        try {
+            row_component = loader.load();
+            // get the controller
+            HistoryRowController historyRowController = loader.getController();
+            // pass the algorithm object to the controller
+            historyRowController.setAlgorithm(algorithm);
+            // add the page to the history vbox
+            this.history_vbox.getChildren().add(row_component);
+        } catch (IOException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
         }
     }
-
 }

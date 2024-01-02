@@ -75,4 +75,9 @@ public class RandomForestAlgorithm extends Algorithm_Abstract implements Seriali
         String name = objectName.substring(lastIndexOfDot + 1);
         return name;
     }
+
+    @Override
+    public String getAccuracy() {
+        return String.valueOf(evaluation.pctCorrect());
+    }
 }

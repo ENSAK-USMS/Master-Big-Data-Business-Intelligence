@@ -78,5 +78,10 @@ public class LinearRegressionAlgorithm extends Algorithm_Abstract implements Ser
         String name = objectName.substring(lastIndexOfDot + 1);
         return name;
     }
+
+    @Override
+    public String getAccuracy() {
+        return String.valueOf(evaluation.pctCorrect());
+    }
 }
 

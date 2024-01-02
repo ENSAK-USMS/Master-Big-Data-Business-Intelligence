@@ -82,7 +82,7 @@ public class DashboardController {
     @FXML
     private ImageView rightSideBarIcon;
 
-    private Instances dataSet;
+    public static Instances dataSet;
 
     private Algorithm_Abstract trainingAlgorithm;
 
@@ -299,7 +299,7 @@ public class DashboardController {
     }
 
 
-    
+
     @FXML
     private void showDatasetFiltersPage() {
         if(!checkIfDataSetIsLoaded()){
@@ -356,6 +356,7 @@ public class DashboardController {
             
             // // Now you can access the methods or properties of the TrainingResultsController
             trainingResultsController.setDataSet(dataSet);
+            System.out.println(trainingAlgorithm.getName());
             // set the evaluation results
             System.out.println(trainingAlgorithm.getEvaluationResults().toSummaryString());
             trainingAlgorithm.setFilePath(this.filePath);

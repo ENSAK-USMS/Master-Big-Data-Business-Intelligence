@@ -15,6 +15,15 @@ public abstract class Algorithm_Abstract implements Serializable {
         protected Evaluation evaluation;
         protected String filePath;
         protected String fileName;
+        protected String date;
+
+        public String getDate() {
+            return date;
+        }
+
+        public void setDate(String date) {
+            this.date = date;
+        }
 
         public void setup(Instances dataset) {
             this.dataset = dataset;
@@ -33,6 +42,8 @@ public abstract class Algorithm_Abstract implements Serializable {
 
         public abstract Evaluation getEvaluationResults();
 
+        public abstract String getAccuracy();
+
         public void setFilePath(String filePath) {
             this.filePath = filePath;
             // set file name
@@ -47,4 +58,9 @@ public abstract class Algorithm_Abstract implements Serializable {
         }
 
         public abstract String getName();
+
+        // getdataset
+        public Instances getDataset() {
+            return dataset;
+        }
     }

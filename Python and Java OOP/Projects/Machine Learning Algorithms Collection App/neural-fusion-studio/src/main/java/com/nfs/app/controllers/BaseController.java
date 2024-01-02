@@ -154,7 +154,7 @@ public class BaseController {
 
     @FXML
     public void swithToHistoryPage() throws IOException {
-        App.switchPage("views/History");
+        App.switchPage("views/history_view/History");
     }
 
     @FXML

@@ -33,7 +33,7 @@ public class DecisionTreeAlgorithm extends Algorithm_Abstract implements Seriali
             randomTree.buildClassifier(dataset);
 
             // Initialize evaluation
-            Evaluation evaluation = new Evaluation(dataset);
+            evaluation = new Evaluation(dataset);
 
             // Evaluate the model
             evaluation.evaluateModel(randomTree, dataset);
@@ -75,5 +75,12 @@ public class DecisionTreeAlgorithm extends Algorithm_Abstract implements Seriali
         String name = objectName.substring(lastIndexOfDot + 1);
         return name;
     }
+
+    @Override
+    public String getAccuracy() {
+        return "Not Available";
+    }
+
+    
 }
 
