@@ -10,6 +10,8 @@ import java.io.Serializable;
 import com.nfs.app.App;
 import com.nfs.app.algorithms.Algorithm_Abstract;
 
+import javafx.scene.control.Label;
+import javafx.scene.layout.GridPane;
 import weka.classifiers.Evaluation;
 import weka.classifiers.functions.Logistic;
 
@@ -80,6 +82,11 @@ public class LogisticRegressionAlgorithm extends Algorithm_Abstract implements S
     public String getAccuracy() {
         double accuracy = evaluation.pctCorrect();
         return String.format("%.2f", accuracy)+" %";
+    }
+
+    @Override
+    public GridPane getOtherResults() {
+        return new GridPane();
     }
 }
 

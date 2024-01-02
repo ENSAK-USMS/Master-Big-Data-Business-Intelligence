@@ -77,3 +77,10 @@
 .purple:selected .thumb-area {
     -fx-background-color: #57379b;
 }
+.purple .thumb-area {
+    -fx-background-color: #353535;
+}
+
+.linepercentage{
+    -fx-stroke:linear-gradient(from 4.1667% 100.0% to 61.7424% 0.0%, reflect, #2cabcf 0.0%, #892525 23.8223%, #19b426 58.0793%, #2cabcf 84.5222%, #892525 100.0%);
+}

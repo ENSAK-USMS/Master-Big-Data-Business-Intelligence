@@ -82,6 +82,9 @@ public class DashboardController {
     @FXML
     private ImageView rightSideBarIcon;
 
+    @FXML
+    private Pane activatePane;
+
     public static Instances dataSet;
 
     private Algorithm_Abstract trainingAlgorithm;
@@ -333,7 +336,7 @@ public class DashboardController {
             
             // // Now you can access the methods or properties of the DataSetVisualizerController
             dataSetVisualizerController.setDataSet(dataSet);
-            dataSetVisualizerController.addInstancesGrid();
+            dataSetVisualizerController.initAttrComboBox();
             BaseController.blurBasePage();
             BaseController.addPageToBasePane(dataSetVisualizerPage);
         } catch (IOException e) {
@@ -478,7 +481,10 @@ public class DashboardController {
         timeline.play();
     }
 
-
+    @FXML
+    private void showActivatePane(){
+        animateElement(activatePane, -270, 0);
+    }
 
 
 

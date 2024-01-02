@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Tooltip?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.HBox?>
@@ -43,5 +46,21 @@
             </Label>
          </children>
       </HBox>
+      <ImageView fitHeight="25.0" fitWidth="25.0" layoutX="743.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../images/loadmodel.png" />
+         </image>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </ImageView>
+      <Button layoutX="736.0" layoutY="6.0" mnemonicParsing="false" onAction="#swithToHomePage" prefHeight="43.0" prefWidth="40.0" style="-fx-background-color: transparent;">
+         <tooltip>
+            <Tooltip text="Load The Model" textAlignment="RIGHT" />
+         </tooltip>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
    </children>
 </Pane>

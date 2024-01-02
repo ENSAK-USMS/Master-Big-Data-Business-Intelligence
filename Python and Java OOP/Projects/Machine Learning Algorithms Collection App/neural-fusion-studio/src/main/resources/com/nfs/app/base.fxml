@@ -28,7 +28,7 @@
                         <Font name="Leelawadee UI" size="13.0" />
                      </font>
                   </Label>
-                  <ToggleSwitch layoutX="106.0" layoutY="6.0" prefHeight="18.0" prefWidth="35.0" selected="true" styleClass="purple" stylesheets="@styles/dashboard.css">
+                  <ToggleSwitch layoutX="106.0" layoutY="6.0" prefHeight="18.0" prefWidth="35.0" styleClass="purple" stylesheets="@styles/dashboard.css">
                      <cursor>
                         <Cursor fx:constant="HAND" />
                      </cursor>

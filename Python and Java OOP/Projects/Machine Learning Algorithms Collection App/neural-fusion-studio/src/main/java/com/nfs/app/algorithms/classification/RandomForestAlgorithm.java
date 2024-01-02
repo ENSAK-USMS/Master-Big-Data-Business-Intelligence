@@ -10,6 +10,8 @@ import java.io.Serializable;
 import com.nfs.app.App;
 import com.nfs.app.algorithms.Algorithm_Abstract;
 
+import javafx.scene.control.Label;
+import javafx.scene.layout.GridPane;
 import weka.classifiers.Evaluation;
 import weka.classifiers.trees.RandomForest;
 
@@ -79,5 +81,9 @@ public class RandomForestAlgorithm extends Algorithm_Abstract implements Seriali
     @Override
     public String getAccuracy() {
         return String.valueOf(evaluation.pctCorrect());
+    }
+    @Override
+    public GridPane getOtherResults() {
+        return new GridPane();
     }
 }

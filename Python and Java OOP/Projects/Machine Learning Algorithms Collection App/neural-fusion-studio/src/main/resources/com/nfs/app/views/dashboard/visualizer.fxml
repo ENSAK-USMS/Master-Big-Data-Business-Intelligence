@@ -1,14 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
+<?import javafx.scene.Group?>
 <?import javafx.scene.chart.CategoryAxis?>
 <?import javafx.scene.chart.LineChart?>
 <?import javafx.scene.chart.NumberAxis?>
 <?import javafx.scene.chart.StackedAreaChart?>
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.ChoiceBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ProgressIndicator?>
+<?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
@@ -23,27 +24,68 @@
 <?import javafx.scene.shape.Circle?>
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
+<?import org.controlsfx.control.CheckComboBox?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" style="-fx-background-color: transparent;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.nfs.app.controllers.DataSetVisualizerController">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" style="-fx-background-color: transparent;" stylesheets="@../../styles/dashboard.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.nfs.app.controllers.DataSetVisualizerController">
    <children>
-      <AnchorPane layoutX="42.0" layoutY="23.0" maxHeight="570.0" maxWidth="810.0" minHeight="250.0" minWidth="350.0" prefHeight="557.0" prefWidth="810.0" style="-fx-background-color: #3b3b3b; -fx-border-color: black;">
+      <AnchorPane fx:id="anchorPane" layoutX="42.0" layoutY="23.0" maxHeight="570.0" maxWidth="810.0" minHeight="250.0" minWidth="350.0" prefHeight="557.0" prefWidth="810.0" style="-fx-background-color: #3b3b3b; -fx-border-color: black;">
          <children>
             <VBox layoutX="19.5" layoutY="10.5" spacing="5.0">
                <children>
                   <HBox spacing="75.0">
                      <children>
-                        <Line endX="30.0" startX="-100.0" stroke="#3c5e68" strokeWidth="3.0" />
-                        <Line endX="30.0" startX="-100.0" stroke="#3c5e68" strokeWidth="3.0" />
-                        <Line endX="30.0" startX="-100.0" stroke="#3c5e68" strokeWidth="3.0" />
-                        <Line endX="30.0" startX="-100.0" stroke="#3c5e68" strokeWidth="3.0" />
+                        <Group>
+                           <children>
+                              <Line endX="30.0" startX="-100.0" stroke="#3c5e68" strokeWidth="3.0" />
+                              <Line fx:id="linePersantage" endX="30.0" startX="-100.0" stroke="#3389a1" strokeWidth="3.0" />
+                           </children>
+                        </Group>
+                        <Group>
+                           <children>
+                              <Line endX="30.0" startX="-100.0" stroke="#3c5e68" strokeWidth="3.0" />
+                              <Line fx:id="linePersantage1" endX="30.0" startX="-100.0" stroke="#3389a1" strokeWidth="3.0" />
+                           </children>
+                        </Group>
+                        <Group>
+                           <children>
+                              <Line endX="30.0" startX="-100.0" stroke="#3c5e68" strokeWidth="3.0" />
+                              <Line fx:id="linePersantage2" endX="30.0" startX="-100.0" stroke="#3389a1" strokeWidth="3.0" />
+                           </children>
+                        </Group>
+                        <Group>
+                           <children>
+                              <Line endX="30.0" startX="-100.0" stroke="#3c5e68" strokeWidth="3.0" />
+                              <Line fx:id="linePersantage3" endX="30.0" startX="-100.0" stroke="#3389a1" strokeWidth="3.0" />
+                           </children>
+                        </Group>
                      </children>
                   </HBox>
                   <HBox spacing="75.0">
                      <children>
-                        <Line endX="30.0" startX="-100.0" stroke="#3c5e68" strokeWidth="3.0" />
-                        <Line endX="30.0" startX="-100.0" stroke="#3c5e68" strokeWidth="3.0" />
-                        <Line endX="30.0" startX="-100.0" stroke="#3c5e68" strokeWidth="3.0" />
-                        <Line endX="30.0" startX="-100.0" stroke="#3c5e68" strokeWidth="3.0" />
+                        <Group>
+                           <children>
+                              <Line endX="30.0" startX="-100.0" stroke="#3c5e68" strokeWidth="3.0" />
+                              <Line fx:id="linePersantageReverse" endX="30.0" startX="-100.0" stroke="#3389a1" strokeWidth="3.0" />
+                           </children>
+                        </Group>
+                        <Group layoutX="112.0" layoutY="12.0">
+                           <children>
+                              <Line endX="30.0" startX="-100.0" stroke="#3c5e68" strokeWidth="3.0" />
+                              <Line fx:id="linePersantage1Reverse" endX="30.0" startX="-100.0" stroke="#3389a1" strokeWidth="3.0" />
+                           </children>
+                        </Group>
+                        <Group>
+                           <children>
+                              <Line endX="30.0" startX="-100.0" stroke="#3c5e68" strokeWidth="3.0" />
+                              <Line fx:id="linePersantage2Reverse" endX="30.0" startX="-100.0" stroke="#3389a1" strokeWidth="3.0" />
+                           </children>
+                        </Group>
+                        <Group>
+                           <children>
+                              <Line endX="30.0" startX="-100.0" stroke="#3c5e68" strokeWidth="3.0" />
+                              <Line fx:id="linePersantage3Reverse" endX="30.0" startX="-100.0" stroke="#3389a1" strokeWidth="3.0" />
+                           </children>
+                        </Group>
                      </children>
                   </HBox>
                   <HBox spacing="32.0">
@@ -74,7 +116,12 @@
                                  </fill>
                               </Circle>
                               <Circle fill="#3b3b3b" layoutX="87.0" layoutY="87.0" radius="30.0" stroke="TRANSPARENT" strokeType="INSIDE" />
-                              <ProgressIndicator layoutY="9.0" minHeight="175.0" minWidth="175.0" prefHeight="179.0" prefWidth="184.0" progress="0.57" styleClass="custom-progress-indicator" stylesheets="@../../styles/dashboard.css" />
+                              <ProgressIndicator fx:id="CirclePer" layoutY="9.0" minHeight="175.0" minWidth="175.0" prefHeight="179.0" prefWidth="184.0" progress="0.8" styleClass="custom-progress-indicator" stylesheets="@../../styles/dashboard.css" />
+                              <Label layoutX="34.0" layoutY="174.0" text="DataSet Distribution" textFill="#b9b9b9">
+                                 <font>
+                                    <Font name="Franklin Gothic Demi" size="12.0" />
+                                 </font>
+                              </Label>
                            </children>
                            <HBox.margin>
                               <Insets left="-20.0" />
@@ -106,7 +153,7 @@
                                  </fill>
                               </Circle>
                               <Circle fill="#3b3b3b" layoutX="87.0" layoutY="87.0" radius="30.0" stroke="TRANSPARENT" strokeType="INSIDE" />
-                              <ProgressIndicator layoutY="9.0" minHeight="175.0" minWidth="175.0" prefHeight="179.0" prefWidth="184.0" progress="0.57" styleClass="custom-progress-indicator" stylesheets="@../../styles/dashboard.css" />
+                              <ProgressIndicator fx:id="CirclePer1" layoutY="9.0" minHeight="175.0" minWidth="175.0" prefHeight="179.0" prefWidth="184.0" progress="0.98" styleClass="custom-progress-indicator" stylesheets="@../../styles/dashboard.css" />
                            </children>
                         </Pane>
                         <Pane prefHeight="175.0" prefWidth="175.0">
@@ -135,7 +182,7 @@
                                  </fill>
                               </Circle>
                               <Circle fill="#3b3b3b" layoutX="87.0" layoutY="87.0" radius="30.0" stroke="TRANSPARENT" strokeType="INSIDE" />
-                              <ProgressIndicator layoutY="9.0" minHeight="175.0" minWidth="175.0" prefHeight="179.0" prefWidth="184.0" progress="0.57" styleClass="custom-progress-indicator" stylesheets="@../../styles/dashboard.css" />
+                              <ProgressIndicator fx:id="CirclePer2" layoutY="9.0" minHeight="175.0" minWidth="175.0" prefHeight="179.0" prefWidth="184.0" progress="0.67" styleClass="custom-progress-indicator" stylesheets="@../../styles/dashboard.css" />
                            </children>
                         </Pane>
                         <Pane prefHeight="175.0" prefWidth="175.0">
@@ -164,7 +211,7 @@
                                  </fill>
                               </Circle>
                               <Circle fill="#3b3b3b" layoutX="87.0" layoutY="87.0" radius="30.0" stroke="TRANSPARENT" strokeType="INSIDE" />
-                              <ProgressIndicator layoutY="9.0" minHeight="175.0" minWidth="175.0" prefHeight="179.0" prefWidth="184.0" progress="0.57" styleClass="custom-progress-indicator" stylesheets="@../../styles/dashboard.css" />
+                              <ProgressIndicator fx:id="CirclePer3" layoutY="9.0" minHeight="175.0" minWidth="175.0" prefHeight="179.0" prefWidth="184.0" progress="0.62" styleClass="custom-progress-indicator" stylesheets="@../../styles/dashboard.css" />
                            </children>
                            <HBox.margin>
                               <Insets left="8.0" />
@@ -174,9 +221,9 @@
                   </HBox>
                </children>
             </VBox>
-            <VBox layoutY="201.0">
+            <VBox layoutX="1.0" layoutY="255.0">
                <children>
-                  <LineChart prefHeight="177.0" prefWidth="379.0" stylesheets="@../../styles/dashboard.css">
+                  <LineChart prefHeight="1.0" prefWidth="379.0" stylesheets="@../../styles/dashboard.css">
                      <xAxis>
                         <CategoryAxis side="BOTTOM" />
                      </xAxis>
@@ -184,7 +231,7 @@
                         <NumberAxis side="LEFT" />
                      </yAxis>
                   </LineChart>
-                  <StackedAreaChart prefHeight="177.0" prefWidth="379.0" stylesheets="@../../styles/dashboard.css">
+                  <StackedAreaChart prefHeight="44.0" prefWidth="379.0" stylesheets="@../../styles/dashboard.css">
                      <xAxis>
                         <NumberAxis side="BOTTOM" />
                      </xAxis>
@@ -199,7 +246,7 @@
                   <Font name="Arial Black" size="12.0" />
                </font>
             </Button>
-            <Pane layoutX="374.0" layoutY="193.0" prefHeight="306.0" prefWidth="306.0">
+            <Pane layoutX="378.0" layoutY="251.0" prefHeight="306.0" prefWidth="306.0">
                <children>
                   <VBox prefHeight="304.0" prefWidth="33.0" spacing="2.0">
                      <children>
@@ -316,8 +363,43 @@
                   </GridPane>
                </children>
             </Pane>
-            <VBox layoutX="684.0" layoutY="248.0" prefHeight="246.0" prefWidth="120.0" style="-fx-background-color: #232323;" />
-            <ChoiceBox layoutX="684.0" layoutY="219.0" prefHeight="26.0" prefWidth="120.0" />
+            <ScrollPane hbarPolicy="NEVER" layoutX="684.0" layoutY="311.0" prefHeight="240.0" prefWidth="122.0" style="-fx-background-color: transparent;" vbarPolicy="NEVER">
+               <content>
+                  <VBox fx:id="attrVboxList" prefHeight="240.0" prefWidth="121.0" style="-fx-background-color: #232323;" />
+               </content>
+            </ScrollPane>
+            <CheckComboBox fx:id="attrComboBox" layoutX="686.0" layoutY="278.0" opacity="0.67" prefHeight="26.0" prefWidth="120.0" showCheckedCount="true" title="Attr" />
+            <Label layoutX="258.0" layoutY="198.0" text="Cleaned Data" textFill="#b9b9b9">
+               <font>
+                  <Font name="Franklin Gothic Demi" size="12.0" />
+               </font>
+            </Label>
+            <Label layoutX="469.0" layoutY="198.0" text="Data Balance" textFill="#b9b9b9">
+               <font>
+                  <Font name="Franklin Gothic Demi" size="12.0" />
+               </font>
+            </Label>
+            <Label layoutX="128.0" layoutY="309.0" rotate="35.0" text="Not Implemented" textFill="#a9a9a9">
+               <font>
+                  <Font name="Franklin Gothic Demi Cond" size="19.0" />
+               </font>
+               <effect>
+                  <DropShadow />
+               </effect>
+            </Label>
+            <Label layoutX="130.0" layoutY="452.0" rotate="35.0" text="Not Implemented" textFill="#a9a9a9">
+               <font>
+                  <Font name="Franklin Gothic Demi Cond" size="19.0" />
+               </font>
+               <effect>
+                  <DropShadow />
+               </effect>
+            </Label>
+            <Label layoutX="664.0" layoutY="198.0" text="Dominant type (Num)" textFill="#b9b9b9">
+               <font>
+                  <Font name="Franklin Gothic Demi" size="12.0" />
+               </font>
+            </Label>
          </children>
          <effect>
             <DropShadow blurType="TWO_PASS_BOX" height="32.7" offsetX="-2.0" radius="18.1875" width="42.05" />

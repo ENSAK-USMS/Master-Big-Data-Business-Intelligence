@@ -60,7 +60,6 @@ public class HistoryController implements Initializable {
                     objectInputStream.close();
                     // add the algorithm to the hashmap
                     algorithms.add(algorithm);
-                    System.out.println("found algorithm " + algorithm.getName());
                 } catch (IOException | ClassNotFoundException e) {
                     // TODO Auto-generated catch block
                     e.printStackTrace();
@@ -85,7 +84,6 @@ public class HistoryController implements Initializable {
                 // get hashmap value by index
                 Algorithm_Abstract algorithm = (Algorithm_Abstract) algorithms.get(i);
                 createHistoryPane(i, algorithm);
-                System.out.println("created history pane for " + algorithm.getName());
             }
             return;
         }

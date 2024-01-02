@@ -90,6 +90,7 @@ public class DataSetFiltersController {
     private Pane chart_pane;
     @FXML
     private Pane filters_pane_container;
+    @FXML
     private TextField textFieldFiltersOptions;
     @FXML
     void on_filters_click(ActionEvent event) {
@@ -633,24 +634,6 @@ public class DataSetFiltersController {
             addInstancesGrid();
             onInit();
         });
-        replaceWithCustomValuePane.setOnMouseClicked(event -> {
-            if (!checkBoxMap.isEmpty()) {
-                Iterator<Map.Entry<String, CheckBox>> iterator = checkBoxMap.entrySet().iterator();
-                while (iterator.hasNext()) {
-                    Map.Entry<String, CheckBox> entry = iterator.next();
-                    CheckBox checkBox = entry.getValue();
-                    if (checkBox.isSelected()) {
-                        String attribute_name = checkBox.getId();
-                        MissingValues.fillMissingWithCustomValue(dataSet, attribute_name, Double.valueOf(textField.getText()));
-                    }
-                }
-            }
-            filters_pane_container.setVisible(false);
-            filters_vbox.getChildren().clear();
-            instancesPane.getChildren().clear();
-            addInstancesGrid();
-            onInit();
-        });
         return pane;
     }
 
@@ -724,4 +707,10 @@ public class DataSetFiltersController {
         }
     }
 
+    @FXML
+    void validatefilterToOriginalDataset(ActionEvent event) {
+        DashboardController.dataSet = this.dataSet;
+        // close the filter pane
+        closeDataSetFilter(event);
+    }
 }
