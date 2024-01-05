@@ -1,0 +1,7 @@
+CREATE TABLE `DimCompte` (
+  `id_compte` int NOT NULL,
+  `profil` varchar(2) COLLATE utf8mb4_general_ci NOT NULL,
+  `actif` tinyint(1) NOT NULL,
+  `acces_externe` tinyint(1) NOT NULL,
+  PRIMARY KEY (`id_compte`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci

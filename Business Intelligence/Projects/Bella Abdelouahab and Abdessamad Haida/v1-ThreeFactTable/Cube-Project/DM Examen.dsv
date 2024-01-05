@@ -1,0 +1,155 @@
+﻿<DataSourceView xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:ddl200="http://schemas.microsoft.com/analysisservices/2010/engine/200" xmlns:ddl200_200="http://schemas.microsoft.com/analysisservices/2010/engine/200/200" xmlns:ddl300="http://schemas.microsoft.com/analysisservices/2011/engine/300" xmlns:ddl300_300="http://schemas.microsoft.com/analysisservices/2011/engine/300/300" xmlns:ddl400="http://schemas.microsoft.com/analysisservices/2012/engine/400" xmlns:ddl400_400="http://schemas.microsoft.com/analysisservices/2012/engine/400/400" xmlns:ddl500="http://schemas.microsoft.com/analysisservices/2013/engine/500" xmlns:ddl500_500="http://schemas.microsoft.com/analysisservices/2013/engine/500/500" xmlns:dwd="http://schemas.microsoft.com/DataWarehouse/Designer/1.0" dwd:design-time-name="bf12b629-e1f1-461b-a79f-86ac01e0cf57" xmlns="http://schemas.microsoft.com/analysisservices/2003/engine">
+  <ID>DM Examen</ID>
+  <Name>DM Examen</Name>
+  <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
+  <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
+  <Annotations>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:ShowFriendlyNames</Name>
+      <Value>true</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:CurrentLayout</Name>
+      <Value>_ALL_TABLES_</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:SchemaRestriction</Name>
+      <Value></Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:RetrieveRelationships</Name>
+      <Value>true</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:Layouts</Name>
+      <Value>
+        <Layouts xmlns="">
+          <Diagram>
+            <Name>_ALL_TABLES_</Name>
+            <DiagramLayout />
+            <ShowRelationshipNames>False</ShowRelationshipNames>
+            <UseDiagramDefaultLayout>True</UseDiagramDefaultLayout>
+            <DiagramViewPortLeft>0</DiagramViewPortLeft>
+            <DiagramViewPortTop>0</DiagramViewPortTop>
+            <DiagramBoundingLeft>0</DiagramBoundingLeft>
+            <DiagramBoundingTop>0</DiagramBoundingTop>
+            <DiagramZoom>100</DiagramZoom>
+          </Diagram>
+        </Layouts>
+      </Value>
+    </Annotation>
+  </Annotations>
+  <DataSourceID>Med Lab DW</DataSourceID>
+  <Schema>
+    <xs:schema id="DM_x0020_Examen" xmlns="" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop">
+      <xs:element name="DM_x0020_Examen" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:design-time-name="26fdfe8b-cd0e-48fd-baf4-bb9d7a0fadb8">
+        <xs:complexType>
+          <xs:choice minOccurs="0" maxOccurs="unbounded">
+            <xs:element name="dbo_FactExamen" msprop:DbTableName="FactExamen" msprop:FriendlyName="FactExamen" msprop:TableType="Table" msprop:DbSchemaName="dbo" msprop:design-time-name="9214d849-5f38-45d4-bcc3-f0f0eb58d570">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="id_date" msprop:FriendlyName="id_date" msprop:DbColumnName="id_date" msprop:design-time-name="ccd224b2-0250-4b3e-86bc-0406f69d9ac3">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="10" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="id_examen" msprop:FriendlyName="id_examen" msprop:DbColumnName="id_examen" msprop:design-time-name="9d86cd92-baa6-4c2a-899d-075741f35d26" type="xs:int" />
+                  <xs:element name="id_organisme" msprop:FriendlyName="id_organisme" msprop:DbColumnName="id_organisme" msprop:design-time-name="350f618e-9b75-473b-b3b0-db2db949910d" type="xs:int" minOccurs="0" />
+                  <xs:element name="chiffre_affaire" msprop:FriendlyName="chiffre_affaire" msprop:DbColumnName="chiffre_affaire" msprop:design-time-name="2529b95c-920d-431c-80c6-8ea0b8e1f902" type="xs:float" />
+                  <xs:element name="nbr_demande" msprop:FriendlyName="nbr_demande" msprop:DbColumnName="nbr_demande" msprop:design-time-name="1ab43c9b-53ec-481c-aa6e-1a13250808e7" type="xs:decimal" />
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="dbo_DimDate" msprop:DbTableName="DimDate" msprop:FriendlyName="DimDate" msprop:TableType="Table" msprop:DbSchemaName="dbo" msprop:design-time-name="b6869fc5-e610-4285-b038-2241337d84ee">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="id_date" msprop:FriendlyName="id_date" msprop:DbColumnName="id_date" msprop:design-time-name="f6c5bd31-96a6-4b3b-8d49-7cdffd229028">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="10" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="jour" msprop:FriendlyName="jour" msprop:DbColumnName="jour" msprop:design-time-name="3f53e52f-e599-4f5c-9a0e-430cdb29be77" type="xs:short" />
+                  <xs:element name="mois" msprop:FriendlyName="mois" msprop:DbColumnName="mois" msprop:design-time-name="e7ad73e7-505b-4a14-9806-004fb3d985a1" type="xs:short" />
+                  <xs:element name="annee" msprop:FriendlyName="annee" msprop:DbColumnName="annee" msprop:design-time-name="89632a33-e5c2-4d1a-a56f-19e8eb1f909e" type="xs:short" />
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="dbo_DimOrganisme" msprop:DbTableName="DimOrganisme" msprop:FriendlyName="DimOrganisme" msprop:TableType="Table" msprop:DbSchemaName="dbo" msprop:design-time-name="72d930b2-74f9-4a8c-b372-03ff1162a2b8">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="id_organisme" msprop:FriendlyName="id_organisme" msprop:DbColumnName="id_organisme" msprop:design-time-name="4e52f5be-fa39-4278-8440-7c2a660dbc2d" type="xs:int" />
+                  <xs:element name="nom" msprop:FriendlyName="nom" msprop:DbColumnName="nom" msprop:design-time-name="25e49f50-85aa-4e2d-b9de-1e318cbc693c">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="45" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="specialite" msprop:FriendlyName="specialite" msprop:DbColumnName="specialite" msprop:design-time-name="89a8fb8a-ffcd-4c3e-8be5-82d24f2c5f52" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="50" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="dbo_DimExamen" msprop:DbTableName="DimExamen" msprop:FriendlyName="DimExamen" msprop:TableType="Table" msprop:DbSchemaName="dbo" msprop:design-time-name="909d5787-7840-443e-91b9-0382746673c5">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="id_examen" msprop:FriendlyName="id_examen" msprop:DbColumnName="id_examen" msprop:design-time-name="df1ce4f4-9195-4142-b8d9-91ed50e69cf5" type="xs:int" />
+                  <xs:element name="code" msprop:FriendlyName="code" msprop:DbColumnName="code" msprop:design-time-name="ac278458-eb92-42ca-9717-4a974e6b9873">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="45" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="designation" msprop:FriendlyName="designation" msprop:DbColumnName="designation" msprop:design-time-name="95c8bba5-cb55-4f2c-bdda-879d5e0821d6">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="50" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="delai" msprop:FriendlyName="delai" msprop:DbColumnName="delai" msprop:design-time-name="69d82b05-7069-4dd0-b0ab-2db03117fe97" type="xs:short" />
+                  <xs:element name="etat" msprop:FriendlyName="etat" msprop:DbColumnName="etat" msprop:design-time-name="64bf8afc-31f9-407a-958e-473ce6a7d8fd" type="xs:boolean" />
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+          </xs:choice>
+        </xs:complexType>
+        <xs:unique name="Constraint1" msdata:PrimaryKey="true">
+          <xs:selector xpath=".//dbo_DimDate" />
+          <xs:field xpath="id_date" />
+        </xs:unique>
+        <xs:unique name="dbo_DimOrganisme_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+          <xs:selector xpath=".//dbo_DimOrganisme" />
+          <xs:field xpath="id_organisme" />
+        </xs:unique>
+        <xs:unique name="dbo_DimExamen_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+          <xs:selector xpath=".//dbo_DimExamen" />
+          <xs:field xpath="id_examen" />
+        </xs:unique>
+        <xs:keyref name="FK_FactExamen_DimOrganisme" refer="dbo_DimOrganisme_Constraint1">
+          <xs:selector xpath=".//dbo_FactExamen" />
+          <xs:field xpath="id_organisme" />
+        </xs:keyref>
+        <xs:keyref name="FK_FactExamen_DimDate1" refer="Constraint1">
+          <xs:selector xpath=".//dbo_FactExamen" />
+          <xs:field xpath="id_date" />
+        </xs:keyref>
+        <xs:keyref name="FK_FactExamen_DimExamen" refer="dbo_DimExamen_Constraint1">
+          <xs:selector xpath=".//dbo_FactExamen" />
+          <xs:field xpath="id_examen" />
+        </xs:keyref>
+      </xs:element>
+    </xs:schema>
+    <DM_x0020_Examen xmlns="" />
+  </Schema>
+</DataSourceView>

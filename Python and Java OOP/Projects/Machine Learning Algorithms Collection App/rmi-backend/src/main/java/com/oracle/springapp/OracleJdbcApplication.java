@@ -29,42 +29,15 @@ public class OracleJdbcApplication implements CommandLineRunner {
 
 	@Autowired
 	JpaService<Account> accountService;
-	@Autowired
-	JpaService<Cashier> cashierService;
-	@Autowired
-	JpaService<Cooker> cookerService;
-	@Autowired
-	JpaService<Waiter> waiterService;
-	@Autowired
-	JpaService<Food> foodService;
-	@Autowired
-	JpaService<Orders> ordersService;
-	@Autowired
-	JpaService<Basket> basketService;
 
 	@Override
 	public void run(String... args) throws Exception {
 		System.out.println("================Server Sides========================");
 		try {
-			// accountService.getAllRows().forEach(e -> {
-			// 	// .info("Account  " + e.getUsername());
-			// });
 
 			Registry registry = LocateRegistry.createRegistry(5000);
 			RemoteInterface<Account> account = new Remote<Account>(accountService);
 			registry.rebind("account", account);
-			RemoteInterface<Cashier> cashier = new Remote<Cashier>(cashierService);
-			registry.rebind("cashier", cashier);
-			RemoteInterface<Cooker> cooker = new Remote<Cooker>(cookerService);
-			registry.rebind("cooker", cooker);
-			RemoteInterface<Waiter> waiter = new Remote<Waiter>(waiterService);
-			registry.rebind("waiter", waiter);
-			RemoteInterface<Food> food = new Remote<Food>(foodService);
-			registry.rebind("food", food);
-			RemoteInterface<Orders> orders = new Remote<Orders>(ordersService);
-			registry.rebind("orders", orders);
-			RemoteInterface<Basket> basket = new Remote<Basket>(basketService);
-			registry.rebind("basket", basket);
 
 			System.out.println("Server is ready");
 		} catch (Exception e) {

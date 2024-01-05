@@ -1,0 +1,10 @@
+CREATE TABLE `FactModePaiement` (
+  `mode_paiement` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  `id_organisme` int DEFAULT NULL,
+  `chiffre_affaire` int NOT NULL,
+  `nbr_demande` bigint NOT NULL,
+  KEY `FK_FactModePaiement_DimModePaiement` (`mode_paiement`),
+  KEY `FK_FactModePaiement_DimOrganisme` (`id_organisme`),
+  CONSTRAINT `FK_FactModePaiement_DimModePaiement` FOREIGN KEY (`mode_paiement`) REFERENCES `DimModePaiement` (`mode_paiement`),
+  CONSTRAINT `FK_FactModePaiement_DimOrganisme` FOREIGN KEY (`id_organisme`) REFERENCES `DimOrganisme` (`id_organisme`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3

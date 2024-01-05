@@ -21,19 +21,17 @@
    <children>
       <AnchorPane fx:id="pagePane" layoutX="-0.5">
          <children>
-            <Pane layoutX="0.5" mouseTransparent="true" pickOnBounds="false" prefHeight="600.0" prefWidth="900.0" style="-fx-border-color: #121212;">
-               <children>
-                  <Label layoutX="80.0" layoutY="5.0" prefHeight="18.0" prefWidth="38.0" text="Sync" textFill="#5e5e5e" underline="true">
-                     <font>
-                        <Font name="Leelawadee UI" size="13.0" />
-                     </font>
-                  </Label>
-                  <ToggleSwitch layoutX="106.0" layoutY="6.0" prefHeight="18.0" prefWidth="35.0" styleClass="purple" stylesheets="@styles/dashboard.css">
-                     <cursor>
-                        <Cursor fx:constant="HAND" />
-                     </cursor>
-                  </ToggleSwitch>
-               </children></Pane>
+            <Pane layoutX="0.5" mouseTransparent="true" pickOnBounds="false" prefHeight="600.0" prefWidth="900.0" style="-fx-border-color: #121212;" />
+            <ToggleSwitch fx:id="activationTaggel" layoutX="100.0" layoutY="2.0" prefHeight="18.0" prefWidth="35.0" styleClass="purple" stylesheets="@styles/dashboard.css">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </ToggleSwitch>
+            <Label layoutX="72.0" prefHeight="18.0" prefWidth="38.0" text="Sync" textFill="#5e5e5e" underline="true">
+               <font>
+                  <Font name="Leelawadee UI" size="13.0" />
+               </font>
+            </Label>
             <AnchorPane layoutX="791.0" prefHeight="35.0" prefWidth="109.0">
                <children>
                   <Group layoutX="74.0">
@@ -72,7 +70,7 @@
                         <Font name="Arial" size="15.0" />
                      </font>
                   </Label>
-                  <Button mnemonicParsing="false" prefHeight="16.0" prefWidth="51.0" style="-fx-background-color: #67845600; -fx-border-color: #621313; -fx-border-width: 2; -fx-background-radius: 2; -fx-border-radius: 2;" text="Free" textFill="#b92020">
+                  <Button fx:id="activationLabel" mnemonicParsing="false" prefHeight="16.0" prefWidth="51.0" style="-fx-background-color: #67845600; -fx-border-color: #621313; -fx-border-width: 2; -fx-background-radius: 2; -fx-border-radius: 2;" text="Free" textFill="#b92020">
                      <font>
                         <Font name="System Bold" size="10.0" />
                      </font>

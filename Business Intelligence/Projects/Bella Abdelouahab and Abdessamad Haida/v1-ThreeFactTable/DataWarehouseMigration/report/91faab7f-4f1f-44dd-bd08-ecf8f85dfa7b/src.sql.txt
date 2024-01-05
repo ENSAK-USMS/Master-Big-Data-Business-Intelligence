@@ -1,0 +1,16 @@
+CREATE TABLE `FactDemande` (
+  `id_date` date NOT NULL,
+  `id_compte` int NOT NULL,
+  `id_patient` int NOT NULL,
+  `id_organisme` int DEFAULT NULL,
+  `chiffre_affaire` float NOT NULL,
+  `nbr_demande` bigint NOT NULL,
+  KEY `FK_FactDemande_DimCompte` (`id_compte`),
+  KEY `FK_FactDemande_DimDate` (`id_date`),
+  KEY `FK_FactDemande_DimOrganisme` (`id_organisme`),
+  KEY `FK_FactDemande_DimPatient` (`id_patient`),
+  CONSTRAINT `FK_FactDemande_DimCompte` FOREIGN KEY (`id_compte`) REFERENCES `DimCompte` (`id_compte`),
+  CONSTRAINT `FK_FactDemande_DimDate` FOREIGN KEY (`id_date`) REFERENCES `DimDate` (`id_date`),
+  CONSTRAINT `FK_FactDemande_DimOrganisme` FOREIGN KEY (`id_organisme`) REFERENCES `DimOrganisme` (`id_organisme`),
+  CONSTRAINT `FK_FactDemande_DimPatient` FOREIGN KEY (`id_patient`) REFERENCES `DimPatient` (`id_patient`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3

@@ -1,0 +1,8 @@
+CREATE TABLE `DimExamen` (
+  `id_examen` int NOT NULL,
+  `code` varchar(45) COLLATE utf8mb4_general_ci NOT NULL,
+  `designation` varchar(50) COLLATE utf8mb4_general_ci NOT NULL,
+  `delai` smallint NOT NULL,
+  `etat` tinyint(1) NOT NULL,
+  PRIMARY KEY (`id_examen`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci

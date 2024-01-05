@@ -1,0 +1,13 @@
+CREATE TABLE `FactExamen` (
+  `id_date` date NOT NULL,
+  `id_examen` int NOT NULL,
+  `id_organisme` int DEFAULT NULL,
+  `chiffre_affaire` float NOT NULL,
+  `nbr_demande` bigint NOT NULL,
+  KEY `FK_FactExamen_DimDate1` (`id_date`),
+  KEY `FK_FactExamen_DimExamen` (`id_examen`),
+  KEY `FK_FactExamen_DimOrganisme` (`id_organisme`),
+  CONSTRAINT `FK_FactExamen_DimDate1` FOREIGN KEY (`id_date`) REFERENCES `DimDate` (`id_date`),
+  CONSTRAINT `FK_FactExamen_DimExamen` FOREIGN KEY (`id_examen`) REFERENCES `DimExamen` (`id_examen`),
+  CONSTRAINT `FK_FactExamen_DimOrganisme` FOREIGN KEY (`id_organisme`) REFERENCES `DimOrganisme` (`id_organisme`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3

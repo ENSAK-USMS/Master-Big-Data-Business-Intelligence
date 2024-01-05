@@ -1,0 +1,6 @@
+CREATE TABLE `DimPatient` (
+  `id_patient` int NOT NULL,
+  `genre` varchar(2) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  `tranche_age` varchar(45) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  PRIMARY KEY (`id_patient`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3

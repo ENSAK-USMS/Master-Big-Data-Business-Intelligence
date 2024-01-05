@@ -39,6 +39,8 @@ import java.io.File;
 import java.io.IOException;
 import java.util.HashMap;
 
+import org.controlsfx.control.ToggleSwitch;
+
 import com.nfs.app.App;
 import com.nfs.app.algorithms.Algorithm_Abstract;
 import com.nfs.app.preprocessing.DataImportation;
@@ -485,7 +487,24 @@ public class DashboardController {
     private void showActivatePane(){
         animateElement(activatePane, -270, 0);
     }
+    // validateActivation
+    @FXML
+    private void validateActivation(){
+        animateElement(activatePane, 0, 0);
 
+        // activationLabel
+        Button activationButton = (Button) App.getScene().lookup("#activationLabel");
+        activationButton.setText("Pro");
+        // text fill and border color #57379b bg #67845600 brdr width 2 bg and border radius 2
+
+        activationButton.setStyle("-fx-text-fill: #57379b; -fx-border-color: #57379b; -fx-background-color: #67845600; -fx-border-width: 2; -fx-background-radius: 2; -fx-border-radius: 2;");
+
+    }
+
+
+    
+
+    
 
 
 

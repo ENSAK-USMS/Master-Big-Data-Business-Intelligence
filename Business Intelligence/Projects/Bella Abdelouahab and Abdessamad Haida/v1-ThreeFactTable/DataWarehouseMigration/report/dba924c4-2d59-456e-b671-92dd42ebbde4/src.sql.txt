@@ -1,0 +1,6 @@
+CREATE TABLE `DimOrganisme` (
+  `id_organisme` int NOT NULL,
+  `nom` varchar(45) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  `specialite` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
+  PRIMARY KEY (`id_organisme`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3

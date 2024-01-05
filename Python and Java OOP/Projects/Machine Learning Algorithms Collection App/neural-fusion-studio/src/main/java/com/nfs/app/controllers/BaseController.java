@@ -3,6 +3,8 @@ package com.nfs.app.controllers;
 import java.io.IOException;
 import java.util.ArrayList;
 
+import org.controlsfx.control.ToggleSwitch;
+
 import com.nfs.app.App;
 
 import javafx.fxml.FXML;
@@ -11,6 +13,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.shape.Line;
@@ -161,7 +164,6 @@ public class BaseController {
     public void swithToHomePage() throws IOException {
         App.switchPage("views/dashboard/index");
     }
-
 
 
     @FXML

@@ -1,0 +1,10 @@
+﻿<?xml version="1.0"?>
+<DTS:ConnectionManager xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:ObjectName="LocalHost.labMedAnalyseDW"
+  DTS:DTSID="{CA9667CC-17C9-443A-A26C-C091D7798102}"
+  DTS:CreationName="ADO.NET:System.Data.SqlClient.SqlConnection, System.Data, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+  <DTS:ObjectData>
+    <DTS:ConnectionManager
+      DTS:ConnectionString="Data Source=.;Initial Catalog=labMedAnalyseDW;Integrated Security=True;Application Name=SSIS-Project BI-{CA9667CC-17C9-443A-A26C-C091D7798102}LocalHost.labMedAnalyseDW;" />
+  </DTS:ObjectData>
+</DTS:ConnectionManager>

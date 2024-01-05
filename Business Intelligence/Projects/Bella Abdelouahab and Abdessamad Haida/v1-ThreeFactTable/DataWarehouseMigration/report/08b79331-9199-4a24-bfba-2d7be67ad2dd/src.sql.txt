@@ -1,0 +1,7 @@
+CREATE TABLE `DimDate` (
+  `id_date` date NOT NULL,
+  `jour` smallint NOT NULL,
+  `mois` smallint NOT NULL,
+  `annee` smallint NOT NULL,
+  PRIMARY KEY (`id_date`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci

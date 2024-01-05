@@ -1,0 +1,124 @@
+﻿<DeploymentSnapshot xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:ddl200="http://schemas.microsoft.com/analysisservices/2010/engine/200" xmlns:ddl200_200="http://schemas.microsoft.com/analysisservices/2010/engine/200/200" xmlns:ddl300="http://schemas.microsoft.com/analysisservices/2011/engine/300" xmlns:ddl300_300="http://schemas.microsoft.com/analysisservices/2011/engine/300/300" xmlns:ddl400="http://schemas.microsoft.com/analysisservices/2012/engine/400" xmlns:ddl400_400="http://schemas.microsoft.com/analysisservices/2012/engine/400/400" xmlns:ddl500="http://schemas.microsoft.com/analysisservices/2013/engine/500" xmlns:ddl500_500="http://schemas.microsoft.com/analysisservices/2013/engine/500/500" xmlns:dwd="http://schemas.microsoft.com/DataWarehouse/Designer/1.0">
+  <Target>
+    <Database>Cube-Project</Database>
+    <Server>.</Server>
+    <ConnectionString>Data Source=.;Timeout=0</ConnectionString>
+  </Target>
+  <Options>
+    <TransactionalDeployment>false</TransactionalDeployment>
+    <PartitionDeployment>DeployPartitions</PartitionDeployment>
+    <RoleDeployment>DeployRolesRetainMembers</RoleDeployment>
+    <ProcessingOption>Default</ProcessingOption>
+    <OutputScript></OutputScript>
+    <ImpactAnalysisFile></ImpactAnalysisFile>
+    <ConfigurationSettingsDeployment>Deploy</ConfigurationSettingsDeployment>
+    <OptimizationSettingsDeployment>Deploy</OptimizationSettingsDeployment>
+    <WriteBackTableCreation>UseExisting</WriteBackTableCreation>
+  </Options>
+  <Snapshot>
+    <ObjectSnapshots>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.RelationalDataSource</Type>
+        <TimeStamp>GrsWIpw3F+yRbCyYamerUrGrACg=1/4/2024 10:27:42 PM1/4/2024 3:37:24 PM</TimeStamp>
+        <ID>
+          <String>Med Lab DW</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.DataSourceView</Type>
+        <TimeStamp>LGUHPVL1TUNLOq1xE8vHtZF7oL4=1/4/2024 3:38:40 PM1/4/2024 3:38:39 PM</TimeStamp>
+        <ID>
+          <String>DM Demande</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.DataSourceView</Type>
+        <TimeStamp>3uEbf+yZqM2f6sxXAgNkDAZe4E8=1/4/2024 3:39:08 PM1/4/2024 3:39:08 PM</TimeStamp>
+        <ID>
+          <String>DM Examen</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.DataSourceView</Type>
+        <TimeStamp>hD4mFHnKEzvaSqPIpr3HmhFCCFg=1/4/2024 3:39:29 PM1/4/2024 3:39:29 PM</TimeStamp>
+        <ID>
+          <String>DM ModePaiement</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>hL3EXgeamKHfEPPcAixXMf5ELH0=1/4/2024 6:38:48 PM1/4/2024 6:30:28 PM</TimeStamp>
+        <ID>
+          <String>Dim Organisme</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>GwPP+fVK2BrenOx5xilKoUOepIM=1/4/2024 6:38:48 PM1/4/2024 6:30:28 PM</TimeStamp>
+        <ID>
+          <String>Dim Date</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>yuum/D4K1mAbgAXpb/wbQS2Qp1E=1/4/2024 6:38:48 PM1/4/2024 6:31:15 PM</TimeStamp>
+        <ID>
+          <String>Dim Examen</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>COUMZt6GNh8KyYT8nIWs2Gbj+GI=1/4/2024 6:32:44 PM1/4/2024 6:32:44 PM</TimeStamp>
+        <ID>
+          <String>Dim Mode Paiement</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>Jfck6C60VWshxXZO9+rtScdTkFE=1/4/2024 8:57:55 PM1/4/2024 8:57:55 PM</TimeStamp>
+        <ID>
+          <String>Dim Patient</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>i9b3sQD63kDtuVcgN5FoQQKP20k=1/4/2024 8:59:56 PM1/4/2024 8:59:56 PM</TimeStamp>
+        <ID>
+          <String>Dim Compte</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Cube</Type>
+        <TimeStamp>whdBceN2YNaUACCLEP+MeQfVr0c=1/4/2024 10:33:24 PM1/4/2024 8:52:18 PMKkdzN/yk3aKDTg/ZlGoP//jVPBQ=1/4/2024 8:52:18 PM1/4/2024 8:52:18 PM</TimeStamp>
+        <ID>
+          <String>Cube Examen</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Cube</Type>
+        <TimeStamp>34SQEohaTWchZPk4+qDr9scKtkw=1/4/2024 9:01:18 PM1/4/2024 8:54:04 PMU93LB6niKwEL/p8I6LMvVaqM8m0=1/4/2024 8:54:04 PM1/4/2024 8:54:04 PM</TimeStamp>
+        <ID>
+          <String>DM ModePaiement</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Cube</Type>
+        <TimeStamp>jMe2iPi9jVo3VlPkFn9QQutX1xQ=1/5/2024 8:05:58 AM1/4/2024 8:59:56 PMVp6/QdwKY/FkriNjQzZkF6DKHV0=1/4/2024 8:59:56 PM1/4/2024 8:59:56 PM</TimeStamp>
+        <ID>
+          <String>DM Demande</String>
+        </ID>
+      </ObjectSnapshot>
+    </ObjectSnapshots>
+    <DatabaseSnapshot>
+      <Type>Microsoft.AnalysisServices.Database</Type>
+      <TimeStamp>37LmDHs9a7TkR5k/RI9pYFQmbKA=1/3/2024 7:40:01 PM1/3/2024 7:40:00 PM</TimeStamp>
+      <ID>
+        <String>Cube-Project</String>
+      </ID>
+    </DatabaseSnapshot>
+    <Granularity>Coarse</Granularity>
+  </Snapshot>
+  <AssemblyLocations />
+  <ProcessingComplete>true</ProcessingComplete>
+  <LastDeployed>2024-01-05T07:06:34.43Z</LastDeployed>
+</DeploymentSnapshot>

@@ -1,0 +1,10 @@
+Status,Source table,Target table,Total rows,Migrated rows,Success rate,Duration (DD:HH:MM:SS:MS),Error messages
+"Completed","`bi_db_SSMS_DATAWAREHOUSE`.`DimCompte`","[BI_DB].[bi_db_SSMS_DATAWAREHOUSE].[DimCompte]",19,19,"100.00%","00:00:00:01:065",
+"Completed","`bi_db_SSMS_DATAWAREHOUSE`.`DimDate`","[BI_DB].[bi_db_SSMS_DATAWAREHOUSE].[DimDate]",2462,2462,"100.00%","00:00:00:01:147",
+"Completed","`bi_db_SSMS_DATAWAREHOUSE`.`DimExamen`","[BI_DB].[bi_db_SSMS_DATAWAREHOUSE].[DimExamen]",480,480,"100.00%","00:00:00:01:077",
+"Completed","`bi_db_SSMS_DATAWAREHOUSE`.`DimModePaiement`","[BI_DB].[bi_db_SSMS_DATAWAREHOUSE].[DimModePaiement]",4,4,"100.00%","00:00:00:01:062",
+"Completed","`bi_db_SSMS_DATAWAREHOUSE`.`DimOrganisme`","[BI_DB].[bi_db_SSMS_DATAWAREHOUSE].[DimOrganisme]",109,109,"100.00%","00:00:00:01:077",
+"Completed","`bi_db_SSMS_DATAWAREHOUSE`.`DimPatient`","[BI_DB].[bi_db_SSMS_DATAWAREHOUSE].[DimPatient]",57706,57706,"100.00%","00:00:00:02:032",
+"Completed","`bi_db_SSMS_DATAWAREHOUSE`.`FactDemande`","[BI_DB].[bi_db_SSMS_DATAWAREHOUSE].[FactDemande]",74269,74269,"100.00%","00:00:00:35:576",
+"Completed","`bi_db_SSMS_DATAWAREHOUSE`.`FactExamen`","[BI_DB].[bi_db_SSMS_DATAWAREHOUSE].[FactExamen]",56592,56592,"100.00%","00:00:00:08:986",
+"Completed","`bi_db_SSMS_DATAWAREHOUSE`.`FactModePaiement`","[BI_DB].[bi_db_SSMS_DATAWAREHOUSE].[FactModePaiement]",133,133,"100.00%","00:00:00:01:030",

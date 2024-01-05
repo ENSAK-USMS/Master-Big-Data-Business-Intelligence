@@ -1,0 +1,125 @@
+﻿<DataSourceView xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:ddl200="http://schemas.microsoft.com/analysisservices/2010/engine/200" xmlns:ddl200_200="http://schemas.microsoft.com/analysisservices/2010/engine/200/200" xmlns:ddl300="http://schemas.microsoft.com/analysisservices/2011/engine/300" xmlns:ddl300_300="http://schemas.microsoft.com/analysisservices/2011/engine/300/300" xmlns:ddl400="http://schemas.microsoft.com/analysisservices/2012/engine/400" xmlns:ddl400_400="http://schemas.microsoft.com/analysisservices/2012/engine/400/400" xmlns:ddl500="http://schemas.microsoft.com/analysisservices/2013/engine/500" xmlns:ddl500_500="http://schemas.microsoft.com/analysisservices/2013/engine/500/500" xmlns:dwd="http://schemas.microsoft.com/DataWarehouse/Designer/1.0" dwd:design-time-name="48ca07d4-3363-4207-a1ab-753f2b04428c" xmlns="http://schemas.microsoft.com/analysisservices/2003/engine">
+  <ID>DM ModePaiement</ID>
+  <Name>DM ModePaiement</Name>
+  <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
+  <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
+  <Annotations>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:ShowFriendlyNames</Name>
+      <Value>true</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:CurrentLayout</Name>
+      <Value>_ALL_TABLES_</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:SchemaRestriction</Name>
+      <Value></Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:RetrieveRelationships</Name>
+      <Value>true</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:Layouts</Name>
+      <Value>
+        <Layouts xmlns="">
+          <Diagram>
+            <Name>_ALL_TABLES_</Name>
+            <DiagramLayout />
+            <ShowRelationshipNames>False</ShowRelationshipNames>
+            <UseDiagramDefaultLayout>True</UseDiagramDefaultLayout>
+            <DiagramViewPortLeft>0</DiagramViewPortLeft>
+            <DiagramViewPortTop>0</DiagramViewPortTop>
+            <DiagramBoundingLeft>0</DiagramBoundingLeft>
+            <DiagramBoundingTop>0</DiagramBoundingTop>
+            <DiagramZoom>100</DiagramZoom>
+          </Diagram>
+        </Layouts>
+      </Value>
+    </Annotation>
+  </Annotations>
+  <DataSourceID>Med Lab DW</DataSourceID>
+  <Schema>
+    <xs:schema id="DM_x0020_ModePaiement" xmlns="" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop">
+      <xs:element name="DM_x0020_ModePaiement" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:design-time-name="f232f644-5a7a-46bb-b84b-a20d7eb97acc">
+        <xs:complexType>
+          <xs:choice minOccurs="0" maxOccurs="unbounded">
+            <xs:element name="dbo_FactModePaiement" msprop:DbTableName="FactModePaiement" msprop:FriendlyName="FactModePaiement" msprop:TableType="Table" msprop:DbSchemaName="dbo" msprop:design-time-name="f7c74879-747f-41b3-87c8-7233ac5212ea">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="mode_paiement" msprop:FriendlyName="mode_paiement" msprop:DbColumnName="mode_paiement" msprop:design-time-name="bc7bf5b8-22da-4c14-b8c5-78d8fb1008a2">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="50" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="id_organisme" msprop:FriendlyName="id_organisme" msprop:DbColumnName="id_organisme" msprop:design-time-name="4a6e6332-8da5-4bcf-b79d-822243e19947" type="xs:int" />
+                  <xs:element name="chiffre_affaire" msprop:FriendlyName="chiffre_affaire" msprop:DbColumnName="chiffre_affaire" msprop:design-time-name="31c5c8b0-0b6b-4015-ad2a-4ecc33bf7321" type="xs:int" />
+                  <xs:element name="nbr_demande" msprop:FriendlyName="nbr_demande" msprop:DbColumnName="nbr_demande" msprop:design-time-name="d3b06ae7-5718-4739-9c85-0c663e626f19" type="xs:long" />
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="dbo_DimOrganisme" msprop:DbTableName="DimOrganisme" msprop:FriendlyName="DimOrganisme" msprop:TableType="Table" msprop:DbSchemaName="dbo" msprop:design-time-name="e8ffc7c6-c11f-498a-b771-f19693ca3421">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="id_organisme" msprop:FriendlyName="id_organisme" msprop:DbColumnName="id_organisme" msprop:design-time-name="3bbbc455-02cb-4978-a517-d319d3981090" type="xs:int" />
+                  <xs:element name="nom" msprop:FriendlyName="nom" msprop:DbColumnName="nom" msprop:design-time-name="b7a8a30b-85ca-4213-bc9f-acb5f5319bf9">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="45" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="specialite" msprop:FriendlyName="specialite" msprop:DbColumnName="specialite" msprop:design-time-name="874b8cfe-09db-46b6-898b-4b8a33193ad8" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="50" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="dbo_DimModePaiement" msprop:DbTableName="DimModePaiement" msprop:FriendlyName="DimModePaiement" msprop:TableType="Table" msprop:DbSchemaName="dbo" msprop:design-time-name="ad29cecc-a7a2-40b1-9ccd-3ad3b90f0f32">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="mode_paiement" msprop:FriendlyName="mode_paiement" msprop:DbColumnName="mode_paiement" msprop:design-time-name="e3142e6c-bf21-4294-b46f-52bc4063d724">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="50" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+          </xs:choice>
+        </xs:complexType>
+        <xs:unique name="Constraint1" msdata:PrimaryKey="true">
+          <xs:selector xpath=".//dbo_FactModePaiement" />
+          <xs:field xpath="mode_paiement" />
+          <xs:field xpath="id_organisme" />
+        </xs:unique>
+        <xs:unique name="dbo_DimOrganisme_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+          <xs:selector xpath=".//dbo_DimOrganisme" />
+          <xs:field xpath="id_organisme" />
+        </xs:unique>
+        <xs:unique name="dbo_DimModePaiement_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+          <xs:selector xpath=".//dbo_DimModePaiement" />
+          <xs:field xpath="mode_paiement" />
+        </xs:unique>
+        <xs:keyref name="FK_FactModePaiement_DimOrganisme" refer="dbo_DimOrganisme_Constraint1">
+          <xs:selector xpath=".//dbo_FactModePaiement" />
+          <xs:field xpath="id_organisme" />
+        </xs:keyref>
+        <xs:keyref name="FK_FactModePaiement_DimModePaiement" refer="dbo_DimModePaiement_Constraint1">
+          <xs:selector xpath=".//dbo_FactModePaiement" />
+          <xs:field xpath="mode_paiement" />
+        </xs:keyref>
+      </xs:element>
+    </xs:schema>
+    <DM_x0020_ModePaiement xmlns="" />
+  </Schema>
+</DataSourceView>
