@@ -1,0 +1,154 @@
+﻿<DataSourceView xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:ddl200="http://schemas.microsoft.com/analysisservices/2010/engine/200" xmlns:ddl200_200="http://schemas.microsoft.com/analysisservices/2010/engine/200/200" xmlns:ddl300="http://schemas.microsoft.com/analysisservices/2011/engine/300" xmlns:ddl300_300="http://schemas.microsoft.com/analysisservices/2011/engine/300/300" xmlns:ddl400="http://schemas.microsoft.com/analysisservices/2012/engine/400" xmlns:ddl400_400="http://schemas.microsoft.com/analysisservices/2012/engine/400/400" xmlns:ddl500="http://schemas.microsoft.com/analysisservices/2013/engine/500" xmlns:ddl500_500="http://schemas.microsoft.com/analysisservices/2013/engine/500/500" xmlns:dwd="http://schemas.microsoft.com/DataWarehouse/Designer/1.0" dwd:design-time-name="3b3f3333-8be1-4d36-9172-fb303659e28a" xmlns="http://schemas.microsoft.com/analysisservices/2003/engine">
+  <ID>bi db view demande</ID>
+  <Name>bi db view demande</Name>
+  <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
+  <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
+  <Annotations>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:ShowFriendlyNames</Name>
+      <Value>true</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:CurrentLayout</Name>
+      <Value>_ALL_TABLES_</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:SchemaRestriction</Name>
+      <Value></Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:RetrieveRelationships</Name>
+      <Value>true</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:Layouts</Name>
+      <Value>
+        <Layouts xmlns="">
+          <Diagram>
+            <Name>_ALL_TABLES_</Name>
+            <DiagramLayout />
+            <ShowRelationshipNames>False</ShowRelationshipNames>
+            <UseDiagramDefaultLayout>True</UseDiagramDefaultLayout>
+            <DiagramViewPortLeft>0</DiagramViewPortLeft>
+            <DiagramViewPortTop>0</DiagramViewPortTop>
+            <DiagramBoundingLeft>0</DiagramBoundingLeft>
+            <DiagramBoundingTop>0</DiagramBoundingTop>
+            <DiagramZoom>100</DiagramZoom>
+          </Diagram>
+        </Layouts>
+      </Value>
+    </Annotation>
+  </Annotations>
+  <DataSourceID>bi_db_dw</DataSourceID>
+  <Schema>
+    <xs:schema id="bi_x0020_db_x0020_view_x0020_demande" xmlns="" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop">
+      <xs:element name="bi_x0020_db_x0020_view_x0020_demande" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:design-time-name="dc884021-b8d5-49be-aabb-d6c77d080d5f">
+        <xs:complexType>
+          <xs:choice minOccurs="0" maxOccurs="unbounded">
+            <xs:element name="dbo_FactDemande" msprop:DbTableName="FactDemande" msprop:FriendlyName="FactDemande" msprop:TableType="Table" msprop:DbSchemaName="dbo" msprop:design-time-name="efea14f2-d5d3-4387-9ec9-1ada25eaf60c">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="id_date" msprop:FriendlyName="id_date" msprop:DbColumnName="id_date" msprop:design-time-name="0c3b614d-00fa-4651-a2a6-5f2f49e72736">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="10" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="id_compte" msprop:FriendlyName="id_compte" msprop:DbColumnName="id_compte" msprop:design-time-name="ddf6d8b5-0289-47e3-bc17-193dd1b2c8f0" type="xs:int" />
+                  <xs:element name="id_patient" msprop:FriendlyName="id_patient" msprop:DbColumnName="id_patient" msprop:design-time-name="12cdbc06-2af0-4349-8240-441d34a7b9e8" type="xs:int" />
+                  <xs:element name="chiffre_affaire" msprop:FriendlyName="chiffre_affaire" msprop:DbColumnName="chiffre_affaire" msprop:design-time-name="9e19f4d9-730a-4e89-b011-25228fa656b8" type="xs:double" />
+                  <xs:element name="nbr_demande" msprop:FriendlyName="nbr_demande" msprop:DbColumnName="nbr_demande" msprop:design-time-name="817eeae0-9dc0-423a-8703-500e40efdb1c" type="xs:decimal" />
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="dbo_DimPatient" msprop:DbTableName="DimPatient" msprop:FriendlyName="DimPatient" msprop:TableType="Table" msprop:DbSchemaName="dbo" msprop:design-time-name="aa54982d-ea1f-452e-8c68-abb8cfb18dda">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="id_patient" msprop:FriendlyName="id_patient" msprop:DbColumnName="id_patient" msprop:design-time-name="8881f727-c8c9-4576-8772-fd69a5e713fc" type="xs:int" />
+                  <xs:element name="genre" msprop:FriendlyName="genre" msprop:DbColumnName="genre" msprop:design-time-name="9c7c9b21-0e2d-4e29-b591-c8fb0d6e68a7">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="2" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="tranche_age" msprop:FriendlyName="tranche_age" msprop:DbColumnName="tranche_age" msprop:design-time-name="cbb6319f-61d1-433e-98f4-70bbbed0e8df">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="45" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="dbo_DimDate" msprop:DbTableName="DimDate" msprop:FriendlyName="DimDate" msprop:TableType="Table" msprop:DbSchemaName="dbo" msprop:design-time-name="3025a278-c507-4ab9-aaa4-c5ddbac75bc1">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="id_date" msprop:FriendlyName="id_date" msprop:DbColumnName="id_date" msprop:design-time-name="ba8fac60-4205-4f6b-96ab-aba7444a87d8">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="10" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="jour" msprop:FriendlyName="jour" msprop:DbColumnName="jour" msprop:design-time-name="7b974a57-7eec-470d-a302-256483e7e954" type="xs:int" />
+                  <xs:element name="mois" msprop:FriendlyName="mois" msprop:DbColumnName="mois" msprop:design-time-name="2b055c0f-bd8a-43ce-a46b-228fd4a89675" type="xs:int" />
+                  <xs:element name="annee" msprop:FriendlyName="annee" msprop:DbColumnName="annee" msprop:design-time-name="2f501c81-8311-43c9-aea2-8c7eda4c43e0" type="xs:int" />
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="dbo_DimCompte" msprop:DbTableName="DimCompte" msprop:FriendlyName="DimCompte" msprop:TableType="Table" msprop:DbSchemaName="dbo" msprop:design-time-name="23f80d53-1767-4d67-ad36-35772bb2dd32">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="id_compte" msprop:FriendlyName="id_compte" msprop:DbColumnName="id_compte" msprop:design-time-name="f98cadc2-cbf8-40ce-9995-9befd34d16be" type="xs:int" />
+                  <xs:element name="profil" msprop:FriendlyName="profil" msprop:DbColumnName="profil" msprop:design-time-name="5d7427e2-7f5f-44d0-81b5-77a4b170f496">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="2" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="actif" msprop:FriendlyName="actif" msprop:DbColumnName="actif" msprop:design-time-name="94362c8d-4c9b-4cfc-8843-db549d84a43a" type="xs:boolean" />
+                  <xs:element name="acces_externe" msprop:FriendlyName="acces_externe" msprop:DbColumnName="acces_externe" msprop:design-time-name="febb2fd6-89d1-4e73-9450-fd14ca13f72b" type="xs:boolean" />
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+          </xs:choice>
+        </xs:complexType>
+        <xs:unique name="Constraint1" msdata:PrimaryKey="true">
+          <xs:selector xpath=".//dbo_FactDemande" />
+          <xs:field xpath="id_date" />
+          <xs:field xpath="id_compte" />
+          <xs:field xpath="id_patient" />
+        </xs:unique>
+        <xs:unique name="dbo_DimPatient_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+          <xs:selector xpath=".//dbo_DimPatient" />
+          <xs:field xpath="id_patient" />
+        </xs:unique>
+        <xs:unique name="dbo_DimDate_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+          <xs:selector xpath=".//dbo_DimDate" />
+          <xs:field xpath="id_date" />
+        </xs:unique>
+        <xs:unique name="dbo_DimCompte_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+          <xs:selector xpath=".//dbo_DimCompte" />
+          <xs:field xpath="id_compte" />
+        </xs:unique>
+        <xs:keyref name="FK_FactDemande_DimPatient" refer="dbo_DimPatient_Constraint1">
+          <xs:selector xpath=".//dbo_FactDemande" />
+          <xs:field xpath="id_patient" />
+        </xs:keyref>
+        <xs:keyref name="FK_FactDemande_DimCompte" refer="dbo_DimCompte_Constraint1">
+          <xs:selector xpath=".//dbo_FactDemande" />
+          <xs:field xpath="id_compte" />
+        </xs:keyref>
+        <xs:keyref name="FK_FactDemande_DimDate" refer="dbo_DimDate_Constraint1">
+          <xs:selector xpath=".//dbo_FactDemande" />
+          <xs:field xpath="id_date" />
+        </xs:keyref>
+      </xs:element>
+    </xs:schema>
+    <bi_x0020_db_x0020_view_x0020_demande xmlns="" />
+  </Schema>
+</DataSourceView>
