@@ -1,0 +1,85 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\xeno\\Desktop\\Projet BI\\dw_bi_db_ssas\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{9DB0DC38-C45F-4013-A4C4-B00FD63D0726}|dw_bi_db_ssas.dwproj|C:\\Users\\xeno\\Desktop\\Projet BI\\dw_bi_db_ssas\\Dim Date.dim||{B4191D15-2D32-45F2-906F-E91BBAAA6059}|Design",
+      "RelativeMoniker": "D:0:0:{9DB0DC38-C45F-4013-A4C4-B00FD63D0726}|dw_bi_db_ssas.dwproj|solutionrelative:Dim Date.dim||{B4191D15-2D32-45F2-906F-E91BBAAA6059}|Design"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9DB0DC38-C45F-4013-A4C4-B00FD63D0726}|dw_bi_db_ssas.dwproj|C:\\Users\\xeno\\Desktop\\Projet BI\\dw_bi_db_ssas\\Dim Organisme.dim||{B4191D15-2D32-45F2-906F-E91BBAAA6059}|Design",
+      "RelativeMoniker": "D:0:0:{9DB0DC38-C45F-4013-A4C4-B00FD63D0726}|dw_bi_db_ssas.dwproj|solutionrelative:Dim Organisme.dim||{B4191D15-2D32-45F2-906F-E91BBAAA6059}|Design"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9DB0DC38-C45F-4013-A4C4-B00FD63D0726}|dw_bi_db_ssas.dwproj|C:\\Users\\xeno\\Desktop\\Projet BI\\dw_bi_db_ssas\\bi db cube examen.cube||{B4191D15-2D32-45F2-906F-E91BBAAA6059}|Design",
+      "RelativeMoniker": "D:0:0:{9DB0DC38-C45F-4013-A4C4-B00FD63D0726}|dw_bi_db_ssas.dwproj|solutionrelative:bi db cube examen.cube||{B4191D15-2D32-45F2-906F-E91BBAAA6059}|Design"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9DB0DC38-C45F-4013-A4C4-B00FD63D0726}|dw_bi_db_ssas.dwproj|C:\\Users\\xeno\\Desktop\\Projet BI\\dw_bi_db_ssas\\Dim Examen.dim||{B4191D15-2D32-45F2-906F-E91BBAAA6059}|Design",
+      "RelativeMoniker": "D:0:0:{9DB0DC38-C45F-4013-A4C4-B00FD63D0726}|dw_bi_db_ssas.dwproj|solutionrelative:Dim Examen.dim||{B4191D15-2D32-45F2-906F-E91BBAAA6059}|Design"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 3,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Dim Examen.dim [Design]",
+              "DocumentMoniker": "C:\\Users\\xeno\\Desktop\\Projet BI\\dw_bi_db_ssas\\Dim Examen.dim",
+              "RelativeDocumentMoniker": "Dim Examen.dim",
+              "ToolTip": "C:\\Users\\xeno\\Desktop\\Projet BI\\dw_bi_db_ssas\\Dim Examen.dim [Design]",
+              "RelativeToolTip": "Dim Examen.dim [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2024-01-05T14:01:32.628Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Dim Organisme.dim [Design]",
+              "DocumentMoniker": "C:\\Users\\xeno\\Desktop\\Projet BI\\dw_bi_db_ssas\\Dim Organisme.dim",
+              "RelativeDocumentMoniker": "Dim Organisme.dim",
+              "ToolTip": "C:\\Users\\xeno\\Desktop\\Projet BI\\dw_bi_db_ssas\\Dim Organisme.dim [Design]",
+              "RelativeToolTip": "Dim Organisme.dim [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2024-01-05T14:01:28.747Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Dim Date.dim [Design]",
+              "DocumentMoniker": "C:\\Users\\xeno\\Desktop\\Projet BI\\dw_bi_db_ssas\\Dim Date.dim",
+              "RelativeDocumentMoniker": "Dim Date.dim",
+              "ToolTip": "C:\\Users\\xeno\\Desktop\\Projet BI\\dw_bi_db_ssas\\Dim Date.dim [Design]",
+              "RelativeToolTip": "Dim Date.dim [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2024-01-05T14:01:18.849Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "bi db cube examen.cube [Design]",
+              "DocumentMoniker": "C:\\Users\\xeno\\Desktop\\Projet BI\\dw_bi_db_ssas\\bi db cube examen.cube",
+              "RelativeDocumentMoniker": "bi db cube examen.cube",
+              "ToolTip": "C:\\Users\\xeno\\Desktop\\Projet BI\\dw_bi_db_ssas\\bi db cube examen.cube [Design]",
+              "RelativeToolTip": "bi db cube examen.cube [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2024-01-05T01:36:04.218Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
