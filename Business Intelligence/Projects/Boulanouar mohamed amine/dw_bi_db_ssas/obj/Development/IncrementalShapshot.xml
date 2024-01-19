@@ -1,0 +1,124 @@
+﻿<DeploymentSnapshot xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:ddl200="http://schemas.microsoft.com/analysisservices/2010/engine/200" xmlns:ddl200_200="http://schemas.microsoft.com/analysisservices/2010/engine/200/200" xmlns:ddl300="http://schemas.microsoft.com/analysisservices/2011/engine/300" xmlns:ddl300_300="http://schemas.microsoft.com/analysisservices/2011/engine/300/300" xmlns:ddl400="http://schemas.microsoft.com/analysisservices/2012/engine/400" xmlns:ddl400_400="http://schemas.microsoft.com/analysisservices/2012/engine/400/400" xmlns:ddl500="http://schemas.microsoft.com/analysisservices/2013/engine/500" xmlns:ddl500_500="http://schemas.microsoft.com/analysisservices/2013/engine/500/500" xmlns:dwd="http://schemas.microsoft.com/DataWarehouse/Designer/1.0">
+  <Target>
+    <Database>dw_bi_db_ssas</Database>
+    <Server>localhost</Server>
+    <ConnectionString>Data Source=localhost;Timeout=0</ConnectionString>
+  </Target>
+  <Options>
+    <TransactionalDeployment>false</TransactionalDeployment>
+    <PartitionDeployment>DeployPartitions</PartitionDeployment>
+    <RoleDeployment>DeployRolesRetainMembers</RoleDeployment>
+    <ProcessingOption>Default</ProcessingOption>
+    <OutputScript></OutputScript>
+    <ImpactAnalysisFile></ImpactAnalysisFile>
+    <ConfigurationSettingsDeployment>Deploy</ConfigurationSettingsDeployment>
+    <OptimizationSettingsDeployment>Deploy</OptimizationSettingsDeployment>
+    <WriteBackTableCreation>UseExisting</WriteBackTableCreation>
+  </Options>
+  <Snapshot>
+    <ObjectSnapshots>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.RelationalDataSource</Type>
+        <TimeStamp>/KRUfdceyBK4+xxDjvADDjUkeaE=1/5/2024 2:27:40 AM1/5/2024 2:27:40 AM</TimeStamp>
+        <ID>
+          <String>bi_db_dw</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.DataSourceView</Type>
+        <TimeStamp>60tpXMeGMCDyE7babyyKAVGd608=1/5/2024 2:36:01 AM1/5/2024 2:28:34 AM</TimeStamp>
+        <ID>
+          <String>bi db view demande</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.DataSourceView</Type>
+        <TimeStamp>EwniFNsUbIf+i8oZ2PQZromBf3o=1/5/2024 2:35:51 AM1/5/2024 2:29:32 AM</TimeStamp>
+        <ID>
+          <String>bi db view examen</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.DataSourceView</Type>
+        <TimeStamp>t7+By7YfA72IQNXghzgqfnWMfIo=1/5/2024 2:36:00 AM1/5/2024 2:29:54 AM</TimeStamp>
+        <ID>
+          <String>bi db view mode paiement</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>4pwqzajOLYM/iSLHlnuMo+1NUSo=1/5/2024 2:52:56 PM1/5/2024 2:30:12 AM</TimeStamp>
+        <ID>
+          <String>Dim Date</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>y714zRZJgE/A9LI5MvjKK52PU5I=1/5/2024 2:52:56 PM1/5/2024 2:30:12 AM</TimeStamp>
+        <ID>
+          <String>Dim Compte</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>gWS43v2jhVLvTo1LTxg8PLECfDI=1/5/2024 2:52:56 PM1/5/2024 2:30:12 AM</TimeStamp>
+        <ID>
+          <String>Dim Patient</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>xGgwR45Ru7Sw8m4fN5YeT+9qYYY=1/5/2024 2:52:56 PM1/5/2024 2:30:36 AM</TimeStamp>
+        <ID>
+          <String>Dim Organisme</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>5/D3we8D3vHnOm/aA0vTcDBqN4Q=1/5/2024 2:52:56 PM1/5/2024 2:30:36 AM</TimeStamp>
+        <ID>
+          <String>Dim Examen</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>mln9wcsRl82c6lV/isedH/zLkMQ=1/5/2024 2:52:56 PM1/5/2024 2:30:59 AM</TimeStamp>
+        <ID>
+          <String>Dim Mode Paiement</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Cube</Type>
+        <TimeStamp>2QvJSwJVxirhFCGZM0BUd6gcfeY=1/5/2024 2:52:56 PM1/5/2024 2:30:12 AMRCJJhQFUfh7JoXPsPXg5yRKms3I=1/5/2024 2:30:12 AM1/5/2024 2:30:12 AM</TimeStamp>
+        <ID>
+          <String>bi db cube demande</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Cube</Type>
+        <TimeStamp>TZNT0nd+Db0AO6sYOt+cNiO8HCc=1/5/2024 2:52:56 PM1/5/2024 2:30:36 AM5r3yGx0t9sYNZBajVupm9K1LOwk=1/5/2024 2:30:37 AM1/5/2024 2:30:36 AM</TimeStamp>
+        <ID>
+          <String>bi db cube examen</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Cube</Type>
+        <TimeStamp>orruwMFrwifozs9EuEFLhR+L6Ko=1/5/2024 2:52:56 PM1/5/2024 2:30:59 AM+8NdmDDXfwnvjp6/sJRA2Td+tnU=1/5/2024 2:30:59 AM1/5/2024 2:30:59 AM</TimeStamp>
+        <ID>
+          <String>bi db cube mode paiement</String>
+        </ID>
+      </ObjectSnapshot>
+    </ObjectSnapshots>
+    <DatabaseSnapshot>
+      <Type>Microsoft.AnalysisServices.Database</Type>
+      <TimeStamp>ysF85xAZ4zZol+WPeDvAYX4aAJQ=1/4/2024 9:21:18 PM1/4/2024 9:21:17 PM</TimeStamp>
+      <ID>
+        <String>dw_bi_db_ssas</String>
+      </ID>
+    </DatabaseSnapshot>
+    <Granularity>Coarse</Granularity>
+  </Snapshot>
+  <AssemblyLocations />
+  <ProcessingComplete>true</ProcessingComplete>
+  <LastDeployed>2024-01-05T13:53:18.476667Z</LastDeployed>
+</DeploymentSnapshot>
