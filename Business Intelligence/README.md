@@ -17,7 +17,7 @@ This folder contains Practical Exercises for the Business Intelligence subject a
 * [Practical Exercises 3 - ETL, Alimentation du DW](Practical%20Exercises/TP%203.pdf)
 * [Practical Exercises 4 - OLAP, Création des Dimensions et de Cube](Practical%20Exercises/TP%204.pdf)
 
-## Presentations
+## Presentations 
 
 * [Presentation Guide](Presentations/1%20Presentation%20Guide.pptx)
 * [BI presentation](Presentations/BI%20presentation.pdf)
