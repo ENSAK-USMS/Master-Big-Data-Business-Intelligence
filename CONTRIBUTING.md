@@ -9,6 +9,8 @@ Thank you for your interest in contributing to our project! To ensure effective 
 5. [Handling Pull Request changes](#handling-pull-request-changes)
 6. [Resolving merge conflicts](#resolving-merge-conflicts)
 7. [After your pull request is merged](#after-your-pull-request-is-merged)
+8. [Addtionnal Resources](#addtionnal-resources)
+
 
 
 ### Forking the Repository
@@ -166,3 +168,54 @@ from the main (upstream) repository:
   ```shell
   git pull --ff upstream main
   ```
+### Addtionnal Resources
+1. [Adding A linked folder to your project](#adding-a-linked-folder-to-your-project)
+
+
+#### Adding A linked folder to your project
+#### How to Use Git Submodule to Add a Linked Folder to Another Project
+
+Git submodule is a powerful feature in Git that allows you to include a separate Git repository as a subdirectory within your own repository. This can be useful when you want to add a linked folder from another project to your own project. In the context of students working on different projects, using Git submodule can help them easily incorporate shared code or resources from a central repository.
+
+Here's a step-by-step guide on how to use Git submodule to add a linked folder to another project:
+
+1. Navigate to the root directory of your project where you want to add the linked folder.
+
+2. Open a terminal or command prompt in the root directory.
+
+3. Add the external repository as a submodule using the following command:
+  ```shell
+  git submodule add <repository_url> <submodule_path>
+  ```
+  Replace `<repository_url>` with the URL of the external repository and `<submodule_path>` with the desired path where you want the linked folder to be added within your project.
+
+4. Commit the changes to your main project repository:
+  ```shell
+  git commit -m "Added submodule: <submodule_path>"
+  ```
+
+5. Push the changes to your remote repository:
+  ```shell
+  git push origin main
+  ```
+
+6. When other students clone your project repository, they need to initialize and update the submodule. Instruct them to run the following commands:
+  ```shell
+  git submodule init
+  git submodule update
+  ```
+
+7. The linked folder from the external repository will now be available within your project. Students can work with the shared code or resources as if they were part of their own project.
+
+8. To update the linked folder to the latest version from the external repository, navigate to the submodule directory and run the following commands:
+  ```shell
+  cd <submodule_path>
+  git pull origin main
+  ```
+
+  Note: Students should be cautious when updating the submodule, as it may introduce changes that could potentially break their project.
+
+That's it! You have successfully added a linked folder from another project using Git submodule. This allows students to collaborate and share code or resources easily while maintaining separate project repositories.
+
+For more information on Git submodules, refer to the official Git documentation: [Git Submodules](https://git-scm.com/book/en/v2/Git-Tools-Submodules)
+
