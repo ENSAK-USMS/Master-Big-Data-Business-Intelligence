@@ -17,7 +17,7 @@ Explore a curated collection of courses, practical works, and projects developed
 The repository contains all the resources, practical works, and projects created by the students. Feel free to explore each subject and discover its contents:
 
 1. **[Business Intelligence:](Business%20Intelligence)**
-   - [Presentations](Business%20Intelligence/presentations): View presentations created by the students.
+   - [[Presentations](Business%20Intelligence/presentations)](https://github.com/ENSAK-USMS/Master-Big-Data-Business-Intelligence/Business%20Intelligence/Presentations): View presentations created by the students.
    - [Practical Exercises](Business%20Intelligence/practical%20exercises): Practice materials for BI concepts.
    - [Projects](Business%20Intelligence/projects): Explore projects in the field of BI.
 
