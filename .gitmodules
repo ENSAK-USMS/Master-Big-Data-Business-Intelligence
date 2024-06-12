@@ -1,0 +1,6 @@
+[submodule "Python and Java OOP/Projects/neural-fusion-studio"]
+	path = Python and Java OOP/Projects/neural-fusion-studio
+	url = https://github.com/ENSAK-USMS/neural-fusion-studio.git
+[submodule "Business Intelligence/Projects/MedLab"]
+	path = Business Intelligence/Projects/MedLab
+	url = https://github.com/bellaabdelouahab/MedLab
