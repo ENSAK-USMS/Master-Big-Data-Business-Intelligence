@@ -146,6 +146,11 @@
                               <Image url="@images/neural-network.png" />
                            </image>
                         </ImageView>
+                        <Label layoutX="89.0" layoutY="256.0" text="Dashboard " textFill="#e1e1e1">
+                           <font>
+                              <Font name="Arial Rounded MT Bold" size="14.0" />
+                           </font>
+                        </Label>
                    </children>
                  </Pane>
                  <Pane fx:id="sideBarShadow1" layoutX="70.5" prefHeight="600.0" prefWidth="2.0" style="-fx-background-color: #131313;" />

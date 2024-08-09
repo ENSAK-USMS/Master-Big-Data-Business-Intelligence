@@ -85,12 +85,12 @@
             <Circle fill="#161817ad" layoutX="125.0" layoutY="125.0" radius="127.5" stroke="TRANSPARENT" strokeType="INSIDE" />
             <Pane fx:id="outerCirclePane" prefHeight="250.0" prefWidth="250.0">
                <children>
-                  <Line endX="63.0" layoutX="92.45894622802734" layoutY="41.0" rotate="270.0" strokeLineCap="ROUND" strokeWidth="2.0" />
-                  <Line endX="63.0" layoutX="165.70508575439453" layoutY="82.13397216796875" rotate="330.0" strokeLineCap="ROUND" strokeWidth="2.0" />
-                  <Line endX="63.0" layoutX="166.70508575439453" layoutY="166.13397216796875" rotate="389.99999999999994" strokeLineCap="ROUND" strokeWidth="2.0" />
-                  <Line endX="63.0" layoutX="94.45894622802734" layoutY="209.0" rotate="450.0" strokeLineCap="ROUND" strokeWidth="2.0" />
-                  <Line endX="63.0" layoutX="21.212810516357422" layoutY="167.86602783203125" rotate="510.00000000000006" strokeLineCap="ROUND" strokeWidth="2.0" />
-                  <Line endX="63.0" layoutX="20.212810516357422" layoutY="83.86602783203125" rotate="570.0" strokeLineCap="ROUND" strokeWidth="2.0" />
+                  <Line endX="63.0" fill="BLACK" layoutX="92.45894622802734" layoutY="41.0" rotate="270.0" strokeLineCap="ROUND" strokeWidth="3.0" />
+                  <Line endX="63.0" fill="BLACK" layoutX="165.70508575439453" layoutY="82.13397216796875" rotate="330.0" strokeLineCap="ROUND" strokeWidth="3.0" />
+                  <Line endX="63.0" fill="BLACK" layoutX="166.70508575439453" layoutY="166.13397216796875" rotate="389.99999999999994" strokeLineCap="ROUND" strokeWidth="3.0" />
+                  <Line endX="63.0" fill="BLACK" layoutX="94.45894622802734" layoutY="209.0" rotate="450.0" strokeLineCap="ROUND" strokeWidth="3.0" />
+                  <Line endX="63.0" fill="BLACK" layoutX="21.212810516357422" layoutY="167.86602783203125" rotate="510.00000000000006" strokeLineCap="ROUND" strokeWidth="3.0" />
+                  <Line endX="63.0" fill="BLACK" layoutX="20.212810516357422" layoutY="83.86602783203125" rotate="570.0" strokeLineCap="ROUND" strokeWidth="3.0" />
                   <Circle centerX="125.0" centerY="125.0" fill="#2c2829ad" radius="116.5" stroke="BLACK" strokeType="INSIDE" />
                </children>
             </Pane>
@@ -146,9 +146,9 @@
             <Line endX="10.0" layoutX="166.08235509600522" layoutY="186.68805839711348" rotate="413.2394487827053" stroke="#6b6b6b" strokeLineCap="ROUND" strokeWidth="2.0" />
             <Line endX="10.0" layoutX="159.69360563025336" layoutY="190.98043400940855" rotate="418.9690267340135" stroke="#6b6b6b" strokeLineCap="ROUND" strokeWidth="2.0" />
             <Line endX="10.0" layoutX="152.9082507780056" layoutY="194.6135549353134" rotate="424.6986046853217" stroke="#6b6b6b" strokeLineCap="ROUND" strokeWidth="2.0" />
-            <Label alignment="CENTER" layoutX="68.0" layoutY="88.0" prefHeight="75.0" prefWidth="122.0" text="GO" textFill="WHITE">
+            <Label alignment="CENTER" graphicTextGap="1.0" layoutX="68.0" layoutY="86.0" prefHeight="75.0" prefWidth="122.0" text="GO" textFill="#b7b5b5" textOverrun="CENTER_ELLIPSIS">
                <font>
-                  <Font name="Yu Gothic Regular" size="37.0" />
+                  <Font name="Trebuchet MS Bold" size="50.0" />
                </font>
             </Label>
          </children>
@@ -237,7 +237,7 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Pane>
-      <HBox layoutX="313.0" layoutY="518.0" prefWidth="200.0" style="-fx-background-radius: 10 10 0 0; -fx-border-radius: 5; -fx-background-color: #323232;">
+      <HBox layoutX="313.0" layoutY="517.0" maxHeight="40.0" prefHeight="27.0" prefWidth="202.0" style="-fx-background-radius: 10 10 0 0; -fx-border-radius: 5; -fx-background-color: #323232;">
          <children>
             <Button graphicTextGap="6.0" lineSpacing="3.0" minHeight="40.0" minWidth="100.0" mnemonicParsing="false" onAction="#showClasificationOptions" styleClass="footer-left-button" stylesheets="@../../styles/index.css" text="Classification" textFill="#aeaeae">
                <font>
@@ -251,21 +251,16 @@
                </font>
             </Button>
          </children>
-         <padding>
-            <Insets bottom="10.0" />
-         </padding>
       </HBox>
-      <Button layoutX="660.0" layoutY="525.0" mnemonicParsing="false" onMouseEntered="#showActivatePane" prefHeight="20.0" prefWidth="38.0" style="-fx-border-color: #525252; -fx-background-radius: 2; -fx-border-radius: 2;" styleClass="gray-hover" stylesheets="@../../styles/index.css">
+      <Button fx:id="manageLiecenceBtn" layoutX="700.0" layoutY="525.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="122.0" style="-fx-background-color: transparent;" text="Manage Licence" textFill="#9995956e" underline="true">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
-      <ImageView fitHeight="36.0" fitWidth="48.0" layoutX="660.0" layoutY="520.0" mouseTransparent="true" onMouseEntered="#showActivatePane" preserveRatio="true">
-         <image>
-            <Image url="@../../images/key.png" />
-         </image>
-      </ImageView>
-      <Button layoutX="700.0" layoutY="525.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="122.0" style="-fx-background-color: #ff8800;" styleClass="activatebutton" stylesheets="@../../styles/dashboard.css" text="Activate Now" textFill="#ffffff6e">
+      <Button fx:id="activateNowBtn" layoutX="700.0" layoutY="525.0" mnemonicParsing="false" onMouseEntered="#showActivatePane" prefHeight="25.0" prefWidth="122.0" style="-fx-background-color: #ff8800;" styleClass="activatebutton" stylesheets="@../../styles/dashboard.css" text="Activate Now" textFill="#ffffff6e">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
@@ -297,7 +292,7 @@
             <Button mnemonicParsing="false" onAction="#setTrainingAlgorithm" prefHeight="26.0" prefWidth="127.0" style="-fx-background-color: #313131;" text="Apply" textFill="#838383" />
          </children>
       </HBox>
-      <Pane fx:id="activatePane" layoutX="835.0" layoutY="494.0" prefHeight="65.0" prefWidth="266.0" style="-fx-background-color: #2f2f2f; -fx-background-radius: 5 0 0 0;">
+      <Pane fx:id="activatePane" layoutX="835.0" layoutY="494.0" onMouseExited="#hideActivatePane" prefHeight="65.0" prefWidth="266.0" style="-fx-background-color: #2f2f2f; -fx-background-radius: 5 0 0 0;">
          <children>
             <TextField layoutX="4.0" layoutY="36.0" prefHeight="25.0" prefWidth="233.0" style="-fx-background-color: #9e9e9e;" />
             <Button layoutX="241.0" layoutY="35.0" mnemonicParsing="false" onAction="#validateActivation" style="-fx-background-color: #838383;" text="⟫">
@@ -312,5 +307,30 @@
             </Label>
          </children>
       </Pane>
+      <HBox layoutX="265.0" layoutY="51.0" prefHeight="30.0" prefWidth="300.0" style="-fx-background-radius: 15; -fx-background-color: #242322; -fx-border-width: 4 3.5 4 3.5; -fx-border-color: #242322; -fx-border-radius: 15;">
+         <children>
+            <Button mnemonicParsing="false" prefHeight="30.0" prefWidth="150.0" style="-fx-background-radius: 10 0 0 10; -fx-border-radius: 10 0 0 10; -fx-background-color: #323232;" text="Machine Learning" textFill="#8c8989">
+               <font>
+                  <Font name="Arial Rounded MT Bold" size="12.0" />
+               </font>
+            </Button>
+            <Line endY="27.4" strokeType="OUTSIDE" strokeWidth="2.0" />
+            <Button mnemonicParsing="false" prefHeight="30.0" prefWidth="150.0" style="-fx-background-radius: 0 10 10 0; -fx-background-radius: 0 10 10 0; -fx-background-color: #565656;" text="Deep Learning" textFill="#8c8989">
+               <font>
+                  <Font name="Arial Rounded MT Bold" size="12.0" />
+               </font>
+               <graphic>
+                  <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../../../../../../../../../../../neural-fusion-studio/neural-fusion-studio/src/main/resources/com/nfs/app/images/icons8-crown-48.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+         </children>
+         <padding>
+            <Insets bottom="1.0" left="1.0" right="1.0" top="1.0" />
+         </padding>
+      </HBox>
    </children>
 </AnchorPane>

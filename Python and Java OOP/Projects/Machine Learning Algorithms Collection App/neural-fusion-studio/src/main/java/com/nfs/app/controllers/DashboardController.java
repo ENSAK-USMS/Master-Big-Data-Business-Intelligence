@@ -87,6 +87,9 @@ public class DashboardController {
     @FXML
     private Pane activatePane;
 
+    @FXML
+    private Button activateNowBtn,manageLiecenceBtn;
+
     public static Instances dataSet;
 
     private Algorithm_Abstract trainingAlgorithm;
@@ -487,10 +490,16 @@ public class DashboardController {
     private void showActivatePane(){
         animateElement(activatePane, -270, 0);
     }
+    @FXML 
+    private void hideActivatePane(){
+        animateElement(activatePane, 0, 0);
+    }
     // validateActivation
     @FXML
     private void validateActivation(){
         animateElement(activatePane, 0, 0);
+        manageLiecenceBtn.setVisible(true);
+        activateNowBtn.setVisible(false);
 
         // activationLabel
         Button activationButton = (Button) App.getScene().lookup("#activationLabel");
@@ -648,7 +657,7 @@ public class DashboardController {
         rotateTransition.setAxis(Rotate.Z_AXIS);
 
         // Set the angle of rotation to 45 degrees
-        rotateTransition.setByAngle(45);
+        rotateTransition.setByAngle(60);
 
         // Create a StrokeTransition object for the circle
         Circle circle = (Circle) outerCirclePane.getChildren().get(6);
@@ -682,6 +691,7 @@ public class DashboardController {
         rotateTransition.play();
         strokeTransition.play();
         lineTimeline.play();
+        
     }
 
     @FXML
@@ -693,7 +703,7 @@ public class DashboardController {
         rotateTransition.setAxis(Rotate.Z_AXIS);
 
         // Set the angle of rotation to 45 degrees
-        rotateTransition.setByAngle(-45);
+        rotateTransition.setByAngle(-60);
 
         // Create a StrokeTransition object for the circle
         Circle circle = (Circle) outerCirclePane.getChildren().get(6);

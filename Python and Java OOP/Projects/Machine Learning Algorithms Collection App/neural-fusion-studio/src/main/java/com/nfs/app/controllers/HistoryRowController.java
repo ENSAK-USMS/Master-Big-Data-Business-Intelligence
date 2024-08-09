@@ -101,13 +101,10 @@ public class HistoryRowController {
         this.algorithm = algorithm;
     }
 
-
     @FXML
     public void swithToHomePage() throws IOException {
         App.switchPage("views/dashboard/index");
     }
-
-    
 }
 
 

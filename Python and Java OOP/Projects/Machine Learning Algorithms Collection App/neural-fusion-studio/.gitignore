@@ -3,5 +3,6 @@
 
 
 target
+**.class
 
 ./src/main/java/com/nfs/app/preprocessing/vote.csv

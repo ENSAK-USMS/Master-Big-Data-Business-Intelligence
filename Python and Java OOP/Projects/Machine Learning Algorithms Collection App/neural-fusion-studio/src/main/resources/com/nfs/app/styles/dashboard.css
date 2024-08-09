@@ -71,7 +71,7 @@
 }
 
 .activatebutton:hover{
-    -fx-text-fill: #ffffff;
+    -fx-text-fill: #b2b1b1;
 }
 
 .purple:selected .thumb-area {
