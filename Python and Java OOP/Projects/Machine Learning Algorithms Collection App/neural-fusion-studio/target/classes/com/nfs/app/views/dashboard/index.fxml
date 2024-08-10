@@ -1,0 +1,310 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.Group?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ProgressIndicator?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.RadialGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.shape.Arc?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="dashboardAnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="560.0" prefWidth="830.0" style="-fx-background-color: transparent;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.nfs.app.controllers.DashboardController">
+   <children>
+      <Arc fill="TRANSPARENT" layoutX="415.0" layoutY="258.0" length="88.0" radiusX="162.0" radiusY="161.0" startAngle="1.0" stroke="#d43e3e" strokeType="INSIDE" strokeWidth="22.0" type="ROUND" visible="false" />
+      <Arc fill="TRANSPARENT" layoutX="415.0" layoutY="258.0" length="88.0" radiusX="162.0" radiusY="161.0" startAngle="91.0" stroke="#d43e3e" strokeType="INSIDE" strokeWidth="22.0" type="ROUND" visible="false" />
+      <Circle centerX="125.0" centerY="125.0" fill="#1a1a1a" layoutX="290.0" layoutY="135.0" radius="142.5" stroke="BLACK" strokeType="INSIDE" />
+      <Circle fill="#15171600" layoutX="415.0" layoutY="261.0" radius="141.0" stroke="#e0363afc" strokeType="INSIDE" strokeWidth="3.0" />
+      <Arc fill="TRANSPARENT" layoutX="415.0" layoutY="260.0" length="180.0" radiusX="142.0" radiusY="141.0" stroke="#1a1a1a" strokeType="INSIDE" strokeWidth="5.0" />
+      <Line endX="-0.500030517578125" layoutX="655.0" layoutY="260.0" startX="-100.0" strokeWidth="3.0">
+         <stroke>
+            <LinearGradient endX="1.0" endY="1.0">
+               <stops>
+                  <Stop>
+                     <color>
+                        <Color red="0.9215686321258545" green="0.2235294133424759" blue="0.239215686917305" />
+                     </color>
+                  </Stop>
+                  <Stop offset="0.02601844860978869">
+                     <color>
+                        <Color red="0.9215686321258545" green="0.2235294133424759" blue="0.239215686917305" />
+                     </color>
+                  </Stop>
+                  <Stop offset="0.6904441453566621">
+                     <color>
+                        <Color red="0.1725490242242813" green="0.1568627506494522" blue="0.16078431904315948" opacity="0.6800000071525574" />
+                     </color>
+                  </Stop>
+                  <Stop offset="1.0">
+                     <color>
+                        <Color red="0.1725490242242813" green="0.1568627506494522" blue="0.16078431904315948" opacity="0.6800000071525574" />
+                     </color>
+                  </Stop>
+               </stops>
+            </LinearGradient>
+         </stroke>
+      </Line>
+      <Line endX="-0.500030517578125" layoutX="276.0" layoutY="260.0" startX="-100.0" strokeWidth="3.0">
+         <stroke>
+            <LinearGradient endX="1.0" endY="1.0">
+               <stops>
+                  <Stop>
+                     <color>
+                        <Color red="0.1725490242242813" green="0.1568627506494522" blue="0.16078431904315948" opacity="0.6800000071525574" />
+                     </color>
+                  </Stop>
+                  <Stop offset="0.3728129205921937">
+                     <color>
+                        <Color red="0.1725490242242813" green="0.1568627506494522" blue="0.16078431904315948" opacity="0.6800000071525574" />
+                     </color>
+                  </Stop>
+                  <Stop offset="1.0">
+                     <color>
+                        <Color red="0.9215686321258545" green="0.2235294133424759" blue="0.239215686917305" />
+                     </color>
+                  </Stop>
+               </stops>
+            </LinearGradient>
+         </stroke>
+      </Line>
+      <Pane layoutX="290.0" layoutY="135.0" onMouseClicked="#runAlgorithm" onMouseEntered="#onCentercircleHoverEntered" onMouseExited="#onCentercircleHoverExited" prefHeight="250.0" prefWidth="250.0" styleClass="rotating-button" stylesheets="@../../styles/index.css">
+         <children>
+            <Circle fill="#161817ad" layoutX="125.0" layoutY="125.0" radius="127.5" stroke="TRANSPARENT" strokeType="INSIDE" />
+            <Pane fx:id="outerCirclePane" prefHeight="250.0" prefWidth="250.0">
+               <children>
+                  <Line endX="63.0" fill="BLACK" layoutX="92.45894622802734" layoutY="41.0" rotate="270.0" strokeLineCap="ROUND" strokeWidth="3.0" />
+                  <Line endX="63.0" fill="BLACK" layoutX="165.70508575439453" layoutY="82.13397216796875" rotate="330.0" strokeLineCap="ROUND" strokeWidth="3.0" />
+                  <Line endX="63.0" fill="BLACK" layoutX="166.70508575439453" layoutY="166.13397216796875" rotate="389.99999999999994" strokeLineCap="ROUND" strokeWidth="3.0" />
+                  <Line endX="63.0" fill="BLACK" layoutX="94.45894622802734" layoutY="209.0" rotate="450.0" strokeLineCap="ROUND" strokeWidth="3.0" />
+                  <Line endX="63.0" fill="BLACK" layoutX="21.212810516357422" layoutY="167.86602783203125" rotate="510.00000000000006" strokeLineCap="ROUND" strokeWidth="3.0" />
+                  <Line endX="63.0" fill="BLACK" layoutX="20.212810516357422" layoutY="83.86602783203125" rotate="570.0" strokeLineCap="ROUND" strokeWidth="3.0" />
+                  <Circle centerX="125.0" centerY="125.0" fill="#2c2829ad" radius="116.5" stroke="BLACK" strokeType="INSIDE" />
+               </children>
+            </Pane>
+            <Circle layoutX="125.0" layoutY="125.0" radius="100.0" stroke="TRANSPARENT" strokeType="INSIDE">
+               <fill>
+                  <RadialGradient centerX="0.5" centerY="0.5" radius="0.5">
+                     <stops>
+                        <Stop>
+                           <color>
+                              <Color red="0.9215686321258545" green="0.2235294133424759" blue="0.239215686917305" />
+                           </color>
+                        </Stop>
+                        <Stop offset="0.8658569412073661">
+                           <color>
+                              <Color red="0.9215686321258545" green="0.2235294133424759" blue="0.239215686917305" />
+                           </color>
+                        </Stop>
+                        <Stop offset="1.0">
+                           <color>
+                              <Color red="0.1725490242242813" green="0.1568627506494522" blue="0.16078431904315948" opacity="0.6800000071525574" />
+                           </color>
+                        </Stop>
+                     </stops>
+                  </RadialGradient>
+               </fill>
+            </Circle>
+            <Circle fill="#131313" layoutX="125.0" layoutY="125.0" radius="88.0" stroke="TRANSPARENT" strokeType="INSIDE" />
+            <Line endX="10.0" layoutX="119.99999999999999" layoutY="48.0" rotate="270.0" stroke="#6b6b6b" strokeLineCap="ROUND" strokeWidth="2.0" />
+            <Line endX="10.0" layoutX="127.68717308180572" layoutY="48.38467927359201" rotate="275.7295779513082" stroke="#6b6b6b" strokeLineCap="ROUND" strokeWidth="2.0" />
+            <Line endX="10.0" layoutX="135.29753847121964" layoutY="49.53487350622437" rotate="281.45915590261643" stroke="#6b6b6b" strokeLineCap="ROUND" strokeWidth="2.0" />
+            <Line endX="10.0" layoutX="142.75505591292307" layoutY="51.43909033732831" rotate="287.18873385392465" stroke="#6b6b6b" strokeLineCap="ROUND" strokeWidth="2.0" />
+            <Line endX="10.0" layoutX="149.985212357766" layoutY="54.07830346177781" rotate="292.91831180523286" stroke="#6b6b6b" strokeLineCap="ROUND" strokeWidth="2.0" />
+            <Line endX="10.0" layoutX="156.9157664725235" layoutY="57.42614273444123" rotate="298.6478897565411" stroke="#6b6b6b" strokeLineCap="ROUND" strokeWidth="2.0" />
+            <Line endX="10.0" layoutX="163.4774704514176" layoutY="61.44915765195468" rotate="304.3774677078493" stroke="#6b6b6b" strokeLineCap="ROUND" strokeWidth="2.0" />
+            <Line endX="10.0" layoutX="169.60476191730206" layoutY="66.10715157909425" rotate="310.1070456591575" stroke="#6b6b6b" strokeLineCap="ROUND" strokeWidth="2.0" />
+            <Line endX="10.0" layoutX="175.2364189992631" layoutY="71.35358338026809" rotate="315.8366236104657" stroke="#6b6b6b" strokeLineCap="ROUND" strokeWidth="2.0" />
+            <Line endX="10.0" layoutX="180.31617204131607" layoutY="77.13603244315863" rotate="321.5662015617739" stroke="#6b6b6b" strokeLineCap="ROUND" strokeWidth="2.0" />
+            <Line endX="10.0" layoutX="184.79326583020787" layoutY="83.396722448153" rotate="327.2957795130821" stroke="#6b6b6b" strokeLineCap="ROUND" strokeWidth="2.0" />
+            <Line endX="10.0" layoutX="188.62296672473036" layoutY="90.07309865023026" rotate="333.0253574643903" stroke="#6b6b6b" strokeLineCap="ROUND" strokeWidth="2.0" />
+            <Line endX="10.0" layoutX="191.7670096194763" layoutY="97.09845290529582" rotate="338.7549354156985" stroke="#6b6b6b" strokeLineCap="ROUND" strokeWidth="2.0" />
+            <Line endX="10.0" layoutX="194.19398027712376" layoutY="104.40259019590641" rotate="344.48451336700674" stroke="#6b6b6b" strokeLineCap="ROUND" strokeWidth="2.0" />
+            <Line endX="10.0" layoutX="195.87962920911136" layoutY="111.91252999668106" rotate="350.21409131831496" stroke="#6b6b6b" strokeLineCap="ROUND" strokeWidth="2.0" />
+            <Line endX="10.0" layoutX="196.80711396851217" layoutY="119.55323547158645" rotate="355.9436692696232" stroke="#6b6b6b" strokeLineCap="ROUND" strokeWidth="2.0" />
+            <Line endX="10.0" layoutX="196.96716743419591" layoutY="127.24836321719879" rotate="361.6732472209314" stroke="#6b6b6b" strokeLineCap="ROUND" strokeWidth="2.0" />
+            <Line endX="10.0" layoutX="196.35819040484014" layoutY="134.9210260607549" rotate="367.4028251722396" stroke="#6b6b6b" strokeLineCap="ROUND" strokeWidth="2.0" />
+            <Line endX="10.0" layoutX="194.98626757762116" layoutY="142.4945612913672" rotate="373.1324031235478" stroke="#6b6b6b" strokeLineCap="ROUND" strokeWidth="2.0" />
+            <Line endX="10.0" layoutX="192.86510675193108" layoutY="149.89329664848927" rotate="378.86198107485603" stroke="#6b6b6b" strokeLineCap="ROUND" strokeWidth="2.0" />
+            <Line endX="10.0" layoutX="190.01590186557772" layoutY="157.04330641412946" rotate="384.59155902616425" stroke="#6b6b6b" strokeLineCap="ROUND" strokeWidth="2.0" />
+            <Line endX="10.0" layoutX="186.46712123196357" layoutY="163.8731500541885" rotate="390.32113697747246" stroke="#6b6b6b" strokeLineCap="ROUND" strokeWidth="2.0" />
+            <Line endX="10.0" layoutX="182.2542230941088" layoutY="170.31458602866113" rotate="396.0507149287807" stroke="#6b6b6b" strokeLineCap="ROUND" strokeWidth="2.0" />
+            <Line endX="10.0" layoutX="177.41930133760786" layoutY="176.30325363854598" rotate="401.7802928800889" stroke="#6b6b6b" strokeLineCap="ROUND" strokeWidth="2.0" />
+            <Line endX="10.0" layoutX="172.01066490243912" layoutY="181.77931609667544" rotate="407.5098708313971" stroke="#6b6b6b" strokeLineCap="ROUND" strokeWidth="2.0" />
+            <Line endX="10.0" layoutX="166.08235509600522" layoutY="186.68805839711348" rotate="413.2394487827053" stroke="#6b6b6b" strokeLineCap="ROUND" strokeWidth="2.0" />
+            <Line endX="10.0" layoutX="159.69360563025336" layoutY="190.98043400940855" rotate="418.9690267340135" stroke="#6b6b6b" strokeLineCap="ROUND" strokeWidth="2.0" />
+            <Line endX="10.0" layoutX="152.9082507780056" layoutY="194.6135549353134" rotate="424.6986046853217" stroke="#6b6b6b" strokeLineCap="ROUND" strokeWidth="2.0" />
+            <Label alignment="CENTER" graphicTextGap="1.0" layoutX="68.0" layoutY="86.0" prefHeight="75.0" prefWidth="122.0" text="GO" textFill="#b7b5b5" textOverrun="CENTER_ELLIPSIS">
+               <font>
+                  <Font name="Trebuchet MS Bold" size="50.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+      <Pane layoutX="55.0" layoutY="185.0" onMouseEntered="#onTestCircleHoverEntered" onMouseExited="#onTestCircleHoverExited" prefHeight="150.0" prefWidth="150.0">
+         <children>
+            <Group layoutX="55.0" layoutY="55.0">
+               <children>
+                  <Group fx:id="dataSetSubCircleAnimation1" onMouseClicked="#showDataSetEditPage">
+                     <children>
+                        <Circle fill="#2c2d2e" layoutX="20.0" layoutY="20.0" radius="20.0" stroke="#00000066" strokeType="INSIDE" />
+                        <ImageView fitHeight="29.0" fitWidth="26.0" layoutX="9.0" layoutY="9.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../images/edit-dataset.png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                  </Group>
+                  <Group fx:id="dataSetSubCircleAnimation2" onMouseClicked="#showDatasetFiltersPage">
+                     <children>
+                        <Circle fill="#2c2d2e" layoutX="20.0" layoutY="20.0" radius="20.0" stroke="#00000066" strokeType="INSIDE" />
+                        <ImageView fitHeight="29.0" fitWidth="26.0" layoutX="7.0" layoutY="7.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../images/filter.png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                  </Group>
+                  <Group fx:id="dataSetSubCircleAnimation3" onMouseClicked="#showDatasetVisualizerPage">
+                     <children>
+                        <Circle fill="#2c2d2e" layoutX="20.0" layoutY="20.0" radius="20.0" stroke="#00000066" strokeType="INSIDE" />
+                        <ImageView fitHeight="29.0" fitWidth="26.0" layoutX="7.0" layoutY="7.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../images/aggregate.png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                  </Group>
+               </children>
+            </Group>
+            <Circle fill="#737070" layoutX="75.0" layoutY="75.0" radius="70.0" stroke="TRANSPARENT" strokeType="INSIDE" />
+            <Circle fill="#514e4e" layoutX="75.0" layoutY="75.0" radius="55.0" stroke="TRANSPARENT" strokeType="INSIDE" />
+            <Circle fill="#1a1a1a" layoutX="75.0" layoutY="75.0" onMouseClicked="#openDataSet" radius="50.0" stroke="BLACK" strokeType="INSIDE" />
+            <ImageView fx:id="datasetIcon" fitHeight="45.0" fitWidth="45.0" layoutX="52.5" layoutY="52.5" mouseTransparent="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../images/data_import.png" />
+               </image>
+            </ImageView>
+            <Group fx:id="dataSetLoadedIcon" layoutX="94.0" layoutY="22.0" mouseTransparent="true" visible="false">
+               <children>
+                  <Circle fill="#1a1a1a" layoutX="18.0" layoutY="17.0" radius="13.0" stroke="BLACK" strokeType="INSIDE" />
+                  <ImageView fitHeight="41.0" fitWidth="36.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../images/done.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </Group>
+            <ProgressIndicator fx:id="dataSetOpenProgress" layoutX="25.0" layoutY="25.0" minHeight="100.0" minWidth="100.0" prefHeight="100.0" prefWidth="102.0" visible="false" />
+         </children>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Pane>
+      <Pane layoutX="625.0" layoutY="185.0" onMouseClicked="#showTrainingResultsPage" prefHeight="150.0" prefWidth="150.0">
+         <children>
+            <Circle fill="#737070" layoutX="75.0" layoutY="75.0" radius="70.0" stroke="TRANSPARENT" strokeType="INSIDE" />
+            <Circle fill="#514e4e" layoutX="75.0" layoutY="75.0" radius="55.0" stroke="TRANSPARENT" strokeType="INSIDE" />
+            <Circle fill="#1a1a1a" layoutX="75.0" layoutY="75.0" radius="50.0" stroke="BLACK" strokeType="INSIDE" />
+            <ImageView fitHeight="45.0" fitWidth="45.0" layoutX="52.5" layoutY="52.5" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../images/training_results.png" />
+               </image>
+            </ImageView>
+            <Pane fx:id="rightSideBarPane" layoutX="174.0" layoutY="-12.0" onMouseEntered="#showRightSideBar" onMouseExited="#hideRightSideBar" prefHeight="176.0" prefWidth="29.0" style="-fx-background-color: #2f2f2f; -fx-background-radius: 7 0 0 7; -fx-border-radius: 7;">
+               <children>
+                  <ImageView fx:id="rightSideBarIcon" fitHeight="150.0" fitWidth="200.0" layoutX="2.0" layoutY="12.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../images/right-menu.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </Pane>
+         </children>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Pane>
+      <HBox layoutX="313.0" layoutY="517.0" maxHeight="40.0" prefHeight="27.0" prefWidth="202.0" style="-fx-background-radius: 10 10 0 0; -fx-border-radius: 5; -fx-background-color: #323232;">
+         <children>
+            <Button graphicTextGap="6.0" lineSpacing="3.0" minHeight="40.0" minWidth="100.0" mnemonicParsing="false" onAction="#showClasificationOptions" styleClass="footer-left-button" stylesheets="@../../styles/index.css" text="Classification" textFill="#aeaeae">
+               <font>
+                  <Font name="Arial Bold" size="12.0" />
+               </font>
+            </Button>
+            <Line endY="40.0" />
+            <Button graphicTextGap="6.0" lineSpacing="3.0" minHeight="40.0" minWidth="100.0" mnemonicParsing="false" onAction="#showClustringOptions" styleClass="footer-right-button" stylesheets="@../../styles/index.css" text="Clustering " textFill="#aeaeae">
+               <font>
+                  <Font name="Arial Bold" size="12.0" />
+               </font>
+            </Button>
+         </children>
+      </HBox>
+      <Button fx:id="manageLiecenceBtn" layoutX="700.0" layoutY="525.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="122.0" style="-fx-background-color: transparent;" text="Manage Licence" textFill="#9995956e" underline="true">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <Button fx:id="activateNowBtn" layoutX="700.0" layoutY="525.0" mnemonicParsing="false" onMouseEntered="#showActivatePane" prefHeight="25.0" prefWidth="122.0" style="-fx-background-color: #ff8800;" styleClass="activatebutton" stylesheets="@../../styles/dashboard.css" text="Activate Now" textFill="#ffffff6e">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <HBox fx:id="clasificationOptions" layoutX="162.0" layoutY="484.0" prefHeight="27.0" prefWidth="503.0" spacing="5.0" visible="false">
+         <children>
+            <Button mnemonicParsing="false" onAction="#selectAlgorithm" prefHeight="26.0" prefWidth="127.0" style="-fx-background-color: #313131;" text="Linear Regression" textFill="#838383" />
+            <Button mnemonicParsing="false" onAction="#selectAlgorithm" prefHeight="26.0" prefWidth="127.0" style="-fx-background-color: #313131;" text="Logistic Regression" textFill="#838383" />
+            <Button mnemonicParsing="false" onAction="#selectAlgorithm" prefHeight="26.0" prefWidth="127.0" style="-fx-background-color: #313131;" text="Decision Tree" textFill="#838383" />
+            <Button mnemonicParsing="false" onAction="#selectAlgorithm" prefHeight="26.0" prefWidth="127.0" style="-fx-background-color: #313131;" text="Random Forest" textFill="#838383" />
+         </children>
+      </HBox>
+      <HBox fx:id="clustringOptions" layoutX="162.0" layoutY="484.0" prefHeight="27.0" prefWidth="503.0" spacing="5.0" visible="false">
+         <children>
+            <Button mnemonicParsing="false" onAction="#selectAlgorithm" prefHeight="26.0" prefWidth="127.0" style="-fx-background-color: #313131;" text="Density Based" textFill="#838383" />
+            <Button mnemonicParsing="false" onAction="#selectAlgorithm" prefHeight="26.0" prefWidth="127.0" style="-fx-background-color: #313131;" text="K-means" textFill="#838383" />
+            <Button mnemonicParsing="false" onAction="#selectAlgorithm" prefHeight="26.0" prefWidth="127.0" style="-fx-background-color: #313131;" text="Hierarchical-based" textFill="#838383" />
+            <Button mnemonicParsing="false" onAction="#selectAlgorithm" prefHeight="26.0" prefWidth="127.0" style="-fx-background-color: #313131;" text="DBSCAN " textFill="#838383" />
+         </children>
+      </HBox>
+      <HBox fx:id="optionalArgs" layoutX="99.0" layoutY="452.0" prefHeight="26.0" prefWidth="666.0" spacing="5.0" visible="false">
+         <children>
+            <TextField fx:id="optionsField" prefHeight="26.0" prefWidth="286.0" style="-fx-background-color: #313131; -fx-text-fill: #838383;" />
+            <Button mnemonicParsing="false" prefHeight="26.0" prefWidth="78.0" style="-fx-background-color: #313131;" text="Use Default" textFill="#838383" />
+            <ComboBox fx:id="targetClassesOptions" prefWidth="150.0" promptText="Select Target Class" style="-fx-background-color: #313131;" styleClass="combo-box" stylesheets="@../../styles/dashboard.css" />
+            <Button mnemonicParsing="false" onAction="#setTrainingAlgorithm" prefHeight="26.0" prefWidth="127.0" style="-fx-background-color: #313131;" text="Apply" textFill="#838383" />
+         </children>
+      </HBox>
+      <Pane fx:id="activatePane" layoutX="835.0" layoutY="494.0" onMouseExited="#hideActivatePane" prefHeight="65.0" prefWidth="266.0" style="-fx-background-color: #2f2f2f; -fx-background-radius: 5 0 0 0;">
+         <children>
+            <TextField layoutX="4.0" layoutY="36.0" prefHeight="25.0" prefWidth="233.0" style="-fx-background-color: #9e9e9e;" />
+            <Button layoutX="241.0" layoutY="35.0" mnemonicParsing="false" onAction="#validateActivation" style="-fx-background-color: #838383;" text="⟫">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+            <Label layoutX="49.0" layoutY="5.0" prefHeight="34.0" prefWidth="186.0" text="Activate You  Version Now" textFill="#838383">
+               <font>
+                  <Font name="Dubai Medium" size="15.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>
