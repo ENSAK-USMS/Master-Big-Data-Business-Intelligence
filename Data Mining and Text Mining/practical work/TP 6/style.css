@@ -1,0 +1,167 @@
+/* styles.css */
+
+/* Reset default browser styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Global styles */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f5f5f5;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Header styles */
+header {
+    background-color: #fff;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo img {
+    width: 100px;
+    height: auto;
+}
+
+.search-bar {
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+input[type="text"] {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+#searchButton {
+    padding: 8px;
+    background-color: #f44336;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    margin-left: 5px;
+    cursor: pointer;
+}
+
+/* Main styles */
+main {
+    padding: 20px;
+}
+
+
+
+.hidden {
+    display: none;
+}
+
+.video-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 20px;
+}
+
+.video-thumbnail {
+    background-color: #fff;
+    padding: 10px;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.video-thumbnail img {
+    width: 100%;
+    height: auto;
+    border-radius: 4px;
+}
+
+.video-thumbnail h3 {
+    margin-top: 10px;
+    font-size: 16px;
+}
+
+.video-thumbnail p {
+    font-size: 14px;
+    color: #888;
+}
+
+/* Footer styles */
+footer {
+    background-color: #f5f5f5;
+    padding: 10px;
+    text-align: center;
+    font-size: 12px;
+    color: #888;
+}
+
+#searchButton {
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+}
+
+/* Prediction styles */
+#nextWord {
+    position: absolute;
+    top: 0px; /* Adjust based on your input height */
+    left: 0;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    padding: 8px;
+    border-radius: 4px;
+    display: block;
+}
+
+
+/* Additional styles for prediction display */
+.next-word-display {
+    position: absolute;
+    background-color: #fff;
+    padding: 5px 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    top: 50px; /* Adjust based on your input field's position */
+    left: 50%; /* Center the box - adjust as needed */
+    transform: translateX(-50%);
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+/* Make visible when there is a prediction */
+#result:not(.hidden)  {
+    display: block;
+}
+
+
+/* Additional container styles */
+.search-container {
+    position: relative; /* This allows absolute positioning relative to the container */
+}
+
+/* Updated result styles */
+#result {
+    top: 50px; /* Adjust based on your input field's height */
+    left: 0;
+    width: 100%;
+    height: 50px;
+    background-color: white; /* Optional, for visibility */
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2); /* Optional, for better visibility */
+    z-index: 1; /* Ensures it appears above other content */
+    position: relative;
+}
+
+/* Ensure visibility and styling of the next word paragraph */
+#nextWord {
+    padding: 10px;
+    margin: 0;
+    font-size: 16px;
+}
